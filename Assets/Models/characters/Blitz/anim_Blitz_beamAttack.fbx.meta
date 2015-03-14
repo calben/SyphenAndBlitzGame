@@ -1,0 +1,767 @@
+fileFormatVersion: 2
+guid: ed728c0d43abe4b4ebce033437d10d61
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Blitz_Mesh
+    100004: Blitz_SH_HeadJ
+    100006: Blitz_SH_HeadTipJ
+    100008: Blitz_SH_JawJ
+    100010: Blitz_SH_JawTipJ
+    100012: Blitz_SH_lAnkleJ
+    100014: Blitz_SH_lBallJ
+    100016: Blitz_SH_lClavicleJ
+    100018: Blitz_SH_lElbowJ
+    100020: Blitz_SH_lEyeJ
+    100022: Blitz_SH_lFinger1J1
+    100024: Blitz_SH_lFinger1J2
+    100026: Blitz_SH_lFinger1J3
+    100028: Blitz_SH_lFinger1JTip
+    100030: Blitz_SH_lFinger2J1
+    100032: Blitz_SH_lFinger2J2
+    100034: Blitz_SH_lFinger2J3
+    100036: Blitz_SH_lFinger2JTip
+    100038: Blitz_SH_lFinger3J1
+    100040: Blitz_SH_lFinger3J2
+    100042: Blitz_SH_lFinger3J3
+    100044: Blitz_SH_lFinger3JTip
+    100046: Blitz_SH_lFinger4J1
+    100048: Blitz_SH_lFinger4J2
+    100050: Blitz_SH_lFinger4J3
+    100052: Blitz_SH_lFinger4JTip
+    100054: Blitz_SH_lForearmJ
+    100056: Blitz_SH_lHipJ
+    100058: Blitz_SH_lKneeJ
+    100060: Blitz_SH_lPalmJ
+    100062: Blitz_SH_lShoulderJ
+    100064: Blitz_SH_lThumbJ1
+    100066: Blitz_SH_lThumbJ2
+    100068: Blitz_SH_lThumbJ3
+    100070: Blitz_SH_lThumbJTip
+    100072: Blitz_SH_lToeJ
+    100074: Blitz_SH_lWristJ
+    100076: Blitz_SH_Neck01J
+    100078: Blitz_SH_Neck02J
+    100080: Blitz_SH_rAnkleJ
+    100082: Blitz_SH_rBallJ
+    100084: Blitz_SH_rClavicleJ
+    100086: Blitz_SH_rElbowJ
+    100088: Blitz_SH_rEyeJ
+    100090: Blitz_SH_rFinger1J1
+    100092: Blitz_SH_rFinger1J2
+    100094: Blitz_SH_rFinger1J3
+    100096: Blitz_SH_rFinger1JTip
+    100098: Blitz_SH_rFinger2J1
+    100100: Blitz_SH_rFinger2J2
+    100102: Blitz_SH_rFinger2J3
+    100104: Blitz_SH_rFinger2JTip
+    100106: Blitz_SH_rFinger3J1
+    100108: Blitz_SH_rFinger3J2
+    100110: Blitz_SH_rFinger3J3
+    100112: Blitz_SH_rFinger3JTip
+    100114: Blitz_SH_rFinger4J1
+    100116: Blitz_SH_rFinger4J2
+    100118: Blitz_SH_rFinger4J3
+    100120: Blitz_SH_rFinger4JTip
+    100122: Blitz_SH_rForearmJ
+    100124: Blitz_SH_rHipJ
+    100126: Blitz_SH_rKneeJ
+    100128: Blitz_SH_ROOTJ
+    100130: Blitz_SH_rPalmJ
+    100132: Blitz_SH_rShoulderJ
+    100134: Blitz_SH_rThumbJ1
+    100136: Blitz_SH_rThumbJ2
+    100138: Blitz_SH_rThumbJ3
+    100140: Blitz_SH_rThumbJTip
+    100142: Blitz_SH_rToeJ
+    100144: Blitz_SH_rWristJ
+    100146: Blitz_SH_spine01J
+    100148: Blitz_SH_spine02J
+    100150: Blitz_SH_spine03J
+    100152: Blitz_SH_Spine04J
+    100154: Blitz_SH_SpineROOTJ
+    400000: //RootNode
+    400002: Blitz_Mesh
+    400004: Blitz_SH_HeadJ
+    400006: Blitz_SH_HeadTipJ
+    400008: Blitz_SH_JawJ
+    400010: Blitz_SH_JawTipJ
+    400012: Blitz_SH_lAnkleJ
+    400014: Blitz_SH_lBallJ
+    400016: Blitz_SH_lClavicleJ
+    400018: Blitz_SH_lElbowJ
+    400020: Blitz_SH_lEyeJ
+    400022: Blitz_SH_lFinger1J1
+    400024: Blitz_SH_lFinger1J2
+    400026: Blitz_SH_lFinger1J3
+    400028: Blitz_SH_lFinger1JTip
+    400030: Blitz_SH_lFinger2J1
+    400032: Blitz_SH_lFinger2J2
+    400034: Blitz_SH_lFinger2J3
+    400036: Blitz_SH_lFinger2JTip
+    400038: Blitz_SH_lFinger3J1
+    400040: Blitz_SH_lFinger3J2
+    400042: Blitz_SH_lFinger3J3
+    400044: Blitz_SH_lFinger3JTip
+    400046: Blitz_SH_lFinger4J1
+    400048: Blitz_SH_lFinger4J2
+    400050: Blitz_SH_lFinger4J3
+    400052: Blitz_SH_lFinger4JTip
+    400054: Blitz_SH_lForearmJ
+    400056: Blitz_SH_lHipJ
+    400058: Blitz_SH_lKneeJ
+    400060: Blitz_SH_lPalmJ
+    400062: Blitz_SH_lShoulderJ
+    400064: Blitz_SH_lThumbJ1
+    400066: Blitz_SH_lThumbJ2
+    400068: Blitz_SH_lThumbJ3
+    400070: Blitz_SH_lThumbJTip
+    400072: Blitz_SH_lToeJ
+    400074: Blitz_SH_lWristJ
+    400076: Blitz_SH_Neck01J
+    400078: Blitz_SH_Neck02J
+    400080: Blitz_SH_rAnkleJ
+    400082: Blitz_SH_rBallJ
+    400084: Blitz_SH_rClavicleJ
+    400086: Blitz_SH_rElbowJ
+    400088: Blitz_SH_rEyeJ
+    400090: Blitz_SH_rFinger1J1
+    400092: Blitz_SH_rFinger1J2
+    400094: Blitz_SH_rFinger1J3
+    400096: Blitz_SH_rFinger1JTip
+    400098: Blitz_SH_rFinger2J1
+    400100: Blitz_SH_rFinger2J2
+    400102: Blitz_SH_rFinger2J3
+    400104: Blitz_SH_rFinger2JTip
+    400106: Blitz_SH_rFinger3J1
+    400108: Blitz_SH_rFinger3J2
+    400110: Blitz_SH_rFinger3J3
+    400112: Blitz_SH_rFinger3JTip
+    400114: Blitz_SH_rFinger4J1
+    400116: Blitz_SH_rFinger4J2
+    400118: Blitz_SH_rFinger4J3
+    400120: Blitz_SH_rFinger4JTip
+    400122: Blitz_SH_rForearmJ
+    400124: Blitz_SH_rHipJ
+    400126: Blitz_SH_rKneeJ
+    400128: Blitz_SH_ROOTJ
+    400130: Blitz_SH_rPalmJ
+    400132: Blitz_SH_rShoulderJ
+    400134: Blitz_SH_rThumbJ1
+    400136: Blitz_SH_rThumbJ2
+    400138: Blitz_SH_rThumbJ3
+    400140: Blitz_SH_rThumbJTip
+    400142: Blitz_SH_rToeJ
+    400144: Blitz_SH_rWristJ
+    400146: Blitz_SH_spine01J
+    400148: Blitz_SH_spine02J
+    400150: Blitz_SH_spine03J
+    400152: Blitz_SH_Spine04J
+    400154: Blitz_SH_SpineROOTJ
+    4300000: Blitz_Mesh
+    7400000: anim_Blitz_beamAttack_enter
+    7400002: anim_Blitz_beamAttack_loop
+    7400004: anim_Blitz_beamAttack_exit
+    9500000: //RootNode
+    13700000: Blitz_Mesh
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: anim_Blitz_beamAttack_enter
+      takeName: anim_Blitz_beamAttack
+      firstFrame: 1
+      lastFrame: 26
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Blitz_Mesh
+        weight: 1
+      - path: Blitz_SH_ROOTJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_lHipJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_lHipJ/Blitz_SH_lKneeJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_lHipJ/Blitz_SH_lKneeJ/Blitz_SH_lAnkleJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_lHipJ/Blitz_SH_lKneeJ/Blitz_SH_lAnkleJ/Blitz_SH_lBallJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_lHipJ/Blitz_SH_lKneeJ/Blitz_SH_lAnkleJ/Blitz_SH_lBallJ/Blitz_SH_lToeJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_rHipJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_rHipJ/Blitz_SH_rKneeJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_rHipJ/Blitz_SH_rKneeJ/Blitz_SH_rAnkleJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_rHipJ/Blitz_SH_rKneeJ/Blitz_SH_rAnkleJ/Blitz_SH_rBallJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_rHipJ/Blitz_SH_rKneeJ/Blitz_SH_rAnkleJ/Blitz_SH_rBallJ/Blitz_SH_rToeJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lForearmJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lPalmJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lPalmJ/Blitz_SH_lFinger1J1
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lPalmJ/Blitz_SH_lFinger1J1/Blitz_SH_lFinger1J2
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lPalmJ/Blitz_SH_lFinger1J1/Blitz_SH_lFinger1J2/Blitz_SH_lFinger1J3
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lPalmJ/Blitz_SH_lFinger1J1/Blitz_SH_lFinger1J2/Blitz_SH_lFinger1J3/Blitz_SH_lFinger1JTip
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lPalmJ/Blitz_SH_lFinger2J1
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lPalmJ/Blitz_SH_lFinger2J1/Blitz_SH_lFinger2J2
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lPalmJ/Blitz_SH_lFinger2J1/Blitz_SH_lFinger2J2/Blitz_SH_lFinger2J3
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lPalmJ/Blitz_SH_lFinger2J1/Blitz_SH_lFinger2J2/Blitz_SH_lFinger2J3/Blitz_SH_lFinger2JTip
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lPalmJ/Blitz_SH_lFinger3J1
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lPalmJ/Blitz_SH_lFinger3J1/Blitz_SH_lFinger3J2
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lPalmJ/Blitz_SH_lFinger3J1/Blitz_SH_lFinger3J2/Blitz_SH_lFinger3J3
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lPalmJ/Blitz_SH_lFinger3J1/Blitz_SH_lFinger3J2/Blitz_SH_lFinger3J3/Blitz_SH_lFinger3JTip
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lPalmJ/Blitz_SH_lFinger4J1
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lPalmJ/Blitz_SH_lFinger4J1/Blitz_SH_lFinger4J2
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lPalmJ/Blitz_SH_lFinger4J1/Blitz_SH_lFinger4J2/Blitz_SH_lFinger4J3
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lPalmJ/Blitz_SH_lFinger4J1/Blitz_SH_lFinger4J2/Blitz_SH_lFinger4J3/Blitz_SH_lFinger4JTip
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lThumbJ1
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lThumbJ1/Blitz_SH_lThumbJ2
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lThumbJ1/Blitz_SH_lThumbJ2/Blitz_SH_lThumbJ3
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lThumbJ1/Blitz_SH_lThumbJ2/Blitz_SH_lThumbJ3/Blitz_SH_lThumbJTip
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_Neck01J
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_Neck01J/Blitz_SH_Neck02J
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_Neck01J/Blitz_SH_Neck02J/Blitz_SH_HeadJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_Neck01J/Blitz_SH_Neck02J/Blitz_SH_HeadJ/Blitz_SH_HeadTipJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_Neck01J/Blitz_SH_Neck02J/Blitz_SH_HeadJ/Blitz_SH_JawJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_Neck01J/Blitz_SH_Neck02J/Blitz_SH_HeadJ/Blitz_SH_JawJ/Blitz_SH_JawTipJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_Neck01J/Blitz_SH_Neck02J/Blitz_SH_HeadJ/Blitz_SH_lEyeJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_Neck01J/Blitz_SH_Neck02J/Blitz_SH_HeadJ/Blitz_SH_rEyeJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rForearmJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rPalmJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rPalmJ/Blitz_SH_rFinger1J1
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rPalmJ/Blitz_SH_rFinger1J1/Blitz_SH_rFinger1J2
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rPalmJ/Blitz_SH_rFinger1J1/Blitz_SH_rFinger1J2/Blitz_SH_rFinger1J3
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rPalmJ/Blitz_SH_rFinger1J1/Blitz_SH_rFinger1J2/Blitz_SH_rFinger1J3/Blitz_SH_rFinger1JTip
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rPalmJ/Blitz_SH_rFinger2J1
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rPalmJ/Blitz_SH_rFinger2J1/Blitz_SH_rFinger2J2
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rPalmJ/Blitz_SH_rFinger2J1/Blitz_SH_rFinger2J2/Blitz_SH_rFinger2J3
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rPalmJ/Blitz_SH_rFinger2J1/Blitz_SH_rFinger2J2/Blitz_SH_rFinger2J3/Blitz_SH_rFinger2JTip
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rPalmJ/Blitz_SH_rFinger3J1
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rPalmJ/Blitz_SH_rFinger3J1/Blitz_SH_rFinger3J2
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rPalmJ/Blitz_SH_rFinger3J1/Blitz_SH_rFinger3J2/Blitz_SH_rFinger3J3
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rPalmJ/Blitz_SH_rFinger3J1/Blitz_SH_rFinger3J2/Blitz_SH_rFinger3J3/Blitz_SH_rFinger3JTip
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rPalmJ/Blitz_SH_rFinger4J1
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rPalmJ/Blitz_SH_rFinger4J1/Blitz_SH_rFinger4J2
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rPalmJ/Blitz_SH_rFinger4J1/Blitz_SH_rFinger4J2/Blitz_SH_rFinger4J3
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rPalmJ/Blitz_SH_rFinger4J1/Blitz_SH_rFinger4J2/Blitz_SH_rFinger4J3/Blitz_SH_rFinger4JTip
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rThumbJ1
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rThumbJ1/Blitz_SH_rThumbJ2
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rThumbJ1/Blitz_SH_rThumbJ2/Blitz_SH_rThumbJ3
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rThumbJ1/Blitz_SH_rThumbJ2/Blitz_SH_rThumbJ3/Blitz_SH_rThumbJTip
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: anim_Blitz_beamAttack_loop
+      takeName: anim_Blitz_beamAttack
+      firstFrame: 24
+      lastFrame: 42
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Blitz_Mesh
+        weight: 1
+      - path: Blitz_SH_ROOTJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_lHipJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_lHipJ/Blitz_SH_lKneeJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_lHipJ/Blitz_SH_lKneeJ/Blitz_SH_lAnkleJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_lHipJ/Blitz_SH_lKneeJ/Blitz_SH_lAnkleJ/Blitz_SH_lBallJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_lHipJ/Blitz_SH_lKneeJ/Blitz_SH_lAnkleJ/Blitz_SH_lBallJ/Blitz_SH_lToeJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_rHipJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_rHipJ/Blitz_SH_rKneeJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_rHipJ/Blitz_SH_rKneeJ/Blitz_SH_rAnkleJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_rHipJ/Blitz_SH_rKneeJ/Blitz_SH_rAnkleJ/Blitz_SH_rBallJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_rHipJ/Blitz_SH_rKneeJ/Blitz_SH_rAnkleJ/Blitz_SH_rBallJ/Blitz_SH_rToeJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lForearmJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lPalmJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lPalmJ/Blitz_SH_lFinger1J1
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lPalmJ/Blitz_SH_lFinger1J1/Blitz_SH_lFinger1J2
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lPalmJ/Blitz_SH_lFinger1J1/Blitz_SH_lFinger1J2/Blitz_SH_lFinger1J3
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lPalmJ/Blitz_SH_lFinger1J1/Blitz_SH_lFinger1J2/Blitz_SH_lFinger1J3/Blitz_SH_lFinger1JTip
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lPalmJ/Blitz_SH_lFinger2J1
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lPalmJ/Blitz_SH_lFinger2J1/Blitz_SH_lFinger2J2
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lPalmJ/Blitz_SH_lFinger2J1/Blitz_SH_lFinger2J2/Blitz_SH_lFinger2J3
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lPalmJ/Blitz_SH_lFinger2J1/Blitz_SH_lFinger2J2/Blitz_SH_lFinger2J3/Blitz_SH_lFinger2JTip
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lPalmJ/Blitz_SH_lFinger3J1
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lPalmJ/Blitz_SH_lFinger3J1/Blitz_SH_lFinger3J2
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lPalmJ/Blitz_SH_lFinger3J1/Blitz_SH_lFinger3J2/Blitz_SH_lFinger3J3
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lPalmJ/Blitz_SH_lFinger3J1/Blitz_SH_lFinger3J2/Blitz_SH_lFinger3J3/Blitz_SH_lFinger3JTip
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lPalmJ/Blitz_SH_lFinger4J1
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lPalmJ/Blitz_SH_lFinger4J1/Blitz_SH_lFinger4J2
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lPalmJ/Blitz_SH_lFinger4J1/Blitz_SH_lFinger4J2/Blitz_SH_lFinger4J3
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lPalmJ/Blitz_SH_lFinger4J1/Blitz_SH_lFinger4J2/Blitz_SH_lFinger4J3/Blitz_SH_lFinger4JTip
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lThumbJ1
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lThumbJ1/Blitz_SH_lThumbJ2
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lThumbJ1/Blitz_SH_lThumbJ2/Blitz_SH_lThumbJ3
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lThumbJ1/Blitz_SH_lThumbJ2/Blitz_SH_lThumbJ3/Blitz_SH_lThumbJTip
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_Neck01J
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_Neck01J/Blitz_SH_Neck02J
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_Neck01J/Blitz_SH_Neck02J/Blitz_SH_HeadJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_Neck01J/Blitz_SH_Neck02J/Blitz_SH_HeadJ/Blitz_SH_HeadTipJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_Neck01J/Blitz_SH_Neck02J/Blitz_SH_HeadJ/Blitz_SH_JawJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_Neck01J/Blitz_SH_Neck02J/Blitz_SH_HeadJ/Blitz_SH_JawJ/Blitz_SH_JawTipJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_Neck01J/Blitz_SH_Neck02J/Blitz_SH_HeadJ/Blitz_SH_lEyeJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_Neck01J/Blitz_SH_Neck02J/Blitz_SH_HeadJ/Blitz_SH_rEyeJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rForearmJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rPalmJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rPalmJ/Blitz_SH_rFinger1J1
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rPalmJ/Blitz_SH_rFinger1J1/Blitz_SH_rFinger1J2
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rPalmJ/Blitz_SH_rFinger1J1/Blitz_SH_rFinger1J2/Blitz_SH_rFinger1J3
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rPalmJ/Blitz_SH_rFinger1J1/Blitz_SH_rFinger1J2/Blitz_SH_rFinger1J3/Blitz_SH_rFinger1JTip
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rPalmJ/Blitz_SH_rFinger2J1
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rPalmJ/Blitz_SH_rFinger2J1/Blitz_SH_rFinger2J2
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rPalmJ/Blitz_SH_rFinger2J1/Blitz_SH_rFinger2J2/Blitz_SH_rFinger2J3
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rPalmJ/Blitz_SH_rFinger2J1/Blitz_SH_rFinger2J2/Blitz_SH_rFinger2J3/Blitz_SH_rFinger2JTip
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rPalmJ/Blitz_SH_rFinger3J1
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rPalmJ/Blitz_SH_rFinger3J1/Blitz_SH_rFinger3J2
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rPalmJ/Blitz_SH_rFinger3J1/Blitz_SH_rFinger3J2/Blitz_SH_rFinger3J3
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rPalmJ/Blitz_SH_rFinger3J1/Blitz_SH_rFinger3J2/Blitz_SH_rFinger3J3/Blitz_SH_rFinger3JTip
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rPalmJ/Blitz_SH_rFinger4J1
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rPalmJ/Blitz_SH_rFinger4J1/Blitz_SH_rFinger4J2
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rPalmJ/Blitz_SH_rFinger4J1/Blitz_SH_rFinger4J2/Blitz_SH_rFinger4J3
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rPalmJ/Blitz_SH_rFinger4J1/Blitz_SH_rFinger4J2/Blitz_SH_rFinger4J3/Blitz_SH_rFinger4JTip
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rThumbJ1
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rThumbJ1/Blitz_SH_rThumbJ2
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rThumbJ1/Blitz_SH_rThumbJ2/Blitz_SH_rThumbJ3
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rThumbJ1/Blitz_SH_rThumbJ2/Blitz_SH_rThumbJ3/Blitz_SH_rThumbJTip
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: anim_Blitz_beamAttack_exit
+      takeName: anim_Blitz_beamAttack
+      firstFrame: 42
+      lastFrame: 67
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Blitz_Mesh
+        weight: 1
+      - path: Blitz_SH_ROOTJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_lHipJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_lHipJ/Blitz_SH_lKneeJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_lHipJ/Blitz_SH_lKneeJ/Blitz_SH_lAnkleJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_lHipJ/Blitz_SH_lKneeJ/Blitz_SH_lAnkleJ/Blitz_SH_lBallJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_lHipJ/Blitz_SH_lKneeJ/Blitz_SH_lAnkleJ/Blitz_SH_lBallJ/Blitz_SH_lToeJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_rHipJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_rHipJ/Blitz_SH_rKneeJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_rHipJ/Blitz_SH_rKneeJ/Blitz_SH_rAnkleJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_rHipJ/Blitz_SH_rKneeJ/Blitz_SH_rAnkleJ/Blitz_SH_rBallJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_rHipJ/Blitz_SH_rKneeJ/Blitz_SH_rAnkleJ/Blitz_SH_rBallJ/Blitz_SH_rToeJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lForearmJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lPalmJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lPalmJ/Blitz_SH_lFinger1J1
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lPalmJ/Blitz_SH_lFinger1J1/Blitz_SH_lFinger1J2
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lPalmJ/Blitz_SH_lFinger1J1/Blitz_SH_lFinger1J2/Blitz_SH_lFinger1J3
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lPalmJ/Blitz_SH_lFinger1J1/Blitz_SH_lFinger1J2/Blitz_SH_lFinger1J3/Blitz_SH_lFinger1JTip
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lPalmJ/Blitz_SH_lFinger2J1
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lPalmJ/Blitz_SH_lFinger2J1/Blitz_SH_lFinger2J2
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lPalmJ/Blitz_SH_lFinger2J1/Blitz_SH_lFinger2J2/Blitz_SH_lFinger2J3
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lPalmJ/Blitz_SH_lFinger2J1/Blitz_SH_lFinger2J2/Blitz_SH_lFinger2J3/Blitz_SH_lFinger2JTip
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lPalmJ/Blitz_SH_lFinger3J1
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lPalmJ/Blitz_SH_lFinger3J1/Blitz_SH_lFinger3J2
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lPalmJ/Blitz_SH_lFinger3J1/Blitz_SH_lFinger3J2/Blitz_SH_lFinger3J3
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lPalmJ/Blitz_SH_lFinger3J1/Blitz_SH_lFinger3J2/Blitz_SH_lFinger3J3/Blitz_SH_lFinger3JTip
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lPalmJ/Blitz_SH_lFinger4J1
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lPalmJ/Blitz_SH_lFinger4J1/Blitz_SH_lFinger4J2
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lPalmJ/Blitz_SH_lFinger4J1/Blitz_SH_lFinger4J2/Blitz_SH_lFinger4J3
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lPalmJ/Blitz_SH_lFinger4J1/Blitz_SH_lFinger4J2/Blitz_SH_lFinger4J3/Blitz_SH_lFinger4JTip
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lThumbJ1
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lThumbJ1/Blitz_SH_lThumbJ2
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lThumbJ1/Blitz_SH_lThumbJ2/Blitz_SH_lThumbJ3
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_lClavicleJ/Blitz_SH_lShoulderJ/Blitz_SH_lElbowJ/Blitz_SH_lWristJ/Blitz_SH_lThumbJ1/Blitz_SH_lThumbJ2/Blitz_SH_lThumbJ3/Blitz_SH_lThumbJTip
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_Neck01J
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_Neck01J/Blitz_SH_Neck02J
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_Neck01J/Blitz_SH_Neck02J/Blitz_SH_HeadJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_Neck01J/Blitz_SH_Neck02J/Blitz_SH_HeadJ/Blitz_SH_HeadTipJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_Neck01J/Blitz_SH_Neck02J/Blitz_SH_HeadJ/Blitz_SH_JawJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_Neck01J/Blitz_SH_Neck02J/Blitz_SH_HeadJ/Blitz_SH_JawJ/Blitz_SH_JawTipJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_Neck01J/Blitz_SH_Neck02J/Blitz_SH_HeadJ/Blitz_SH_lEyeJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_Neck01J/Blitz_SH_Neck02J/Blitz_SH_HeadJ/Blitz_SH_rEyeJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rForearmJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rPalmJ
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rPalmJ/Blitz_SH_rFinger1J1
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rPalmJ/Blitz_SH_rFinger1J1/Blitz_SH_rFinger1J2
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rPalmJ/Blitz_SH_rFinger1J1/Blitz_SH_rFinger1J2/Blitz_SH_rFinger1J3
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rPalmJ/Blitz_SH_rFinger1J1/Blitz_SH_rFinger1J2/Blitz_SH_rFinger1J3/Blitz_SH_rFinger1JTip
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rPalmJ/Blitz_SH_rFinger2J1
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rPalmJ/Blitz_SH_rFinger2J1/Blitz_SH_rFinger2J2
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rPalmJ/Blitz_SH_rFinger2J1/Blitz_SH_rFinger2J2/Blitz_SH_rFinger2J3
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rPalmJ/Blitz_SH_rFinger2J1/Blitz_SH_rFinger2J2/Blitz_SH_rFinger2J3/Blitz_SH_rFinger2JTip
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rPalmJ/Blitz_SH_rFinger3J1
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rPalmJ/Blitz_SH_rFinger3J1/Blitz_SH_rFinger3J2
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rPalmJ/Blitz_SH_rFinger3J1/Blitz_SH_rFinger3J2/Blitz_SH_rFinger3J3
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rPalmJ/Blitz_SH_rFinger3J1/Blitz_SH_rFinger3J2/Blitz_SH_rFinger3J3/Blitz_SH_rFinger3JTip
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rPalmJ/Blitz_SH_rFinger4J1
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rPalmJ/Blitz_SH_rFinger4J1/Blitz_SH_rFinger4J2
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rPalmJ/Blitz_SH_rFinger4J1/Blitz_SH_rFinger4J2/Blitz_SH_rFinger4J3
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rPalmJ/Blitz_SH_rFinger4J1/Blitz_SH_rFinger4J2/Blitz_SH_rFinger4J3/Blitz_SH_rFinger4JTip
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rThumbJ1
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rThumbJ1/Blitz_SH_rThumbJ2
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rThumbJ1/Blitz_SH_rThumbJ2/Blitz_SH_rThumbJ3
+        weight: 1
+      - path: Blitz_SH_ROOTJ/Blitz_SH_SpineROOTJ/Blitz_SH_spine01J/Blitz_SH_spine02J/Blitz_SH_spine03J/Blitz_SH_Spine04J/Blitz_SH_rClavicleJ/Blitz_SH_rShoulderJ/Blitz_SH_rElbowJ/Blitz_SH_rWristJ/Blitz_SH_rThumbJ1/Blitz_SH_rThumbJ2/Blitz_SH_rThumbJ3/Blitz_SH_rThumbJTip
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 

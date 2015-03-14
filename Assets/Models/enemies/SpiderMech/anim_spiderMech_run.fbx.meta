@@ -1,0 +1,221 @@
+fileFormatVersion: 2
+guid: b27742ada1319d24691ab289626ce2ba
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: body
+    100004: foot_E
+    100006: foot_N
+    100008: foot_S
+    100010: foot_W
+    100012: ikHandle_E
+    100014: ikHandle_N
+    100016: ikHandle_S
+    100018: ikHandle_W
+    100020: joint_body
+    100022: joint_foot_E
+    100024: joint_foot_N
+    100026: joint_foot_S
+    100028: joint_foot_W
+    100030: joint_leg_E
+    100032: joint_leg_N
+    100034: joint_leg_S
+    100036: joint_leg_W
+    100038: joint_root
+    100040: joint_tip_E
+    100042: joint_tip_N
+    100044: joint_tip_S
+    100046: joint_tip_W
+    100048: leg_E
+    100050: leg_N
+    100052: leg_S
+    100054: leg_W
+    100056: spiderMech
+    400000: //RootNode
+    400002: body
+    400004: foot_E
+    400006: foot_N
+    400008: foot_S
+    400010: foot_W
+    400012: ikHandle_E
+    400014: ikHandle_N
+    400016: ikHandle_S
+    400018: ikHandle_W
+    400020: joint_body
+    400022: joint_foot_E
+    400024: joint_foot_N
+    400026: joint_foot_S
+    400028: joint_foot_W
+    400030: joint_leg_E
+    400032: joint_leg_N
+    400034: joint_leg_S
+    400036: joint_leg_W
+    400038: joint_root
+    400040: joint_tip_E
+    400042: joint_tip_N
+    400044: joint_tip_S
+    400046: joint_tip_W
+    400048: leg_E
+    400050: leg_N
+    400052: leg_S
+    400054: leg_W
+    400056: spiderMech
+    4300000: foot_N
+    4300002: body
+    4300004: foot_W
+    4300006: foot_S
+    4300008: foot_E
+    4300010: leg_N
+    4300012: leg_E
+    4300014: leg_S
+    4300016: leg_W
+    7400000: SpiderMech_run_loop
+    9500000: //RootNode
+    13700000: body
+    13700002: foot_E
+    13700004: foot_N
+    13700006: foot_S
+    13700008: foot_W
+    13700010: leg_E
+    13700012: leg_N
+    13700014: leg_S
+    13700016: leg_W
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: SpiderMech_run_loop
+      takeName: SpiderMech_basicAnims
+      firstFrame: 5
+      lastFrame: 21
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: joint_root
+        weight: 1
+      - path: joint_root/ikHandle_E
+        weight: 1
+      - path: joint_root/ikHandle_N
+        weight: 1
+      - path: joint_root/ikHandle_S
+        weight: 1
+      - path: joint_root/ikHandle_W
+        weight: 1
+      - path: joint_root/joint_body
+        weight: 1
+      - path: joint_root/joint_body/joint_leg_E
+        weight: 1
+      - path: joint_root/joint_body/joint_leg_E/joint_foot_E
+        weight: 1
+      - path: joint_root/joint_body/joint_leg_E/joint_foot_E/joint_tip_E
+        weight: 1
+      - path: joint_root/joint_body/joint_leg_N
+        weight: 1
+      - path: joint_root/joint_body/joint_leg_N/joint_foot_N
+        weight: 1
+      - path: joint_root/joint_body/joint_leg_N/joint_foot_N/joint_tip_N
+        weight: 1
+      - path: joint_root/joint_body/joint_leg_S
+        weight: 1
+      - path: joint_root/joint_body/joint_leg_S/joint_foot_S
+        weight: 1
+      - path: joint_root/joint_body/joint_leg_S/joint_foot_S/joint_tip_S
+        weight: 1
+      - path: joint_root/joint_body/joint_leg_W
+        weight: 1
+      - path: joint_root/joint_body/joint_leg_W/joint_foot_W
+        weight: 1
+      - path: joint_root/joint_body/joint_leg_W/joint_foot_W/joint_tip_W
+        weight: 1
+      - path: spiderMech
+        weight: 1
+      - path: spiderMech/body
+        weight: 1
+      - path: spiderMech/foot_E
+        weight: 1
+      - path: spiderMech/foot_N
+        weight: 1
+      - path: spiderMech/foot_S
+        weight: 1
+      - path: spiderMech/foot_W
+        weight: 1
+      - path: spiderMech/leg_E
+        weight: 1
+      - path: spiderMech/leg_N
+        weight: 1
+      - path: spiderMech/leg_S
+        weight: 1
+      - path: spiderMech/leg_W
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
