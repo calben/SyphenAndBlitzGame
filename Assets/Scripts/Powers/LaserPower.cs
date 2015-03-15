@@ -77,9 +77,6 @@ public class LaserPower : MonoBehaviour
 		}
 	}
 
-	//ActivatePower(Vector3 startPosition, Vector3 direction)
-	//UpdatePowerPosition(Vector3 startPosition, Vector3 direction)
-
 	void ActivatePower(Vector3 startPosition, Vector3 direction){
 		if(Network.isClient || Network.isServer ){
 			_controlledProjectile = Network.Instantiate(_projectile, startPosition, Quaternion.identity, 1) as GameObject;
@@ -127,18 +124,18 @@ public class LaserPower : MonoBehaviour
 		
 		if ((Network.isClient || Network.isServer) && this.networkView.isMine)
 		{
-			networkView.RPC("LaserBeam", RPCMode.Others, _controlledProjectile.transform.position,
+			networkView.RPC("UpdatePowerPosition", RPCMode.Others, _controlledProjectile.transform.position,
 			                _controlledProjectile.transform.rotation,
 			                _controlledProjectile.transform.localScale);
 			
-			LaserBeam(_controlledProjectile.transform.position,
+			UpdatePowerPosition(_controlledProjectile.transform.position,
 			          _controlledProjectile.transform.rotation,
 			          _controlledProjectile.transform.localScale);
 		}
 	}
 	
 	[RPC]
-	void LaserBeam(Vector3 position, Quaternion rotationAngles, Vector3 scale)
+	void UpdatePowerPosition(Vector3 position, Quaternion rotationAngles, Vector3 scale)
 	{
 		_controlledProjectile.transform.position = position;
 		_controlledProjectile.transform.rotation = rotationAngles;
