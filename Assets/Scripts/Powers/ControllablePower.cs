@@ -14,6 +14,7 @@ public class ControllablePower : MonoBehaviour
 	public GameObject _parent;
 	public GameObject _projectile;
 	public GameObject _otherGun;
+	public AudioManager _audioManager;
 	public Vector3 _offset;
 	public float _drag = 5;
 	public float _controlPullSpeed = 0.1f;
@@ -80,6 +81,7 @@ public class ControllablePower : MonoBehaviour
 							{
 								LaunchControllable();
 							}
+							_audioManager.PlaySFX("suction", 1.0f, false);
 							_alreadyFired = true;
 							_controller.state = PlayerState.aiming; //Zoom the camera in
 							_controller.enabled = false; // freeze the player
@@ -106,6 +108,7 @@ public class ControllablePower : MonoBehaviour
 				{
 					if (_alreadyFired)
 					{
+						_audioManager.StopSFX("suction", 1.0f);
 						_alreadyFired = false;
 						DeactivatePower ();
 					}
