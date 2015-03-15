@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
   public GameObject loseText;
   public GameObject SyphenPowerUnlock;
   public GameObject BlitzPowerUnlock;
+  public GameObject NewObjectiveWindow;
 
   private int depotsFull;
   private EventSystem eventSystem;
@@ -31,6 +32,9 @@ public class GameManager : MonoBehaviour
   void Start()
   {
     gameOverWindow.SetActive(false);
+	SyphenPowerUnlock.SetActive (false);
+	BlitzPowerUnlock.SetActive(false);
+	NewObjectiveWindow.SetActive(false);
     winText.SetActive(false);
     loseText.SetActive(false);
     eventSystem = eventSystemObject.GetComponent<EventSystem>();
@@ -91,11 +95,12 @@ public class GameManager : MonoBehaviour
   public void increaseResourceCount(int depotNumber)
   {
 		if (depotCurrentStock[depotNumber] < depotCapacity[depotNumber]) {
-		depotCurrentStock[depotNumber] += depotResourceValue[depotNumber];
-		if (depotCurrentStock [depotNumber] >= depotCapacity[depotNumber]) {
-			depotFull ();
+			depotCurrentStock[depotNumber] += depotResourceValue[depotNumber];
+			if (depotCurrentStock [depotNumber] >= depotCapacity[depotNumber]) {
+				depotFull ();
+				Debug.Log ("called DepotFull()");
+			}
 		}
-	}
   }
   public void depotFull()
   {
@@ -115,6 +120,11 @@ public class GameManager : MonoBehaviour
 			SyphenPowerUnlock.SetActive(true);
 		}
     }
+  }
+  public void activateNewObjective() 
+  {
+	NewObjectiveWindow.SetActive (true);
+	activateNextDepot();
   }
   public void activateNextDepot() 
   {

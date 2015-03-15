@@ -2,23 +2,25 @@
 using System.Collections;
 using GamepadInput;
 
-//The second tutorial (after unlocking the first depot) 
-public class TutorialAbility2 : MonoBehaviour {
+public class ClosePanel : MonoBehaviour {
 
 	public string inputName;
 
 	void Start () {
-		gameObject.SetActive(false);
 	}
 	
 	void Update () {
 		if (inputName == "left") {
 			if (GamePad.GetTrigger (GamePad.Trigger.LeftTrigger, GamePad.Index.One) > 0.20f) {
-				gameObject.SetActive(false);
+				gameObject.SetActive (false);
 			}
 		} else if (inputName == "right") {
 			if (GamePad.GetTrigger (GamePad.Trigger.RightTrigger, GamePad.Index.One) > 0.20f) {
-				gameObject.SetActive(false);
+				gameObject.SetActive (false);
+			}
+		} else if (inputName == "a") {
+			if (GamePad.GetButtonDown(GamePad.Button.A, GamePad.Index.One)) {
+				gameObject.SetActive (false);
 			}
 		}
 	}

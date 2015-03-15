@@ -19,6 +19,7 @@ public class GrenadeBar : MonoBehaviour {
 		grenadeManager = GameObject.Find (grenadeObjectName).GetComponent<GrenadeManager>();
 		//Activate cooldown bar
 		GameObject.Find ("GrenadeBarCoolDown").GetComponent<GrenadeCooldown> ().enabled = true;
+		GameObject.Find ("GrenadeBarBG").GetComponent<Image> ().enabled = true;
 	}
 	
 	// Update is called once per frame
@@ -28,7 +29,7 @@ public class GrenadeBar : MonoBehaviour {
 			if (image.fillAmount == 1f)
 				firstFill = false;
 		}
-		if (active) {
+		if (active && !firstFill) {
 			float currentAmmo = (float)grenadeManager.currentAmmo/grenadeManager.maxAmmo;
 			if (currentAmmo!=image.fillAmount) {
 //				image.fillAmount = Mathf.MoveTowards (image.fillAmount, currentAmmo, Time.deltaTime * 0.7f);

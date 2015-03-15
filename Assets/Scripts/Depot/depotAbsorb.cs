@@ -42,7 +42,7 @@ public class depotAbsorb : MonoBehaviour {
 	void OnTriggerEnter(Collider other){
 		if(other.tag == supplyItemTag && !depotFull){
 			if ((gameStats.depotCurrentStock [depotNumber]) <= capacity) {
-				Debug.Log("Growing");
+//				Debug.Log("Growing");
 				gameStats.increaseResourceCount(depotNumber);
 				//Destroy resource
 				Destroy( other.gameObject );
