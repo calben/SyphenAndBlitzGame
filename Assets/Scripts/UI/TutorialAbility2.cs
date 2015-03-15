@@ -8,7 +8,6 @@ public class TutorialAbility2 : MonoBehaviour {
 	public string inputName;
 
 	void Start () {
-		gameObject.SetActive(false);
 	}
 	
 	void Update () {

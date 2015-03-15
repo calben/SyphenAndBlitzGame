@@ -31,6 +31,8 @@ public class GameManager : MonoBehaviour
   void Start()
   {
     gameOverWindow.SetActive(false);
+	SyphenPowerUnlock.SetActive (false);
+	BlitzPowerUnlock.SetActive(false);
     winText.SetActive(false);
     loseText.SetActive(false);
     eventSystem = eventSystemObject.GetComponent<EventSystem>();
@@ -91,11 +93,12 @@ public class GameManager : MonoBehaviour
   public void increaseResourceCount(int depotNumber)
   {
 		if (depotCurrentStock[depotNumber] < depotCapacity[depotNumber]) {
-		depotCurrentStock[depotNumber] += depotResourceValue[depotNumber];
-		if (depotCurrentStock [depotNumber] >= depotCapacity[depotNumber]) {
-			depotFull ();
+			depotCurrentStock[depotNumber] += depotResourceValue[depotNumber];
+			if (depotCurrentStock [depotNumber] >= depotCapacity[depotNumber]) {
+				depotFull ();
+				Debug.Log ("called DepotFull()");
+			}
 		}
-	}
   }
   public void depotFull()
   {
