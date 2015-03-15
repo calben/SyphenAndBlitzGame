@@ -13,12 +13,14 @@ public class TutorialAbility2 : MonoBehaviour {
 	void Update () {
 		if (inputName == "left") {
 			if (GamePad.GetTrigger (GamePad.Trigger.LeftTrigger, GamePad.Index.One) > 0.20f) {
-				gameObject.SetActive(false);
+				gameObject.SetActive (false);
 			}
 		} else if (inputName == "right") {
 			if (GamePad.GetTrigger (GamePad.Trigger.RightTrigger, GamePad.Index.One) > 0.20f) {
-				gameObject.SetActive(false);
+				gameObject.SetActive (false);
 			}
+		} else if (inputName == "a") {
+			gameObject.SetActive(false);
 		}
 	}
 }

@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
   public GameObject loseText;
   public GameObject SyphenPowerUnlock;
   public GameObject BlitzPowerUnlock;
+  public GameObject NewObjectiveWindow;
 
   private int depotsFull;
   private EventSystem eventSystem;
@@ -118,6 +119,12 @@ public class GameManager : MonoBehaviour
 			SyphenPowerUnlock.SetActive(true);
 		}
     }
+  }
+  public void activateNewObjective() 
+  {
+	Debug.Log ("Activating new depot...");
+	NewObjectiveWindow.SetActive (true);
+	activateNextDepot();
   }
   public void activateNextDepot() 
   {
