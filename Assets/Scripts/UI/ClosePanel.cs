@@ -2,8 +2,7 @@
 using System.Collections;
 using GamepadInput;
 
-//The second tutorial (after unlocking the first depot) 
-public class TutorialAbility2 : MonoBehaviour {
+public class ClosePanel : MonoBehaviour {
 
 	public string inputName;
 
@@ -20,7 +19,9 @@ public class TutorialAbility2 : MonoBehaviour {
 				gameObject.SetActive (false);
 			}
 		} else if (inputName == "a") {
-			gameObject.SetActive(false);
+			if (GamePad.GetButtonDown(GamePad.Button.A, GamePad.Index.One)) {
+				gameObject.SetActive (false);
+			}
 		}
 	}
 }

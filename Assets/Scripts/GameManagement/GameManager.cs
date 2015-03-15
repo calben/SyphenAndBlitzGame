@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     gameOverWindow.SetActive(false);
 	SyphenPowerUnlock.SetActive (false);
 	BlitzPowerUnlock.SetActive(false);
+	NewObjectiveWindow.SetActive(false);
     winText.SetActive(false);
     loseText.SetActive(false);
     eventSystem = eventSystemObject.GetComponent<EventSystem>();
@@ -122,7 +123,6 @@ public class GameManager : MonoBehaviour
   }
   public void activateNewObjective() 
   {
-	Debug.Log ("Activating new depot...");
 	NewObjectiveWindow.SetActive (true);
 	activateNextDepot();
   }

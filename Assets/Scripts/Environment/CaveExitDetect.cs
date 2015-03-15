@@ -9,11 +9,9 @@ public class CaveExitDetect : MonoBehaviour {
 	void Start () {
 		triggeredTutorial = false;
 	}
-	
-	void OnCollisionEnter(Collision other) {
-		Debug.Log ("DETECTED YOUUUU");
+
+	void OnTriggerEnter(Collider other) {
 		if (!triggeredTutorial && other.gameObject.tag.Equals("Player")) {
-			Debug.Log ("EXITED CAVE");
 			GameObject.Find ("GameManager").GetComponent<GameManager>().activateNewObjective();
 			triggeredTutorial = true;
 		}
