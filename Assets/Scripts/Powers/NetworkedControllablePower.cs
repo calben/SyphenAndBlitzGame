@@ -8,7 +8,7 @@ using GamepadInput;
 * Spawn a rigid body GameObject with an initial velocity when triggered. 
 * Constraints: The projectile must contain a rigid body.
 */
-public class ControllablePower : MonoBehaviour
+public class NetworkedControllablePower : MonoBehaviour
 {
   //Launch properties
   public GameObject _parent;
