@@ -7,7 +7,7 @@ public class GrenadeBar : MonoBehaviour {
 	private bool firstFill;
 	public string grenadeObjectName;
 	private Image image;
-	private GrenadeManager grenadeManager;
+	private NetworkedGrenadeManager grenadeManager;
 	// Use this for initialization
 	void Start () {
 		active = false;
@@ -16,7 +16,7 @@ public class GrenadeBar : MonoBehaviour {
 	}
 	public void StartGrenadeUI() {
 		active = true;
-		grenadeManager = GameObject.Find (grenadeObjectName).GetComponent<GrenadeManager>();
+		grenadeManager = GameObject.Find (grenadeObjectName).GetComponent<NetworkedGrenadeManager>();
 		//Activate cooldown bar
 		GameObject.Find ("GrenadeBarCoolDown").GetComponent<GrenadeCooldown> ().enabled = true;
 		GameObject.Find ("GrenadeBarBG").GetComponent<Image> ().enabled = true;

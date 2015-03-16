@@ -2,7 +2,7 @@
 using System.Collections;
 using GamepadInput;
 
-public enum PlayerControllerState { WALKING, RUNNING, AIMING };
+public enum PlayerControllerState { IDLE, WALKING, RUNNING, AIMING };
 public enum MovementType { IMPULSE, SIMPLEWALK, SETVELOCITY, FORCE, THRUSTERS };
 
 public class RigidbodyNetworkedPlayerController : MonoBehaviour
@@ -107,6 +107,7 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
       }
       GrabCamera(Camera.main);
     }
+	this.gamepadState = GamePad.GetState(this.padIndex);
   }
 
   #region Networking

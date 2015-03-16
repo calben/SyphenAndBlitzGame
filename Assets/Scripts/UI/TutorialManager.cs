@@ -27,11 +27,11 @@ public class TutorialManager : MonoBehaviour {
 	public void StartTutorial(string playerName) {
 		GameObject[] players = GameObject.FindGameObjectsWithTag ("Player");
 		foreach (GameObject p in players) {
-			p.GetComponent<DeftPlayerController>().playerEnabled = false;
+			p.GetComponent<RigidbodyNetworkedPlayerController>().enabled = false;
 		}
 
 		//Start first tutorial panel
-		if (playerName.Equals("Syphen")) {
+		if (playerName.Contains("Syphen")) {
 			tutorials = syphenTutorials;
 		} else {
 			tutorials = blitzTutorials;
@@ -61,7 +61,7 @@ public class TutorialManager : MonoBehaviour {
 	private void ExitTutorial() {
 		GameObject[] players = GameObject.FindGameObjectsWithTag ("Player");
 		foreach (GameObject p in players) {
-			p.GetComponent<DeftPlayerController>().playerEnabled = true;
+			p.GetComponent<RigidbodyNetworkedPlayerController>().enabled = true;
 		}
 	}
 }
