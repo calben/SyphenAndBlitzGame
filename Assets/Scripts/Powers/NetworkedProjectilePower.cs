@@ -11,9 +11,12 @@ using GamepadInput;
 public class NetworkedProjectilePower : MonoBehaviour
 {
   //Launch properties
-  public GameObject _parent;
-  public GameObject _projectile;
-  public GameObject _otherGun;
+  public GameObject _controllerObject; 	//This is the game object that has the controller
+  public GameObject _parent;			//This is the game object the weapon should be attached to
+  public GameObject _projectile;		//This is the bullet that gets fired from the weapon
+  public GameObject _otherGun;			//This is a reference to disable the other gun while this is active
+  public AudioManager _audioManager;	//This stores the audio clips that need to be played
+  public string _audioClipName = "suction";
   public Vector3 _offset;
   public float _magnitude = 50;
   public bool _makeChild = false;
@@ -33,7 +36,7 @@ public class NetworkedProjectilePower : MonoBehaviour
   void Start()
   {
     _cooldownTimer = _cooldown;
-    _controller = this.gameObject.transform.parent.gameObject.GetComponent<RigidbodyNetworkedPlayerController>();
+	_controller = _controllerObject.GetComponent<RigidbodyNetworkedPlayerController>();
     if (_parent)
     {
       this.transform.parent = _parent.transform;
@@ -77,6 +80,7 @@ public class NetworkedProjectilePower : MonoBehaviour
   [RPC]
   void LaunchProjectile(Vector3 offset, float magnitude, bool makeChild)
   {
+	_audioManager.QueueClip(_audioClipName, false);
     GameObject clone;
     clone = Instantiate(_projectile, transform.position + offset, transform.rotation) as GameObject;
     //clone.rigidbody.velocity = transform.TransformDirection( trajectory * magnitude );

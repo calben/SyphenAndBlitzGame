@@ -11,8 +11,12 @@ using GamepadInput;
 public class NetworkedLaserPower : MonoBehaviour
 {
 	//Launch properties
-	public GameObject _parent;
-	public GameObject _projectile;
+	public GameObject _controllerObject; 	//This is the game object that has the controller (Typically Blitz or Syphen)
+	public GameObject _parent;			//This is the game object the weapon should be attached to
+	public GameObject _projectile;		//This is the bullet that gets fired from the weapon
+	public GameObject _otherGun;			//This is a reference to disable the other gun while this is active
+	public AudioManager _audioManager;	//This stores the audio clips that need to be played
+	public string _audioClipName = "suction";
 	public Vector3 _offset;
 	
 	//Rate of fire
@@ -23,19 +27,18 @@ public class NetworkedLaserPower : MonoBehaviour
 	public ProjectileTriggerButton _projectileButton = ProjectileTriggerButton.LEFT;
 	GamePad.Index _padIndex = GamePad.Index.One;
 	float _triggerThreshold = 0.20f;
-	DeftPlayerController _controller;
+	RigidbodyNetworkedPlayerController _controller;
 	
 	//Controllable Projectile
 	bool _alreadyFired = false;
 	GameObject _controlledProjectile = null;
-	public AudioManager _audioManager;
 	
 	
 	// Use this for initialization
 	void Start()
 	{
 		_cooldownTimer = _cooldown;
-		_controller = GameObject.FindGameObjectWithTag("Player").GetComponent<DeftPlayerController>();
+		_controller = _controllerObject.GetComponent<RigidbodyNetworkedPlayerController>();
 		if (_parent)
 		{
 			this.transform.parent = _parent.transform;
@@ -45,7 +48,7 @@ public class NetworkedLaserPower : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if (this.networkView.isMine || _controller.singlePlayer)
+		if (_controller.isThisMachinesPlayer)
 		{
 			_cooldownTimer -= Time.deltaTime;
 			
@@ -79,7 +82,7 @@ public class NetworkedLaserPower : MonoBehaviour
 	}
 
 	void ActivatePower(Vector3 startPosition, Vector3 direction){
-		_audioManager.Play("laser_sustain", 0.25f, true);
+		_audioManager.Play(_audioClipName, 0.25f, true);
 		if(Network.isClient || Network.isServer ){
 			_controlledProjectile = Network.Instantiate(_projectile, startPosition, Quaternion.identity, 1) as GameObject;
 		}
@@ -89,7 +92,7 @@ public class NetworkedLaserPower : MonoBehaviour
 	}
 
 	void DeactivatePower(){
-		_audioManager.Stop("laser_sustain", 6.5f);
+		_audioManager.Stop(_audioClipName, 6.5f);
 		if (_controlledProjectile) {
 			Destroy (_controlledProjectile);
 		}

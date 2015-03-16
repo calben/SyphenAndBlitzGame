@@ -11,9 +11,12 @@ using GamepadInput;
 public class NetworkedControllablePower : MonoBehaviour
 {
   //Launch properties
-  public GameObject _parent;
-  public GameObject _projectile;
-  public GameObject _otherGun;
+	public GameObject _controllerObject; 	//This is the game object that has the controller (Typically Blitz or Syphen)
+	public GameObject _parent;			//This is the game object the weapon should be attached to
+	public GameObject _projectile;		//This is the bullet that gets fired from the weapon
+	public GameObject _otherGun;			//This is a reference to disable the other gun while this is active
+	public AudioManager _audioManager;	//This stores the audio clips that need to be played
+	public string _audioClipName = "suction";
   public Vector3 _offset;
   public float _drag = 5;
   public float _controlPullSpeed = 0.1f;
@@ -42,7 +45,7 @@ public class NetworkedControllablePower : MonoBehaviour
   void Start()
   {
     _cooldownTimer = _cooldown;
-    _controller = this.gameObject.transform.parent.gameObject.GetComponent<RigidbodyNetworkedPlayerController>();
+	_controller = _controllerObject.GetComponent<RigidbodyNetworkedPlayerController>();
     if (_parent)
     {
       this.transform.parent = _parent.transform;
@@ -52,10 +55,9 @@ public class NetworkedControllablePower : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-    if (this._controller.isThisMachinesPlayer)
+    if (_controller.isThisMachinesPlayer)
     {
       _cooldownTimer -= Time.deltaTime;
-      Debug.Log("shit was called");
       if (_parent)
       {
         this.transform.position = _parent.transform.position;
@@ -122,7 +124,7 @@ public class NetworkedControllablePower : MonoBehaviour
     {
       _controlledProjectile = Instantiate(_projectile, startPosition, transform.rotation) as GameObject;
     }
-
+	_audioManager.Play(_audioClipName, 1.0f, true);
     _controlledTarget = GameObject.CreatePrimitive(PrimitiveType.Sphere);
     _controlledTarget.transform.position = startPosition;
     if (_controlledTarget.collider) { _controlledTarget.collider.enabled = false; }
@@ -133,6 +135,7 @@ public class NetworkedControllablePower : MonoBehaviour
 
   void DeactivatePower()
   {
+	_audioManager.Stop(_audioClipName, 1.0f);
     if (_controlledProjectile) { Destroy(_controlledProjectile); }
     if (_controlledTarget) { Destroy(_controlledTarget); }
     _controller.enabled = true; // unfreeze the player
