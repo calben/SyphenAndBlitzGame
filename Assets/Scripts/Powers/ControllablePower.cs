@@ -81,7 +81,7 @@ public class ControllablePower : MonoBehaviour
 							{
 								LaunchControllable();
 							}
-							_audioManager.Play("suction", 1.0f, false);
+							_audioManager.Play("suction", 1.0f, true);
 							_alreadyFired = true;
 							_controller.state = PlayerState.aiming; //Zoom the camera in
 							_controller.enabled = false; // freeze the player
