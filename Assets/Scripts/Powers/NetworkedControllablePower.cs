@@ -114,6 +114,7 @@ public class NetworkedControllablePower : MonoBehaviour
       }
     }
   }
+
   void ActivatePower(Vector3 startPosition)
   {
     if (Network.isClient || Network.isServer)
@@ -206,7 +207,6 @@ public class NetworkedControllablePower : MonoBehaviour
     _controlledTarget.transform.position = _controlledTarget.transform.position + move_direction;
 
     MovePower(_controlledProjectile.transform.position, _controlledTarget.transform.position, new Vector3(0, 0, 0));
-
   }
 
   void MovePower(Vector3 currentPosition, Vector3 newPosition, Vector3 velocity)
