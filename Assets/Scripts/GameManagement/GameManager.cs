@@ -115,9 +115,16 @@ public class GameManager : MonoBehaviour
 		//Activate the Power Unlock window 
 		string name = DeftClientServer.GetComponent<PlayerSelect>().selectedPlayer.name;
 		if (name.Contains("Blitz")) {
+				Debug.Log ("Activating tutorial for blitz");
 			BlitzPowerUnlock.SetActive(true);
 		} else {
 			SyphenPowerUnlock.SetActive(true);
+			Debug.Log ("Activating tutorial for syphen");
+			try {
+				GameObject button = SyphenPowerUnlock.transform.FindChild ("Button").gameObject;
+				GameObject.Find("EventSystem").GetComponent<EventSystem>().SetSelectedGameObject (button);
+			} catch (System.NullReferenceException e) {
+			}
 		}
     }
   }

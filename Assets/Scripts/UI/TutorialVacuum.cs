@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.EventSystems;
 
 public class TutorialVacuum : MonoBehaviour {
 
@@ -21,6 +22,12 @@ public class TutorialVacuum : MonoBehaviour {
 		if (tutorialIndex < tutorials.Count) {
 			//Enable next tutorial panel
 			tutorials [tutorialIndex].SetActive (true);
+			//Activate button on that panel so that the xbox controller can access it
+			try {
+				GameObject button = tutorials [tutorialIndex].transform.FindChild ("Button").gameObject;
+				GameObject.Find("EventSystem").GetComponent<EventSystem>().SetSelectedGameObject (button);
+			} catch (System.NullReferenceException e) {
+			}
 		}
 	}
 }
