@@ -2,21 +2,26 @@
 using System.Collections;
 
 public class AudioManager : MonoBehaviour {
-	public AudioClip[] _music;
-	public float _musicVolume;
-	public AudioClip[] _sfx;
-	public float _sfxVolume;
+	public AudioClip[] _clips;
+	public float _volume = 1.0f;
 
 	private AudioSource _audioSource;
 	private bool _isStoppingSFX = false;
 	private bool _isPlayingSFX = false;
 	private float _fadeTime = 0.0f;
+	private bool _switchOnFinish = false;
+	private string _nextClip;
+	private bool _nextClipIsLooping;
 
 	// Use this for initialization
 	void Start () {
 		_audioSource = this.GetComponent<AudioSource>();
 	}
-	
+
+	public void Initialize(){
+		_audioSource = this.GetComponent<AudioSource>();
+	}
+
 	// Update is called once per frame
 	void Update () {
 		if(_isStoppingSFX){
@@ -25,7 +30,13 @@ public class AudioManager : MonoBehaviour {
 				_audioSource.volume = 0.0f;
 				_audioSource.Stop();
 				_isStoppingSFX = false;
-				_audioSource.volume = _sfxVolume;
+				_audioSource.volume = _volume;
+			}
+		}
+		if(_switchOnFinish){
+			_audioSource.loop = false;
+			if(!_audioSource.isPlaying){
+				Play(_nextClip, 0.0f, _nextClipIsLooping);
 			}
 		}
 		/*
@@ -39,24 +50,30 @@ public class AudioManager : MonoBehaviour {
 		*/
 	}
 
-	public void PlaySFX(string clipName, float fadeTime, bool _isLooping){
-		for(int i = 0; i < _sfx.Length; ++i){
-			if(_sfx[i].name.Equals(clipName)){
-				_audioSource.volume = _sfxVolume;
+	public void Play(string clipName, float fadeTime, bool _isLooping){
+		for(int i = 0; i < _clips.Length; ++i){
+			if(_clips[i].name.Equals(clipName)){
+				_audioSource.volume = _volume;
 				_isStoppingSFX = false;
 				_audioSource.loop = _isLooping;
-				_audioSource.clip = _sfx[i];
+				_audioSource.clip = _clips[i];
 				_audioSource.Play();
 			}
 		}
 	}
 
-	public void StopSFX(string clipName, float fadeTime){
-		for(int i = 0; i < _sfx.Length; ++i){
-			if(_sfx[i].name.Equals(clipName)){
+	public void Stop(string clipName, float fadeTime){
+		for(int i = 0; i < _clips.Length; ++i){
+			if(_clips[i].name.Equals(clipName)){
 				_isStoppingSFX = true;
 				_fadeTime = fadeTime;
 			}
 		}
+	}
+
+	public void QueueClip(string clipName, bool isLooping){
+		_switchOnFinish = true;
+		_nextClip = clipName;
+		_nextClipIsLooping = isLooping;
 	}
 }
