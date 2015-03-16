@@ -6,12 +6,12 @@ public class GrenadeCooldown : MonoBehaviour {
 
 	public string grenadeObjectName;
 	private Image image;
-	private GrenadeManager grenadeManager;
+	private NetworkedGrenadeManager grenadeManager;
 
 	// Use this for initialization
 	void Start () {
 		image = gameObject.GetComponent<Image> ();
-		grenadeManager = GameObject.Find (grenadeObjectName).GetComponent<GrenadeManager>();
+		grenadeManager = GameObject.Find (grenadeObjectName).GetComponent<NetworkedGrenadeManager>();
 	}
 	// Update is called once per frame
 	void Update () {
