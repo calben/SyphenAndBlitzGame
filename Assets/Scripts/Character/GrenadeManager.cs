@@ -27,6 +27,7 @@ public class GrenadeManager : MonoBehaviour
   public float triggerCooldown = 1; //adjustable fire rate
   private float cooldown = 0; // temp var for cooldown after trigger
   private DeftPlayerController controller;
+  public AudioManager _audioManager;
 
   private bool goingToFire = false;
 	
@@ -82,5 +83,6 @@ public class GrenadeManager : MonoBehaviour
     GameObject clone;
     clone = Instantiate(prefab, position + forward, rotation) as GameObject;
     clone.rigidbody.velocity = forward * magnitude;
+	_audioManager.Play("grenade_toss", 0.0f, false);
   }
 }

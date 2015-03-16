@@ -14,6 +14,7 @@ public class ProjectilePower : MonoBehaviour
 	public GameObject _parent;
 	public GameObject _projectile;
 	public GameObject _otherGun;
+	public AudioManager _audioManager;
 	public Vector3 _offset;
 	public float _magnitude = 50;
 	public bool _makeChild = false;
@@ -77,6 +78,7 @@ public class ProjectilePower : MonoBehaviour
 	[RPC]
 	void LaunchProjectile(Vector3 offset, float magnitude, bool makeChild)
 	{
+		_audioManager.QueueClip("suction", false);
 		GameObject clone;
 		clone = Instantiate(_projectile, transform.position + offset, transform.rotation) as GameObject;
 		//clone.rigidbody.velocity = transform.TransformDirection( trajectory * magnitude );
