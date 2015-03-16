@@ -22,6 +22,7 @@ public class explosion : MonoBehaviour {
 	}
 
 	IEnumerator MyMethod() {
+		_audioManager.Initialize();
 		_audioManager.Play("grenade_beeping", 0.25f, false);
 		yield return new WaitForSeconds(delay);
 		_audioManager.Play("grenade_explosion", 0.0f, false);
