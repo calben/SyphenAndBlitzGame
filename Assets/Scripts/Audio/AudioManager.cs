@@ -9,14 +9,17 @@ public class AudioManager : MonoBehaviour {
 	private bool _isStoppingSFX = false;
 	private bool _isPlayingSFX = false;
 	private float _fadeTime = 0.0f;
+	private bool _switchOnFinish = false;
+	private string _nextClip;
+	private bool _nextClipIsLooping;
 
 	// Use this for initialization
 	void Start () {
+		_audioSource = this.GetComponent<AudioSource>();
 	}
 
 	public void Initialize(){
 		_audioSource = this.GetComponent<AudioSource>();
-		_audioSource.Stop();
 	}
 
 	// Update is called once per frame
@@ -30,6 +33,12 @@ public class AudioManager : MonoBehaviour {
 				_audioSource.volume = _volume;
 			}
 		}
+		if(_switchOnFinish){
+			_audioSource.loop = false;
+			if(!_audioSource.isPlaying){
+				Play(_nextClip, 0.0f, _nextClipIsLooping);
+			}
+		}
 		/*
 		if(_isPlayingSFX){
 			_audioSource.volume += Time.deltaTime * _fadeTime;
@@ -41,7 +50,7 @@ public class AudioManager : MonoBehaviour {
 		*/
 	}
 
-	public void PlaySFX(string clipName, float fadeTime, bool _isLooping){
+	public void Play(string clipName, float fadeTime, bool _isLooping){
 		for(int i = 0; i < _clips.Length; ++i){
 			if(_clips[i].name.Equals(clipName)){
 				_audioSource.volume = _volume;
@@ -53,12 +62,18 @@ public class AudioManager : MonoBehaviour {
 		}
 	}
 
-	public void StopSFX(string clipName, float fadeTime){
+	public void Stop(string clipName, float fadeTime){
 		for(int i = 0; i < _clips.Length; ++i){
 			if(_clips[i].name.Equals(clipName)){
 				_isStoppingSFX = true;
 				_fadeTime = fadeTime;
 			}
 		}
+	}
+
+	public void QueueClip(string clipName, bool isLooping){
+		_switchOnFinish = true;
+		_nextClip = clipName;
+		_nextClipIsLooping = isLooping;
 	}
 }

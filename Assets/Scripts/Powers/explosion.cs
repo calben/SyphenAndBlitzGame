@@ -22,9 +22,9 @@ public class explosion : MonoBehaviour {
 	}
 
 	IEnumerator MyMethod() {
-		_audioManager.PlaySFX("grenade_beeping", 0.25f, false);
+		_audioManager.Play("grenade_beeping", 0.25f, false);
 		yield return new WaitForSeconds(delay);
-		_audioManager.PlaySFX("grenade_explosion", 0.0f, false);
+		_audioManager.Play("grenade_explosion", 0.0f, false);
 
 		Instantiate(effect, transform.position, transform.rotation);
 		Vector3 explosionPos = transform.position;

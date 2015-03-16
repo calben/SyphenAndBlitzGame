@@ -28,6 +28,7 @@ public class NetworkedLaserPower : MonoBehaviour
 	//Controllable Projectile
 	bool _alreadyFired = false;
 	GameObject _controlledProjectile = null;
+	public AudioManager _audioManager;
 	
 	
 	// Use this for initialization
@@ -78,6 +79,7 @@ public class NetworkedLaserPower : MonoBehaviour
 	}
 
 	void ActivatePower(Vector3 startPosition, Vector3 direction){
+		_audioManager.Play("laser_sustain", 0.25f, true);
 		if(Network.isClient || Network.isServer ){
 			_controlledProjectile = Network.Instantiate(_projectile, startPosition, Quaternion.identity, 1) as GameObject;
 		}
@@ -87,6 +89,7 @@ public class NetworkedLaserPower : MonoBehaviour
 	}
 
 	void DeactivatePower(){
+		_audioManager.Stop("laser_sustain", 6.5f);
 		if (_controlledProjectile) {
 			Destroy (_controlledProjectile);
 		}
