@@ -31,7 +31,7 @@ public class InGameMenus : MonoBehaviour
       }
     }
     if (player != null) {
-			player.GetComponent<DeftPlayerController> ().inverted = !player.GetComponent<DeftPlayerController> ().inverted;
+			player.GetComponent<RigidbodyNetworkedPlayerController> ().inverted = !player.GetComponent<RigidbodyNetworkedPlayerController> ().inverted;
 	}
   }
 }

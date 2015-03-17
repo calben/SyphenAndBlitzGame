@@ -11,6 +11,7 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
   public PlayerControllerState playerState;
   public MovementType movementType;
   public string name;
+  public bool inverted;
 
   public float baseSpeed = 2.0f;
   public float runSpeedMultiplier = 1.5f;
@@ -108,6 +109,7 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
       GrabCamera(Camera.main);
     }
 	this.gamepadState = GamePad.GetState(this.padIndex);
+	inverted = false;
   }
 
   #region Networking
@@ -348,7 +350,8 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
         break;
     }
     #endregion
-
+	if (inverted)
+		this.controllerLookDirection.y *= -1;
   }
 
   void FixedUpdate()
