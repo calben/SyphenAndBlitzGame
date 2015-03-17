@@ -87,4 +87,10 @@ public class DeftSyncWorker : MonoBehaviour
       }
     }
   }
+
+  bool detectBlockingCollision()
+  {
+    Vector3 currentPosition = this.GetComponent<Rigidbody>().position;
+    Vector3 goalPosition = this.goalState.position;
+  }
 }

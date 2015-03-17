@@ -17,11 +17,16 @@ public class NetworkedGrenadeManager : MonoBehaviour
 {
   public int currentAmmo;
   public int maxAmmo;
-  public float recharge;
-  public float rechargeTimer = 0;
+  public float recharge; // time to recharge each grenade
+  public float rechargeTimer = 0; // track current recharge
   public GameObject prefab; //insert grenade prefab here
   public Vector3 offset; //unused
-  public float magnitude; //throwing velocity
+
+	public float minThrow; // max, min and cur throw power
+	public float maxThrow;
+	private float curThrow; // track current throw power
+	public float maxTime; // maximum time to charge throw
+	private float curTime; // current time spent charging throw
 
   private bool trigger;
   public float triggerCooldown = 1; //adjustable fire rate
@@ -47,8 +52,12 @@ public class NetworkedGrenadeManager : MonoBehaviour
 		if (trigger){
 			controller.playerState = PlayerControllerState.AIMING; //let blitz aim (even if no ammo)
 			goingToFire = true; // bool to indicate intent to fire
+			if (curTime<maxTime){ // start charging up
+				curTime+=Time.deltaTime; 
+				curThrow=Mathf.Lerp (minThrow,maxThrow,curTime/maxTime); // lerp between min and max by percentage
+			}
 		} else if (!trigger){
-				controller.playerState = PlayerControllerState.IDLE; // on trigger release, revert to idle
+			controller.playerState = PlayerControllerState.IDLE; // on trigger release, revert to idle
 			if (cooldown <= 0.0 && currentAmmo > 0 && goingToFire) // conditions for firing
 			{
 				Vector3 forward = Camera.main.transform.TransformDirection(Vector3.forward);
@@ -58,6 +67,8 @@ public class NetworkedGrenadeManager : MonoBehaviour
 				currentAmmo--; // reduce ammo
 				cooldown = triggerCooldown; // reset cooldown
 			}
+			curTime = 0; // reset charge time
+			curThrow = minThrow; // reset throwing power
 			goingToFire = false; // always remove intent to fire after releasing trigger
 		}
     }
@@ -78,12 +89,12 @@ public class NetworkedGrenadeManager : MonoBehaviour
     }
   }
 
-  [RPC]
-  void throwGrenade(Vector3 forward, Vector3 position, Quaternion rotation)
-  {
-    GameObject clone;
-    clone = Instantiate(prefab, position + forward, rotation) as GameObject;
-    clone.rigidbody.velocity = forward * magnitude;
-	_audioManager.Play("grenade_toss", 0.0f, false);
-  }
+	[RPC]
+	void throwGrenade(Vector3 forward, Vector3 position, Quaternion rotation)
+	{
+		GameObject clone;
+		clone = Instantiate(prefab, position + forward, rotation) as GameObject;
+		clone.rigidbody.velocity = forward * curThrow;
+		_audioManager.Play("grenade_toss", 0.0f, false);
+	}
 }
