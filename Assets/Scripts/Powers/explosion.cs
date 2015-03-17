@@ -14,11 +14,15 @@ public class explosion : MonoBehaviour {
 	}
 
 	void DealDamage(Collider other){
-		Killer_Mover km = other.GetComponent<Killer_Mover>(); //grab scripts
-		Feeder_Mover fm = other.GetComponent<Feeder_Mover>();
-		int dmg = 50; // set dmg
-		if (km) km.health -= dmg; // reduce health
-		if (fm) fm.health -= dmg;
+		int dmg = 50;
+		if (other.gameObject.tag == "Feeder") {
+			Feeder_Mover fm = other.GetComponent<Feeder_Mover>();
+			fm.health -= dmg;
+		}
+		else if (other.gameObject.tag == "Killer") {
+			Killer_Mover km = other.GetComponent<Killer_Mover>();
+			km.health -= dmg;
+		}
 	}
 
 	IEnumerator MyMethod() {
@@ -46,7 +50,9 @@ public class explosion : MonoBehaviour {
 			}
 			if (hit && hit.rigidbody){
 				//and then still apply explosion force to any rigidbodies
-				hit.rigidbody.AddExplosionForce(power, explosionPos, radius, lift, ForceMode.Impulse); 
+				if (hit.gameObject.tag!="Player"){ // except the players themselves
+					hit.rigidbody.AddExplosionForce(power, explosionPos, radius, lift, ForceMode.Impulse); 
+				}
 			}
 		}
 		Destroy (gameObject);
