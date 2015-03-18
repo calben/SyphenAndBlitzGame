@@ -170,8 +170,7 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
   {
     angleH += this.controllerLookDirection.x * this.horizontalAimingSpeed * Time.deltaTime;
     angleV += this.controllerLookDirection.y * this.verticalAimingSpeed * Time.deltaTime;
-    //angleV = Mathf.Clamp(angleV, 80, 80);
-    //angleH = Mathf.Clamp(angleH, -80, 80);
+    angleV = Mathf.Clamp(angleV, -60, 60);
     Quaternion aimRotation = Quaternion.Euler(-angleV, angleH, 0);
     if (this.GetComponent<Rigidbody>().velocity.magnitude > 0.2f)
     {
@@ -250,7 +249,6 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
     return true;
   }
   #endregion
-
 
   #region GUI
   Texture2D temp;
