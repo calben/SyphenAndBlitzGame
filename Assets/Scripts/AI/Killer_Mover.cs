@@ -53,7 +53,7 @@ public class Killer_Mover : AI_Mover {
 		{
 			if(other.gameObject.tag.Equals("Player"))
 			{
-
+				GameObject.Find ("GameManager").GetComponent<GameManager>().decreaseHealth("Feeder");
 				myStatus.updateText(true);
 
 			}

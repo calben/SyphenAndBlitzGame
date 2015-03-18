@@ -20,7 +20,7 @@ public class HealthStats : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (playerID>=0) {
-			stats.text = gameManagerStats.playerCurrentHealth[playerID].ToString() + "/" + gameManagerStats.playerTotalHealth[playerID].ToString();
+			stats.text = gameManagerStats.playerCurrentHealth.ToString() + "/" + gameManagerStats.playerTotalHealth.ToString();
 		}
 	}
 }

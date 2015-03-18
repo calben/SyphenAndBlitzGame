@@ -30,7 +30,7 @@ public class HealthBar : MonoBehaviour {
 					firstFill = false;
 			}
 			if (playerID >= 0) {
-				float currentHealth = (float)gameManagerStats.playerCurrentHealth [playerID] / gameManagerStats.playerTotalHealth [playerID];
+				float currentHealth = (float)gameManagerStats.playerCurrentHealth / gameManagerStats.playerTotalHealth;
 				if (currentHealth != healthbar.fillAmount) {
 					healthbar.fillAmount = Mathf.MoveTowards (healthbar.fillAmount, currentHealth, Time.deltaTime * 0.5f);
 				}

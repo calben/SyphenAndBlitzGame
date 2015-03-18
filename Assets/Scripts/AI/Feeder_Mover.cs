@@ -137,7 +137,7 @@ public class Feeder_Mover : AI_Mover {
 
 		if(other.gameObject.tag.Equals("Player"))
 		{
-
+			GameObject.Find ("GameManager").GetComponent<GameManager>().decreaseHealth("Feeder");
 			takeDamage();
 			return;
 
