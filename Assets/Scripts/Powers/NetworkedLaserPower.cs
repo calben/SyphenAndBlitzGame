@@ -82,6 +82,7 @@ public class NetworkedLaserPower : MonoBehaviour
     }
   }
 
+  [RPC]
   void ActivatePower(Vector3 startPosition, Vector3 direction)
   {
     _audioManager.Play(_audioClipName, 0.25f, true);
