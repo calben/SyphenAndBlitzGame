@@ -139,6 +139,7 @@ public class NetworkedControllablePower : MonoBehaviour
     _otherGun.SetActive(true);  // unfreeze the other gun
   }
 
+  [RPC]
   void LaunchControllable()
   {
     RaycastHit hit;
