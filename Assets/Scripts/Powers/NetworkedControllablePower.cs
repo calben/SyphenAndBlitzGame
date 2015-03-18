@@ -74,14 +74,7 @@ public class NetworkedControllablePower : MonoBehaviour
         {
           if (!_alreadyFired)
           {
-            if (Network.isClient || Network.isServer)
-            {
-              networkView.RPC("LaunchControllable", RPCMode.All);
-            }
-            else
-            {
-              LaunchControllable();
-            }
+            LaunchControllable();
             _alreadyFired = true;
             _controller.enabled = false; // freeze the player
             _otherGun.SetActive(false);  // freeze the other gun
@@ -90,7 +83,7 @@ public class NetworkedControllablePower : MonoBehaviour
           {
             if (_controlledProjectile)
             {
-                networkView.RPC("MoveControllable", RPCMode.Others);
+               // networkView.RPC("MoveControllable", RPCMode.Others);
                 MoveControllable();
             }
           }
@@ -102,13 +95,35 @@ public class NetworkedControllablePower : MonoBehaviour
           if (_alreadyFired)
           {
             _alreadyFired = false;
-            this.networkView.RPC("DeactivatePower", RPCMode.Others);
+			if(Network.isClient || Network.isServer){
+				this.networkView.RPC("DeactivatePower", RPCMode.Others);
+			}
             DeactivatePower();
           }
         }
       }
     }
   }
+
+	void LaunchControllable()
+	{
+		RaycastHit hit;
+		float distance = 20;
+		Vector3 cameraForward = Camera.main.transform.TransformDirection(Vector3.forward).normalized;
+		if (Physics.Raycast(transform.position + _offset, cameraForward, out hit, distance))
+		{
+			distance = hit.distance;
+		}
+		Vector3 startPosition = transform.position + _offset + (cameraForward * distance);
+		if (Network.isClient || Network.isServer)
+		{
+			this.networkView.RPC("ActivatePower", RPCMode.Others, startPosition);
+		}
+		else
+		{
+			ActivatePower(startPosition);
+		}
+	}
 
   [RPC]
   void ActivatePower(Vector3 startPosition)
@@ -139,22 +154,6 @@ public class NetworkedControllablePower : MonoBehaviour
     _otherGun.SetActive(true);  // unfreeze the other gun
   }
 
-  [RPC]
-  void LaunchControllable()
-  {
-    RaycastHit hit;
-    float distance = 20;
-    Vector3 cameraForward = Camera.main.transform.TransformDirection(Vector3.forward).normalized;
-    if (Physics.Raycast(transform.position + _offset, cameraForward, out hit, distance))
-    {
-      distance = hit.distance;
-    }
-    Vector3 startPosition = transform.position + _offset + (cameraForward * distance);
-    this.networkView.RPC("ActivatePower", RPCMode.Others, startPosition);
-    ActivatePower(startPosition);
-  }
-
-  [RPC]
   void MoveControllable()
   {
     _controller.controllerMoveDirection = Vector2.zero;
@@ -203,8 +202,15 @@ public class NetworkedControllablePower : MonoBehaviour
     //apply movement
     _controlledTarget.transform.position = _controlledTarget.transform.position + move_direction;
 
-    this.networkView.RPC("MovePower", RPCMode.Others, _controlledProjectile.transform.position, _controlledTarget.transform.position, new Vector3(0, 0, 0));
-    MovePower(_controlledProjectile.transform.position, _controlledTarget.transform.position, new Vector3(0, 0, 0));
+	if (Network.isClient || Network.isServer)
+	{
+		this.networkView.RPC("MovePower", RPCMode.Others, _controlledProjectile.transform.position, _controlledTarget.transform.position, new Vector3(0, 0, 0));
+
+	}
+	else
+	{
+		MovePower(_controlledProjectile.transform.position, _controlledTarget.transform.position, new Vector3(0, 0, 0));
+	}
   }
 
   [RPC]
