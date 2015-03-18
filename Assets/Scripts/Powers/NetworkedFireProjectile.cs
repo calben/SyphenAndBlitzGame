@@ -78,7 +78,6 @@ public class NetworkedFireProjectile : MonoBehaviour
             case NetworkedProjectileAction.THROW:
               if (!alreadyFired)
               {
-                Debug.Log("i'm gonna launch it");
                 if (Network.isClient || Network.isServer)
                 {
                   networkView.RPC("LaunchProjectile", RPCMode.All, offset, magnitude, makeChild);

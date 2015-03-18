@@ -74,7 +74,9 @@ public class NetworkedLaserPower : MonoBehaviour
           if (_alreadyFired)
           {
             _alreadyFired = false;
-            this.networkView.RPC("DeactivatePower", RPCMode.Others);
+			if(Network.isClient || Network.isServer){
+            	this.networkView.RPC("DeactivatePower", RPCMode.Others);
+			}
             DeactivatePower();
           }
         }
@@ -89,6 +91,7 @@ public class NetworkedLaserPower : MonoBehaviour
     _controlledProjectile = Instantiate(_projectile, startPosition, Quaternion.identity) as GameObject;
   }
 
+  [RPC]
   void DeactivatePower()
   {
     _audioManager.Stop(_audioClipName, 6.5f);
@@ -107,7 +110,9 @@ public class NetworkedLaserPower : MonoBehaviour
 
     if (!_alreadyFired)
     {
-      this.networkView.RPC("ActivatePower", RPCMode.Others, this.transform.position, new Vector3(0, 0, 0));
+		if(Network.isClient || Network.isServer){
+			this.networkView.RPC("ActivatePower", RPCMode.Others, this.transform.position, new Vector3(0, 0, 0));
+		}
       ActivatePower(this.transform.position, new Vector3(0, 0, 0));
       _alreadyFired = true;
     }
@@ -131,13 +136,16 @@ public class NetworkedLaserPower : MonoBehaviour
 
     if (_controller.isThisMachinesPlayer)
     {
-      networkView.RPC("UpdatePowerPosition", RPCMode.Others, _controlledProjectile.transform.position,
-                      _controlledProjectile.transform.rotation,
-                      _controlledProjectile.transform.localScale);
-
-      UpdatePowerPosition(_controlledProjectile.transform.position,
-                _controlledProjectile.transform.rotation,
-                _controlledProjectile.transform.localScale);
+		if(Network.isClient || Network.isServer){
+	    	networkView.RPC("UpdatePowerPosition", RPCMode.Others, _controlledProjectile.transform.position,
+	                      _controlledProjectile.transform.rotation,
+	                      _controlledProjectile.transform.localScale);
+		}
+		else{
+			UpdatePowerPosition(_controlledProjectile.transform.position,
+			                    _controlledProjectile.transform.rotation,
+			                    _controlledProjectile.transform.localScale);
+		}
     }
   }
 
