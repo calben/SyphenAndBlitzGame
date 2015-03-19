@@ -204,7 +204,7 @@ public class DeftPlayerController : MonoBehaviour
           speed_current = speedWhileWalk;
           break;
         }
-    }
+    } 
     if (CalculateGrounded())
     {
       Vector3 last_input_without_y = new Vector3(last_input.x, 0, last_input.z);

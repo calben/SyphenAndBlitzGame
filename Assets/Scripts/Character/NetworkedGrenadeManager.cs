@@ -56,21 +56,21 @@ public class NetworkedGrenadeManager : MonoBehaviour
 				curTime+=Time.deltaTime; 
 				curThrow=Mathf.Lerp (minThrow,maxThrow,curTime/maxTime); // lerp between min and max by percentage
 			}
-		} else if (!trigger){
+		} else if (!trigger) {
 			controller.playerState = PlayerControllerState.IDLE; // on trigger release, revert to idle
 			if (cooldown <= 0.0 && currentAmmo > 0 && goingToFire) // conditions for firing
 			{
 				Vector3 forward = Camera.main.transform.TransformDirection(Vector3.forward);
 				forward = forward.normalized;
-				networkView.RPC("throwGrenade", RPCMode.Others, forward, transform.position, transform.rotation);
-				throwGrenade(forward, transform.position, transform.rotation); 
+				networkView.RPC("throwGrenade", RPCMode.All, forward, transform.position, transform.rotation, curThrow);
+				//throwGrenade(forward, transform.position, transform.rotation, curThrow); 
 				currentAmmo--; // reduce ammo
 				cooldown = triggerCooldown; // reset cooldown
 			}
 			curTime = 0; // reset charge time
 			curThrow = minThrow; // reset throwing power
 			goingToFire = false; // always remove intent to fire after releasing trigger
-		}
+		  }
     }
   }
 
@@ -90,11 +90,11 @@ public class NetworkedGrenadeManager : MonoBehaviour
   }
 
 	[RPC]
-	void throwGrenade(Vector3 forward, Vector3 position, Quaternion rotation)
+	void throwGrenade(Vector3 forward, Vector3 position, Quaternion rotation, float magnitude)
 	{
 		GameObject clone;
 		clone = Instantiate(prefab, position + forward, rotation) as GameObject;
-		clone.rigidbody.velocity = forward * curThrow;
+		clone.rigidbody.velocity = forward * magnitude;
 		_audioManager.Play("grenade_toss", 0.0f, false);
 	}
 }

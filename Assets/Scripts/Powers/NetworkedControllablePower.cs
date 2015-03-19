@@ -11,12 +11,12 @@ using GamepadInput;
 public class NetworkedControllablePower : MonoBehaviour
 {
   //Launch properties
-	public GameObject _controllerObject; 	//This is the game object that has the controller (Typically Blitz or Syphen)
-	public GameObject _parent;			//This is the game object the weapon should be attached to
-	public GameObject _projectile;		//This is the bullet that gets fired from the weapon
-	public GameObject _otherGun;			//This is a reference to disable the other gun while this is active
-	public AudioManager _audioManager;	//This stores the audio clips that need to be played
-	public string _audioClipName = "suction";
+  public GameObject _controllerObject; 	//This is the game object that has the controller (Typically Blitz or Syphen)
+  public GameObject _parent;			//This is the game object the weapon should be attached to
+  public GameObject _projectile;		//This is the bullet that gets fired from the weapon
+  public GameObject _otherGun;			//This is a reference to disable the other gun while this is active
+  public AudioManager _audioManager;	//This stores the audio clips that need to be played
+  public string _audioClipName = "suction";
   public Vector3 _offset;
   public float _drag = 5;
   public float _controlPullSpeed = 0.1f;
@@ -45,7 +45,7 @@ public class NetworkedControllablePower : MonoBehaviour
   void Start()
   {
     _cooldownTimer = _cooldown;
-	_controller = _controllerObject.GetComponent<RigidbodyNetworkedPlayerController>();
+    _controller = _controllerObject.GetComponent<RigidbodyNetworkedPlayerController>();
     if (_parent)
     {
       this.transform.parent = _parent.transform;
@@ -74,30 +74,18 @@ public class NetworkedControllablePower : MonoBehaviour
         {
           if (!_alreadyFired)
           {
-            if (Network.isClient || Network.isServer)
-            {
-              networkView.RPC("LaunchControllable", RPCMode.All);
-            }
-            else
-            {
-              LaunchControllable();
-            }
+            LaunchControllable();
             _alreadyFired = true;
-            _controller.enabled = false; // freeze the player
+			_controller.playerState = PlayerControllerState.AIMING; //Zoom the camera in
+            //_controller.enabled = false; // freeze the player
             _otherGun.SetActive(false);  // freeze the other gun
           }
           else
           {
             if (_controlledProjectile)
             {
-              if (Network.isClient || Network.isServer)
-              {
-                networkView.RPC("MoveControllable", RPCMode.All);
-              }
-              else
-              {
+               // networkView.RPC("MoveControllable", RPCMode.Others);
                 MoveControllable();
-              }
             }
           }
           _cooldownTimer = _cooldown;
@@ -108,6 +96,9 @@ public class NetworkedControllablePower : MonoBehaviour
           if (_alreadyFired)
           {
             _alreadyFired = false;
+			if(Network.isClient || Network.isServer){
+				this.networkView.RPC("DeactivatePower", RPCMode.Others);
+			}
             DeactivatePower();
           }
         }
@@ -115,17 +106,35 @@ public class NetworkedControllablePower : MonoBehaviour
     }
   }
 
+	void LaunchControllable()
+	{
+		RaycastHit hit;
+		float distance = 20;
+		Vector3 cameraForward = Camera.main.transform.TransformDirection(Vector3.forward).normalized;
+		if (Physics.Raycast(transform.position + _offset, cameraForward, out hit, distance))
+		{
+			distance = hit.distance;
+		}
+		Vector3 startPosition = transform.position + _offset + (cameraForward * distance);
+		if (Network.isClient || Network.isServer)
+		{
+			this.networkView.RPC("ActivatePower", RPCMode.Others, startPosition);
+		}
+		ActivatePower(startPosition);
+	}
+
+  [RPC]
   void ActivatePower(Vector3 startPosition)
   {
     if (Network.isClient || Network.isServer)
     {
-      _controlledProjectile = Network.Instantiate(_projectile, startPosition, transform.rotation, 1) as GameObject;
+      _controlledProjectile = Network.Instantiate(_projectile, startPosition, transform.rotation, 0) as GameObject;
     }
     else
     {
       _controlledProjectile = Instantiate(_projectile, startPosition, transform.rotation) as GameObject;
     }
-	_audioManager.Play(_audioClipName, 1.0f, true);
+    _audioManager.Play(_audioClipName, 1.0f, true);
     _controlledTarget = GameObject.CreatePrimitive(PrimitiveType.Sphere);
     _controlledTarget.transform.position = startPosition;
     if (_controlledTarget.collider) { _controlledTarget.collider.enabled = false; }
@@ -133,31 +142,16 @@ public class NetworkedControllablePower : MonoBehaviour
     _controlledTarget.transform.parent = Camera.main.transform;
   }
 
-
+  [RPC]
   void DeactivatePower()
   {
-	_audioManager.Stop(_audioClipName, 1.0f);
+    _audioManager.Stop(_audioClipName, 1.0f);
     if (_controlledProjectile) { Destroy(_controlledProjectile); }
     if (_controlledTarget) { Destroy(_controlledTarget); }
     _controller.enabled = true; // unfreeze the player
     _otherGun.SetActive(true);  // unfreeze the other gun
   }
 
-  [RPC]
-  void LaunchControllable()
-  {
-    RaycastHit hit;
-    float distance = 20;
-    Vector3 cameraForward = Camera.main.transform.TransformDirection(Vector3.forward).normalized;
-    if (Physics.Raycast(transform.position + _offset, cameraForward, out hit, distance))
-    {
-      distance = hit.distance;
-    }
-
-    ActivatePower(transform.position + _offset + (cameraForward * distance));
-  }
-
-  [RPC]
   void MoveControllable()
   {
     _controller.controllerMoveDirection = Vector2.zero;
@@ -167,7 +161,8 @@ public class NetworkedControllablePower : MonoBehaviour
     //Get controller direction
     if (_controller.gamepadState != null)
     {
-      _controller.controllerMoveDirection = GamePad.GetAxis(GamePad.Axis.LeftStick, _padIndex);
+      //_controller.controllerMoveDirection = GamePad.GetAxis(GamePad.Axis.LeftStick, _padIndex);
+	  _controller.controllerMoveDirection = Vector2.zero;
       _controller.controllerLookDirection = GamePad.GetAxis(GamePad.Axis.RightStick, _padIndex);
 
       // feels better (can't lose control or the controllable and scatter all the items)
@@ -206,9 +201,18 @@ public class NetworkedControllablePower : MonoBehaviour
     //apply movement
     _controlledTarget.transform.position = _controlledTarget.transform.position + move_direction;
 
-    MovePower(_controlledProjectile.transform.position, _controlledTarget.transform.position, new Vector3(0, 0, 0));
+	if (Network.isClient || Network.isServer)
+	{
+		this.networkView.RPC("MovePower", RPCMode.Others, _controlledProjectile.transform.position, _controlledTarget.transform.position, new Vector3(0, 0, 0));
+
+	}
+	else
+	{
+		MovePower(_controlledProjectile.transform.position, _controlledTarget.transform.position, new Vector3(0, 0, 0));
+	}
   }
 
+  [RPC]
   void MovePower(Vector3 currentPosition, Vector3 newPosition, Vector3 velocity)
   {
     _controlledProjectile.transform.position = Vector3.Lerp(currentPosition, newPosition, _drag * Time.deltaTime);

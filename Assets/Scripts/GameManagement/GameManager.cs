@@ -7,8 +7,8 @@ public enum PlayerCharacter {  Syphen, Blitz };
 public class GameManager : MonoBehaviour
 {
   public GameObject DeftClientServer;
-  public int[] playerCurrentHealth;
-  public int[] playerTotalHealth;
+  public int playerCurrentHealth;
+  public int playerTotalHealth;
   public int numbersOfDepots;
   public int[] depotCapacity;
   public int[] depotCurrentStock;
@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
 		GameObject.Find ("GrenadeBar").GetComponent<GrenadeBar>().StartGrenadeUI();
   }
 
-  public void decreaseHealth(string targetPlayerName, string attackerName)
+  public void decreaseHealth(string attackerName)
   {
     int damage;
     if (attackerName.Contains("Feeder"))
@@ -77,15 +77,10 @@ public class GameManager : MonoBehaviour
     {
       damage = killerAttackDamage;
     }
-    if (targetPlayerName.Contains("Syphen"))
-    {
-      playerCurrentHealth[0] -= damage;
-    }
-    else
-    {
-      playerCurrentHealth[1] -= damage;
-    }
-    if (playerCurrentHealth[0] <= 0 || playerCurrentHealth[1] <= 0)
+   
+    playerCurrentHealth -= damage;
+   
+    if (playerCurrentHealth <= 0)
     {
       gameOver();
     }

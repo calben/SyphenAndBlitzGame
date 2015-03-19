@@ -92,5 +92,6 @@ public class DeftSyncWorker : MonoBehaviour
   {
     Vector3 currentPosition = this.GetComponent<Rigidbody>().position;
     Vector3 goalPosition = this.goalState.position;
+    return false;
   }
 }

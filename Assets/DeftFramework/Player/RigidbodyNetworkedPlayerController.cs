@@ -2,7 +2,7 @@
 using System.Collections;
 using GamepadInput;
 
-public enum PlayerControllerState { IDLE, WALKING, RUNNING, AIMING };
+public enum PlayerControllerState { IDLE, WALKING, RUNNING, AIMING, ZOOM_OUT };
 public enum MovementType { IMPULSE, SIMPLEWALK, SETVELOCITY, FORCE, THRUSTERS };
 
 public class RigidbodyNetworkedPlayerController : MonoBehaviour
@@ -51,6 +51,7 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
   public Vector2 controllerLookDirection;
   public float exponentialControllerJoystickModifier = 3.0f;
   Vector3 moveDirection;
+  Vector3 lastInput;
 
   public bool debug = true;
 
@@ -166,12 +167,13 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
 
   float angleH;
   float angleV;
+  public float maxVerticalAngle = 30f;
+  public float minVerticalAngle = -60f;
   void AdjustCamera()
   {
     angleH += this.controllerLookDirection.x * this.horizontalAimingSpeed * Time.deltaTime;
     angleV += this.controllerLookDirection.y * this.verticalAimingSpeed * Time.deltaTime;
-    //angleV = Mathf.Clamp(angleV, 80, 80);
-    //angleH = Mathf.Clamp(angleH, -80, 80);
+		angleV = Mathf.Clamp(angleV, minVerticalAngle, maxVerticalAngle);
     Quaternion aimRotation = Quaternion.Euler(-angleV, angleH, 0);
     if (this.GetComponent<Rigidbody>().velocity.magnitude > 0.2f)
     {
@@ -184,7 +186,14 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
       targetPivotOffset = aimPivotOffset;
       targetCamOffset = aimCamOffset;
       targetFOV = aimFOV;
-    }
+	} else if (this.playerState == PlayerControllerState.ZOOM_OUT)
+	{
+		targetPivotOffset = new Vector3(0,0,-4);
+		targetCamOffset = new Vector3(0,2.5f,-7);
+		targetFOV = aimFOV;
+			maxVerticalAngle = 10;
+			minVerticalAngle = -10;
+	}
     else if (this.playerState == PlayerControllerState.RUNNING)
     {
       targetPivotOffset = runPivotOffset;
@@ -197,6 +206,11 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
       targetCamOffset = camOffset;
       targetFOV = FOV;
     }
+	
+	if (playerState != PlayerControllerState.ZOOM_OUT) {
+		maxVerticalAngle = 30;
+		minVerticalAngle = -35;
+	}
     this.myCamera.fieldOfView = Mathf.Lerp(this.myCamera.fieldOfView, targetFOV, Time.deltaTime);
 
     #region Collisions
@@ -250,7 +264,6 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
     return true;
   }
   #endregion
-
 
   #region GUI
   Texture2D temp;
@@ -320,6 +333,9 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
     {
       this.playerState = PlayerControllerState.AIMING;
     }
+	else if(this.gamepadState.RightTrigger > 0.20f && gameObject.name.Contains ("Syphen")){
+		this.playerState = PlayerControllerState.ZOOM_OUT;
+	}
     else if (this.gamepadState.LeftStick)
     {
       this.playerState = PlayerControllerState.RUNNING;
@@ -328,15 +344,16 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
     {
       this.playerState = PlayerControllerState.WALKING;
     }
-    Vector3 forward = this.myCamera.transform.TransformDirection(this.transform.forward);
-    forward = forward.normalized;
-    this.moveDirection = this.controllerMoveDirection.y * forward + this.controllerMoveDirection.x * forward;
     #endregion
 
     #region RunningActionByState
-    forward = this.myCamera.transform.TransformDirection(Vector3.forward);
+    Vector3 forward = this.myCamera.transform.TransformDirection(Vector3.forward);
     forward = forward.normalized;
     this.moveDirection = this.controllerMoveDirection.y * forward + this.controllerMoveDirection.x * new Vector3(forward.z, 0, -forward.x);
+		if (this.moveDirection.x != 0 || this.moveDirection.z != 0)
+		{
+			lastInput = moveDirection;
+		}
     moveDirection *= this.baseSpeed;
     switch (this.playerState)
     {
@@ -371,7 +388,13 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
           this.moveDirection.y = 0f;
           float yVelocityTmp = this.GetComponent<Rigidbody>().velocity.y;
           this.GetComponent<Rigidbody>().velocity = this.moveDirection * this.baseSpeed * this.GetComponent<Rigidbody>().mass;
-          this.transform.forward = this.moveDirection.normalized;
+		
+		  // smooth turning
+		  Vector3 last_input_without_y = new Vector3(lastInput.x, 0, lastInput.z);
+		  Vector3 forward_without_y = new Vector3(transform.forward.x, 0, transform.forward.z);
+		  this.transform.forward = Vector3.Lerp(forward_without_y, last_input_without_y, 20f * Time.deltaTime);
+         //this.transform.forward = this.moveDirection.normalized;
+		
           this.GetComponent<Rigidbody>().angularVelocity = Vector3.Lerp(this.GetComponent<Rigidbody>().angularVelocity, Vector3.zero, 1.0f * Time.deltaTime);
           if (this.playerState == PlayerControllerState.RUNNING)
           {
