@@ -51,6 +51,7 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
   public Vector2 controllerLookDirection;
   public float exponentialControllerJoystickModifier = 3.0f;
   Vector3 moveDirection;
+  Vector3 lastInput;
 
   public bool debug = true;
 
@@ -328,15 +329,16 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
     {
       this.playerState = PlayerControllerState.WALKING;
     }
-    Vector3 forward = this.myCamera.transform.TransformDirection(this.transform.forward);
-    forward = forward.normalized;
-    this.moveDirection = this.controllerMoveDirection.y * forward + this.controllerMoveDirection.x * forward;
     #endregion
 
     #region RunningActionByState
-    forward = this.myCamera.transform.TransformDirection(Vector3.forward);
+    Vector3 forward = this.myCamera.transform.TransformDirection(Vector3.forward);
     forward = forward.normalized;
     this.moveDirection = this.controllerMoveDirection.y * forward + this.controllerMoveDirection.x * new Vector3(forward.z, 0, -forward.x);
+		if (this.moveDirection.x != 0 || this.moveDirection.z != 0)
+		{
+			lastInput = moveDirection;
+		}
     moveDirection *= this.baseSpeed;
     switch (this.playerState)
     {
@@ -371,7 +373,13 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
           this.moveDirection.y = 0f;
           float yVelocityTmp = this.GetComponent<Rigidbody>().velocity.y;
           this.GetComponent<Rigidbody>().velocity = this.moveDirection * this.baseSpeed * this.GetComponent<Rigidbody>().mass;
-          this.transform.forward = this.moveDirection.normalized;
+		
+		  // smooth turning
+		  Vector3 last_input_without_y = new Vector3(lastInput.x, 0, lastInput.z);
+		  Vector3 forward_without_y = new Vector3(transform.forward.x, 0, transform.forward.z);
+		  this.transform.forward = Vector3.Lerp(forward_without_y, last_input_without_y, 20f * Time.deltaTime);
+         //this.transform.forward = this.moveDirection.normalized;
+		
           this.GetComponent<Rigidbody>().angularVelocity = Vector3.Lerp(this.GetComponent<Rigidbody>().angularVelocity, Vector3.zero, 1.0f * Time.deltaTime);
           if (this.playerState == PlayerControllerState.RUNNING)
           {
