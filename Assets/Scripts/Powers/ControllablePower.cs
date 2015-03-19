@@ -143,7 +143,7 @@ public class ControllablePower : MonoBehaviour
       distance = hit.distance;
     }
     if (Network.isClient || Network.isServer)
-      this.networkView.RPC("ActivatePower", RPCMode.Others);
+      this.networkView.RPC("ActivatePower", RPCMode.Others, transform.position + _offset + (cameraForward * distance));
     ActivatePower(transform.position + _offset + (cameraForward * distance));
   }
 
