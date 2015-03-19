@@ -16,7 +16,7 @@ public class DeftClientServerHandler : MonoBehaviour
   public string roomName = "15e6fs";
   public string serverAddress = "127.0.0.1";
 
-  HostData[] hostdata;
+  HostData[] hostdata = new HostData[0];
 
   void Start()
   {
