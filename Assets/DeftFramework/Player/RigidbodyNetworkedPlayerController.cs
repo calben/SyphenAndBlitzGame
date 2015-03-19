@@ -166,11 +166,13 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
 
   float angleH;
   float angleV;
+  public float maxVerticalAngle = 30f;
+  public float minVerticalAngle = -60f;
   void AdjustCamera()
   {
     angleH += this.controllerLookDirection.x * this.horizontalAimingSpeed * Time.deltaTime;
     angleV += this.controllerLookDirection.y * this.verticalAimingSpeed * Time.deltaTime;
-    angleV = Mathf.Clamp(angleV, -60, 60);
+		angleV = Mathf.Clamp(angleV, minVerticalAngle, maxVerticalAngle);
     Quaternion aimRotation = Quaternion.Euler(-angleV, angleH, 0);
     if (this.GetComponent<Rigidbody>().velocity.magnitude > 0.2f)
     {

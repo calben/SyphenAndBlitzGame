@@ -76,7 +76,8 @@ public class NetworkedControllablePower : MonoBehaviour
           {
             LaunchControllable();
             _alreadyFired = true;
-            _controller.enabled = false; // freeze the player
+			_controller.playerState = PlayerControllerState.AIMING; //Zoom the camera in
+            //_controller.enabled = false; // freeze the player
             _otherGun.SetActive(false);  // freeze the other gun
           }
           else
@@ -163,7 +164,8 @@ public class NetworkedControllablePower : MonoBehaviour
     //Get controller direction
     if (_controller.gamepadState != null)
     {
-      _controller.controllerMoveDirection = GamePad.GetAxis(GamePad.Axis.LeftStick, _padIndex);
+      //_controller.controllerMoveDirection = GamePad.GetAxis(GamePad.Axis.LeftStick, _padIndex);
+	  _controller.controllerMoveDirection = Vector2.zero;
       _controller.controllerLookDirection = GamePad.GetAxis(GamePad.Axis.RightStick, _padIndex);
 
       // feels better (can't lose control or the controllable and scatter all the items)
