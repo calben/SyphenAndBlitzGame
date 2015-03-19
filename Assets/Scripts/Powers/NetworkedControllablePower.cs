@@ -120,10 +120,7 @@ public class NetworkedControllablePower : MonoBehaviour
 		{
 			this.networkView.RPC("ActivatePower", RPCMode.Others, startPosition);
 		}
-		else
-		{
-			ActivatePower(startPosition);
-		}
+		ActivatePower(startPosition);
 	}
 
   [RPC]
@@ -131,7 +128,7 @@ public class NetworkedControllablePower : MonoBehaviour
   {
     if (Network.isClient || Network.isServer)
     {
-      _controlledProjectile = Network.Instantiate(_projectile, startPosition, transform.rotation, 1) as GameObject;
+      _controlledProjectile = Network.Instantiate(_projectile, startPosition, transform.rotation, 0) as GameObject;
     }
     else
     {
