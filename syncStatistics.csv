@@ -1,0 +1,10 @@
+time,view_id,current_position_x,current_position_y,current_position_z,goal_position_x,goal_position_z,goal_position_z,positional_difference_square_magnitude
+10.2,SceneID: 40 Level Prefix: 0,2.3, 0.5, -4.0,2.3, 0.5, -4.0,0
+10.32,SceneID: 26 Level Prefix: 0,2.3, 0.5, -2.0,2.3, 0.5, -2.0,0
+10.44,SceneID: 42 Level Prefix: 0,-0.3, 0.5, -4.0,-0.3, 0.5, -4.0,0
+10.56,SceneID: 39 Level Prefix: 0,1.0, 0.5, -2.0,1.0, 0.5, -2.0,0
+10.68,SceneID: 45 Level Prefix: 0,2.3, 0.5, 0.0,2.3, 0.5, 0.0,0
+10.8,SceneID: 43 Level Prefix: 0,-0.3, 0.5, 0.0,-0.3, 0.5, 0.0,0
+10.92,SceneID: 44 Level Prefix: 0,1.0, 0.5, 0.0,1.0, 0.5, 0.0,0
+11.04,SceneID: 15 Level Prefix: 0,-0.3, 0.5, -2.0,-0.3, 0.5, -2.0,0
+11.16,SceneID: 41 Level Prefix: 0,1.0, 0.5, -4.0,1.0, 0.5, -4.0,0

@@ -10,6 +10,7 @@ public class DeftLayerSyncManager : MonoBehaviour
   public Dictionary<NetworkViewID, GameObject> objectsInLayer;
   public Queue<DeftBodyState> syncQueue;
   public List<DeftBodyState> lastSavedStates;
+  DeftLayerSyncStatistics statisticsManager;
   public int layer;
   public float hardSyncThreshold = 5.0f;
   public float maxSyncRate = 0.1f;
@@ -20,7 +21,8 @@ public class DeftLayerSyncManager : MonoBehaviour
   public float tooCloseToPlayerSquaredDistance = 9.0f;
   public float tooFarFromPlayerSquaredDistance = 250.0f;
 
-  public bool debug;
+  public bool debug = false;
+  public bool statistics = false;
   public int statisticsSyncsSavedByDistanceThreshhold;
   public int statisticsSyncsSavedByPlayerDistanceThreshholds;
 
@@ -82,9 +84,8 @@ public class DeftLayerSyncManager : MonoBehaviour
   }
 
   [RPC]
-  public void UpdateDeftBodyStateRaw(Vector3 position, Quaternion rotation, double timestamp, Vector3 velocity, Vector3 angularVelocity, NetworkViewID id)
+  public void UpdateDeftBodyStateRaw(Vector3 position, Quaternion rotation, float timestamp, Vector3 velocity, Vector3 angularVelocity, NetworkViewID id)
   {
-    Debug.Log("Updating deft body state for " + id.ToString());
     DeftBodyState state = new DeftBodyState();
     state.position = position;
     state.rotation = rotation;
@@ -93,6 +94,10 @@ public class DeftLayerSyncManager : MonoBehaviour
     state.angularVelocity = angularVelocity;
     state.id = id;
     this.objectsInLayer[state.id].GetComponent<DeftSyncWorker>().goalState = state;
+    if (statistics)
+    {
+      this.statisticsManager.addLine(Time.time, id, this.objectsInLayer[state.id].gameObject.GetComponent<Rigidbody>().position, state.position);
+    }
     this.objectsInLayer[state.id].GetComponent<DeftSyncWorker>().StartSync();
   }
 
@@ -164,6 +169,7 @@ public class DeftLayerSyncManager : MonoBehaviour
     this.syncQueue = new Queue<DeftBodyState>();
     this.lastSavedStates = new List<DeftBodyState>();
     this.SetObjectsInLayer();
+    this.statisticsManager = this.gameObject.GetComponent<DeftLayerSyncStatistics>();
   }
 
   public float maxSyncRateTmp;
@@ -185,7 +191,7 @@ public class DeftLayerSyncManager : MonoBehaviour
             Debug.Log(Time.time + ": Sending " + state.id.ToString());
           }
           //this.networkView.RPC("UpdateDeftBodyState", RPCMode.AllBuffered, DeftBodyStateUtil.MarshallDeftBodyState(state));
-          this.networkView.RPC("UpdateDeftBodyStateRaw", RPCMode.AllBuffered, state.position, state.rotation, state.timestamp, state.velocity, state.angularVelocity, state.id);
+          this.networkView.RPC("UpdateDeftBodyStateRaw", RPCMode.AllBuffered, state.position, state.rotation, (float)state.timestamp, state.velocity, state.angularVelocity, state.id);
           this.maxSyncRateTmp = 0.0f;
         }
       }

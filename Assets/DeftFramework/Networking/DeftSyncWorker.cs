@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public enum SyncWorkerType { snap, firstorder, secondorder, adaptivehigherorder };
 
@@ -8,8 +9,10 @@ public class DeftSyncWorker : MonoBehaviour
 
   public DeftBodyState goalState;
   public DeftBodyState lastCheckedState;
+  public LinkedList<DeftBodyState> stateHistory = new LinkedList<DeftBodyState>();
   public bool moveToState;
   public float duration = 1.0f;
+  public float syncThreshhold = 1.0f;
   public bool debug = true;
   public SyncWorkerType workerType = SyncWorkerType.firstorder;
   float durationTmp;
@@ -21,7 +24,7 @@ public class DeftSyncWorker : MonoBehaviour
 
   void FixedUpdate()
   {
-    if (durationTmp > 0)
+    if (durationTmp > 0 && DeftBodyStateUtil.SquaredPositionalDifference(goalState, lastCheckedState) > syncThreshhold)
     {
       switch (this.workerType)
       {

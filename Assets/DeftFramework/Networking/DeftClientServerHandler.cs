@@ -3,7 +3,6 @@ using System.Collections;
 
 public class DeftClientServerHandler : MonoBehaviour
 {
-
   public enum DeftNetworkRole { SEARCHER, CLIENT, WILLHOST, UNASSIGNED, HOST };
   public DeftNetworkRole currentRole = DeftNetworkRole.UNASSIGNED;
 
@@ -54,7 +53,10 @@ public class DeftClientServerHandler : MonoBehaviour
     {
       case DeftNetworkRole.WILLHOST:
         Network.InitializeServer(this.numberConnections, this.port, !this.LAN);
-        MasterServer.RegisterHost(this.gameName, this.roomName);
+        if (!this.LAN)
+        {
+          MasterServer.RegisterHost(this.gameName, this.roomName);
+        }
         break;
       case DeftNetworkRole.SEARCHER:
         MasterServer.RequestHostList(this.gameName);
