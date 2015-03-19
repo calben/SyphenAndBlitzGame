@@ -415,12 +415,12 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
         {
           if (this.fullSyncRateTmp <= 0.0f)
           {
-            this.networkView.RPC("UpdateFullPlayerState", RPCMode.Others, rigidbody.position, rigidbody.rotation, rigidbody.velocity, rigidbody.angularVelocity, fields.health, this.networkView.viewID);
+            this.networkView.RPC("UpdateFullPlayerState", RPCMode.OthersBuffered, rigidbody.position, rigidbody.rotation, rigidbody.velocity, rigidbody.angularVelocity, fields.health, this.networkView.viewID);
             this.fullSyncRateTmp = this.fullSyncRate;
           }
           else
           {
-            this.networkView.RPC("UpdatePartialPlayerState", RPCMode.Others, rigidbody.position, rigidbody.rotation, rigidbody.velocity, this.networkView.viewID);
+            this.networkView.RPC("UpdatePartialPlayerState", RPCMode.OthersBuffered, rigidbody.position, rigidbody.rotation, rigidbody.velocity, this.networkView.viewID);
           }
         }
       }
