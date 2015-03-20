@@ -35,12 +35,19 @@ public class DeftLayerSyncStatistics : MonoBehaviour
     try
     {
       file = new System.IO.StreamWriter(fileName);
-    } 
-    catch(IOException)
+    }
+    catch (IOException)
     {
       this.GetComponent<DeftLayerSyncStatistics>().enabled = false;
     }
-    addHeader();
+    try
+    {
+      addHeader();
+    }
+    catch (IOException)
+    {
+      this.GetComponent<DeftLayerSyncStatistics>().enabled = false;
+    }
   }
 
   // Update is called once per frame

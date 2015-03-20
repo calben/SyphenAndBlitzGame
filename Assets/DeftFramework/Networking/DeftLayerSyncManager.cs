@@ -16,6 +16,7 @@ public class DeftLayerSyncManager : MonoBehaviour
   public float maxSyncRate = 0.05f;
   public float maxQueueBuildRate = 1.0f;
   public float distanceThreshold = 5.0f;
+  public int bodiesPerBundle = 5;
 
   public bool considerPlayer = true;
   public float tooCloseToPlayerSquaredDistance = 9.0f;
@@ -44,6 +45,14 @@ public class DeftLayerSyncManager : MonoBehaviour
     foreach (DeftBodyState state in this.lastSavedStates)
     {
       UpdateDeftBodyState(state);
+    }
+  }
+
+  public void SendDeftStateBundle(DeftBodyState[] states)
+  {
+    foreach (DeftBodyState state in states)
+    {
+      this.networkView.RPC("UpdateDeftBodyStateRaw", RPCMode.OthersBuffered, state.position, state.rotation, (float)state.timestamp, state.velocity, state.angularVelocity, state.id);
     }
   }
 
@@ -174,7 +183,7 @@ public class DeftLayerSyncManager : MonoBehaviour
 
   public float maxSyncRateTmp;
   public float maxQueueBuildRateTmp;
-  void FixedUpdate()
+  void Update()
   {
     this.maxSyncRateTmp += Time.deltaTime;
     this.maxQueueBuildRateTmp += Time.deltaTime;
@@ -184,20 +193,27 @@ public class DeftLayerSyncManager : MonoBehaviour
       {
         if (maxSyncRateTmp > maxSyncRate)
         {
-          //DeftBodyState state = DeftBodyStateUtil.BuildState(this.objectsInLayer[this.syncQueue.Dequeue().id]);
-          DeftBodyState state = DeftBodyStateUtil.BuildState(this.objectsInLayer[this.syncQueue.Dequeue().id]);
-          if (debug)
+          List<DeftBodyState> states = new List<DeftBodyState>();
+          for (int i = 0; i < this.bodiesPerBundle; i++)
           {
-            Debug.Log(Time.time + ": Sending " + state.id.ToString());
+            if (this.syncQueue.Count > 0)
+            {
+              states.Add(DeftBodyStateUtil.BuildState(this.objectsInLayer[this.syncQueue.Dequeue().id]));
+            }
+            else
+            {
+              break;
+            }
           }
+          DeftBodyState[] statesArray = states.ToArray();
           //this.networkView.RPC("UpdateDeftBodyState", RPCMode.AllBuffered, DeftBodyStateUtil.MarshallDeftBodyState(state));
-          this.networkView.RPC("UpdateDeftBodyStateRaw", RPCMode.OthersBuffered, state.position, state.rotation, (float)state.timestamp, state.velocity, state.angularVelocity, state.id);
+          // this.networkView.RPC("UpdateDeftBodyStateRaw", RPCMode.OthersBuffered, state.position, state.rotation, (float)state.timestamp, state.velocity, state.angularVelocity, state.id);
+          SendDeftStateBundle(statesArray);
           this.maxSyncRateTmp = 0.0f;
         }
       }
       else
       {
-        Debug.Log("Initiating Sync Queue Rebuild");
         BuildSyncQueue();
       }
     }
