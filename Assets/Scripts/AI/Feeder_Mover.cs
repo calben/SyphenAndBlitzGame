@@ -45,6 +45,26 @@ public class Feeder_Mover : AI_Mover {
 			kill ();
 
 		}
+
+		if(gameObject.rigidbody.velocity.magnitude >= 2.0f)
+		{
+			gameObject.rigidbody.velocity = gameObject.rigidbody.velocity * 0.5f;
+			
+		}
+
+		RaycastHit hit;
+		
+		if(Physics.Raycast (transform.position, -Vector3.up, out hit, 100.0f))
+		{
+			
+			if(hit.distance <= 0.5f)
+			{
+				
+				transform.position = new Vector3(transform.position.x, 1.0f, transform.position.z);
+				
+			}
+			
+		}
 		
 	}
 
