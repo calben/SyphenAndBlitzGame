@@ -49,7 +49,7 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
 
   public Vector2 controllerMoveDirection;
   public Vector2 controllerLookDirection;
-  public float exponentialControllerJoystickModifier = 3.0f;
+  public float exponentialControllerJoystickModifier = 5.0f;
   Vector3 moveDirection;
   Vector3 lastInput;
 
@@ -390,15 +390,16 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
         case MovementType.SIMPLEWALK:
           this.moveDirection.y = 0f;
           float yVelocityTmp = this.GetComponent<Rigidbody>().velocity.y;
-          this.GetComponent<Rigidbody>().velocity = this.moveDirection * this.baseSpeed * this.GetComponent<Rigidbody>().mass;
+				this.GetComponent<Rigidbody>().velocity = this.moveDirection * this.baseSpeed * this.GetComponent<Rigidbody>().mass + new Vector3(0,yVelocityTmp,0);
 		
 		  // smooth turning
 		  Vector3 last_input_without_y = new Vector3(lastInput.x, 0, lastInput.z);
 		  Vector3 forward_without_y = new Vector3(transform.forward.x, 0, transform.forward.z);
 		  this.transform.forward = Vector3.Lerp(forward_without_y, last_input_without_y, 20f * Time.deltaTime);
          //this.transform.forward = this.moveDirection.normalized;
-		
-          this.GetComponent<Rigidbody>().angularVelocity = Vector3.Lerp(this.GetComponent<Rigidbody>().angularVelocity, Vector3.zero, 1.0f * Time.deltaTime);
+		  
+		  Vector3 angularVelocity = this.GetComponent<Rigidbody>().angularVelocity;
+          this.GetComponent<Rigidbody>().angularVelocity = Vector3.Lerp(angularVelocity, new Vector3(0,angularVelocity.y,0), 3.0f * Time.deltaTime);
           if (this.playerState == PlayerControllerState.RUNNING)
           {
             this.GetComponent<Rigidbody>().velocity *= this.runSpeedMultiplier;
@@ -420,7 +421,10 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
           Debug.Log(this.moveDirection * this.GetComponent<Rigidbody>().mass * this.impulseDampingSpeed);
           this.GetComponent<Rigidbody>().AddForce(this.moveDirection * this.GetComponent<Rigidbody>().mass * this.impulseDampingSpeed, ForceMode.Impulse);
           this.transform.forward = Vector3.Lerp(this.transform.forward, this.moveDirection, this.velocityDampingSpeed * Time.deltaTime);
-          this.GetComponent<Rigidbody>().angularVelocity = Vector3.Lerp(this.GetComponent<Rigidbody>().angularVelocity, Vector3.zero, this.velocityDampingSpeed * Time.deltaTime);
+		
+		  angularVelocity = this.GetComponent<Rigidbody>().angularVelocity;
+		  this.GetComponent<Rigidbody>().angularVelocity = Vector3.Lerp(angularVelocity, new Vector3(0,angularVelocity.y,0), this.velocityDampingSpeed * Time.deltaTime);
+          //this.GetComponent<Rigidbody>().angularVelocity = Vector3.Lerp(this.GetComponent<Rigidbody>().angularVelocity, Vector3.zero, this.velocityDampingSpeed * Time.deltaTime);
           break;
         case MovementType.THRUSTERS:
           this.GetComponent<Thrusters>().ActivatePrimaryMovementThrusters(this.moveDirection);

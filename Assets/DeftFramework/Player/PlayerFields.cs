@@ -5,7 +5,7 @@ public class PlayerFields : MonoBehaviour
 {
 
   public float health = 100.0f;
-  public bool debug = true;
+  public bool debug = false;
 
 
   void OnCollisionEnter(Collision collision)
