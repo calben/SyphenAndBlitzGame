@@ -149,8 +149,8 @@ public class Feeder_Mover : AI_Mover {
 
 			Destroy (other.gameObject);
 			resourcesEaten++;
-			StartCoroutine(flashGreen());
-			StartCoroutine(falconPull());
+			//StartCoroutine(flashGreen());
+			//StartCoroutine(falconPull());
 			return;
 
 		}
