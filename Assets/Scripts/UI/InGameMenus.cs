@@ -15,8 +15,8 @@ public class InGameMenus : MonoBehaviour
 
   public void RestartGame()
   {
-    Application.LoadLevel(gameSceneName);
-    //		GameObject.Find ("GameManager").GetComponent<DeftNetwork> ().enabled = true;
+    GameObject.Find("Layer10SyncManager").GetComponent<DeftLayerSyncManager>().LoadLastSavedState();
+
   }
 
   public void InvertControls()
@@ -30,8 +30,9 @@ public class InGameMenus : MonoBehaviour
         player = obj;
       }
     }
-    if (player != null) {
-			player.GetComponent<RigidbodyNetworkedPlayerController> ().inverted = !player.GetComponent<RigidbodyNetworkedPlayerController> ().inverted;
-	}
+    if (player != null)
+    {
+      player.GetComponent<RigidbodyNetworkedPlayerController>().inverted = !player.GetComponent<RigidbodyNetworkedPlayerController>().inverted;
+    }
   }
 }

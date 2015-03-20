@@ -36,6 +36,13 @@ public class Killer_Mover : AI_Mover {
 
 		}
 
+		if(gameObject.rigidbody.velocity.magnitude >= 2.0f)
+		{
+			gameObject.rigidbody.velocity = gameObject.rigidbody.velocity * 0.5f;
+
+		}
+
+
 		RaycastHit hit;
 
 		if(Physics.Raycast (transform.position, -Vector3.up, out hit, 100.0f))
@@ -61,25 +68,28 @@ public class Killer_Mover : AI_Mover {
 
 			return;
 
-		}
-
-		if (other.rigidbody.velocity.magnitude >= killSpeed)
+		}else if(other.gameObject.tag.Equals("Player"))
 		{
-			if(other.gameObject.tag.Equals("Player"))
-			{
-				GameObject.Find ("GameManager").GetComponent<GameManager>().decreaseHealth("Feeder");
-				myStatus.updateText(true);
-
-			}
-
-			health = health - damageTaken;
-
-			StartCoroutine(flashRed ());
-
+			GameObject.Find ("GameManager").GetComponent<GameManager>().decreaseHealth("Killer");
+			myStatus.updateText(true);
+			
+		}else if(other.gameObject.rigidbody != null && other.gameObject.rigidbody.velocity.magnitude >= killSpeed)
+		{
+			
+			damage ();
+			
 		}
-		
+
 	}
 
+	public void damage()
+	{
+
+		health = health - damageTaken;
+		
+		StartCoroutine(flashRed ());
+
+	}
 
 	protected override void react()
 	{

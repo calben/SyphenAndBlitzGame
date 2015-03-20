@@ -25,12 +25,14 @@ public class GameManager : MonoBehaviour
   public GameObject SyphenPowerUnlock;
   public GameObject BlitzPowerUnlock;
   public GameObject NewObjectiveWindow;
+  public bool longRangeUnlocked;
 
   private int depotsFull;
   private EventSystem eventSystem;
 
   void Start()
   {
+	longRangeUnlocked = false;
     gameOverWindow.SetActive(false);
 	SyphenPowerUnlock.SetActive (false);
 	BlitzPowerUnlock.SetActive(false);
@@ -107,6 +109,8 @@ public class GameManager : MonoBehaviour
     }
     else
     {
+		//Activate second power
+		longRangeUnlocked = true;
 		//Activate the Power Unlock window 
 		string name = DeftClientServer.GetComponent<PlayerSelect>().selectedPlayer.name;
 		if (name.Contains("Blitz")) {
@@ -126,6 +130,7 @@ public class GameManager : MonoBehaviour
   public void activateNewObjective() 
   {
 	NewObjectiveWindow.SetActive (true);
+  GameObject.Find("Layer10SyncManager").GetComponent<DeftLayerSyncManager>().SetLastSavedState();
 	activateNextDepot();
   }
   public void activateNextDepot() 

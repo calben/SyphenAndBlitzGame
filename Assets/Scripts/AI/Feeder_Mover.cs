@@ -45,6 +45,26 @@ public class Feeder_Mover : AI_Mover {
 			kill ();
 
 		}
+
+		if(gameObject.rigidbody.velocity.magnitude >= 2.0f)
+		{
+			gameObject.rigidbody.velocity = gameObject.rigidbody.velocity * 0.5f;
+			
+		}
+
+		RaycastHit hit;
+		
+		if(Physics.Raycast (transform.position, -Vector3.up, out hit, 100.0f))
+		{
+			
+			if(hit.distance <= 0.5f)
+			{
+				
+				transform.position = new Vector3(transform.position.x, 1.0f, transform.position.z);
+				
+			}
+			
+		}
 		
 	}
 
@@ -129,8 +149,8 @@ public class Feeder_Mover : AI_Mover {
 
 			Destroy (other.gameObject);
 			resourcesEaten++;
-			StartCoroutine(flashGreen());
-			StartCoroutine(falconPull());
+			//StartCoroutine(flashGreen());
+			//StartCoroutine(falconPull());
 			return;
 
 		}
@@ -138,7 +158,7 @@ public class Feeder_Mover : AI_Mover {
 		if(other.gameObject.tag.Equals("Player"))
 		{
 			GameObject.Find ("GameManager").GetComponent<GameManager>().decreaseHealth("Feeder");
-			takeDamage();
+			damage();
 			return;
 
 		}
@@ -146,12 +166,12 @@ public class Feeder_Mover : AI_Mover {
 		if(other.gameObject.rigidbody != null && other.gameObject.rigidbody.velocity.magnitude >= killSpeed)
 		{
 
-			takeDamage ();
+			damage ();
 
 		}
 	}
 
-	void takeDamage()
+	public void damage()
 	{
 
 		health = health - damageTaken;

@@ -22,4 +22,4 @@ diff = a - b
 diff = diff.abs()
 diff = diff.mean(axis=1)
 diff.plot(title=sys.argv[3])
-plt.savefig("state-difference.pdf")
+plt.savefig("state-difference.png")

@@ -41,6 +41,16 @@ public class Sphere_Of_Influence : MonoBehaviour {
 		
 	}
 
+	void OnTriggerStay(Collider other)
+	{
+		if(other.gameObject.tag.Equals("Player"))
+		{
+
+			GetComponentInParent<Killer_Mover>().GetComponentInChildren<StatusUpdate>().updateText(true);
+		
+		}
+	}
+
 
 	void OnTriggerExit(Collider other)
 	{

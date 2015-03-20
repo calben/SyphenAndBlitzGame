@@ -30,7 +30,7 @@ public class DeftLayerSyncManager : MonoBehaviour
   GameObject[] players;
 
   [RPC]
-  public void SetLastSavedState()
+  void SetLastSavedStateRPC()
   {
     this.lastSavedStates.Clear();
     foreach (KeyValuePair<NetworkViewID, GameObject> entry in this.objectsInLayer)
@@ -39,8 +39,34 @@ public class DeftLayerSyncManager : MonoBehaviour
     }
   }
 
-  [RPC]
+  public void SetLastSavedState()
+  {
+    Debug.Log("Saving!");
+    if (Network.isClient || Network.isServer)
+    {
+      this.networkView.RPC("SetLastSavedStateRPC", RPCMode.All);
+    }
+    else
+    {
+      this.SetLastSavedStateRPC();
+    }
+  }
+
   public void LoadLastSavedState()
+  {
+    Debug.Log("Loading!");
+    if (Network.isClient || Network.isServer)
+    {
+      this.networkView.RPC("LoadLastSavedStateRPC", RPCMode.All);
+    }
+    else
+    {
+      this.LoadLastSavedStateRPC();
+    }
+  }
+
+  [RPC]
+  void LoadLastSavedStateRPC()
   {
     foreach (DeftBodyState state in this.lastSavedStates)
     {
@@ -170,6 +196,7 @@ public class DeftLayerSyncManager : MonoBehaviour
     this.syncQueue = new Queue<DeftBodyState>();
     this.lastSavedStates = new List<DeftBodyState>();
     this.SetObjectsInLayer();
+    this.SetLastSavedState();
     if (statistics)
     {
       this.statisticsManager = this.gameObject.GetComponent<DeftLayerSyncStatistics>();
