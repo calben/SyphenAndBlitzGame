@@ -53,10 +53,7 @@ public class DeftClientServerHandler : MonoBehaviour
     {
       case DeftNetworkRole.WILLHOST:
         Network.InitializeServer(this.numberConnections, this.port, !this.LAN);
-        if (!this.LAN)
-        {
-          MasterServer.RegisterHost(this.gameName, this.roomName);
-        }
+        MasterServer.RegisterHost(this.gameName, this.roomName);
         break;
       case DeftNetworkRole.SEARCHER:
         MasterServer.RequestHostList(this.gameName);

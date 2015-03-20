@@ -13,7 +13,7 @@ public class DeftLayerSyncManager : MonoBehaviour
   DeftLayerSyncStatistics statisticsManager;
   public int layer;
   public float hardSyncThreshold = 5.0f;
-  public float maxSyncRate = 0.1f;
+  public float maxSyncRate = 0.05f;
   public float maxQueueBuildRate = 1.0f;
   public float distanceThreshold = 5.0f;
 
@@ -191,7 +191,7 @@ public class DeftLayerSyncManager : MonoBehaviour
             Debug.Log(Time.time + ": Sending " + state.id.ToString());
           }
           //this.networkView.RPC("UpdateDeftBodyState", RPCMode.AllBuffered, DeftBodyStateUtil.MarshallDeftBodyState(state));
-          this.networkView.RPC("UpdateDeftBodyStateRaw", RPCMode.AllBuffered, state.position, state.rotation, (float)state.timestamp, state.velocity, state.angularVelocity, state.id);
+          this.networkView.RPC("UpdateDeftBodyStateRaw", RPCMode.OthersBuffered, state.position, state.rotation, (float)state.timestamp, state.velocity, state.angularVelocity, state.id);
           this.maxSyncRateTmp = 0.0f;
         }
       }

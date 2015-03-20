@@ -4,12 +4,10 @@ using System.Collections;
 
 public class DeftLayerSyncStatistics : MonoBehaviour
 {
-
-  public float fileWriteRate = 5.0f;
   public string fileName = System.IO.Directory.GetCurrentDirectory() + "/syncStatistics.csv";
   System.IO.StreamWriter file;
 
-  float flushTimer = 1.0f;
+  public float flushTimer = 1.0f;
   float acc;
 
   public void addHeader()
@@ -34,7 +32,14 @@ public class DeftLayerSyncStatistics : MonoBehaviour
       return;
     }
     Debug.Log("Creating statistics log at " + fileName);
-    file = new System.IO.StreamWriter(fileName);
+    try
+    {
+      file = new System.IO.StreamWriter(fileName);
+    } 
+    catch(IOException)
+    {
+      this.GetComponent<DeftLayerSyncStatistics>().enabled = false;
+    }
     addHeader();
   }
 
