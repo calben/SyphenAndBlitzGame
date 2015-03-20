@@ -15,7 +15,7 @@ public class explosion : MonoBehaviour {
 	void Start(){
 		StartCoroutine ("MyMethod");
 	}
-
+	/*
 	void DealDamage(Collider other){
 		int dmg = 50;
 		if (other.gameObject.tag == "Feeder") {
@@ -26,6 +26,16 @@ public class explosion : MonoBehaviour {
 			Killer_Mover km = other.GetComponent<Killer_Mover>();
 			km.health -= dmg;
 		}
+	}*/
+
+	void DealDamage(Collider other){
+		Killer_Mover km = other.GetComponent<Killer_Mover>(); // grab scripts
+		Feeder_Mover fm = other.GetComponent<Feeder_Mover>();
+		//int dmg = 0; // initialize dmg amount
+		//if (_forceType==ForceType.Push) dmg = 50; // alter dmg amount according to ability
+		//if (_forceType==ForceType.Pull) dmg = 10; // pull does much less
+		if (km) km.damage (); // reduce health here
+		if (fm) fm.damage ();
 	}
 
 	IEnumerator Lift(Collider[] colliders, float airTime){

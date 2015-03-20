@@ -150,6 +150,7 @@ public class NetworkedControllablePower : MonoBehaviour
     if (_controlledTarget) { Destroy(_controlledTarget); }
     _controller.enabled = true; // unfreeze the player
     _otherGun.SetActive(true);  // unfreeze the other gun
+		transform.parent.gameObject.GetComponent<RigidbodyNetworkedPlayerController> ().controllableHittingFloor = false;
   }
 
   void MoveControllable()
@@ -192,11 +193,12 @@ public class NetworkedControllablePower : MonoBehaviour
     Vector3 move_direction = pull * cameraForward;
 
     // if the controllable hits the floor, keep the player from going lower into the floor
-    if (Physics.Raycast(_controlledTarget.transform.position, -_controlledTarget.transform.up, _distanceFromFloor, layerMask))
-    {
-      if (_controller.controllerLookDirection.y < 0)
-        _controller.controllerLookDirection.y = 0;
-    }
+    if (Physics.Raycast (_controlledTarget.transform.position, -_controlledTarget.transform.up, _distanceFromFloor, layerMask)) {
+			transform.parent.gameObject.GetComponent<RigidbodyNetworkedPlayerController> ().controllableHittingFloor = true;
+			//_controller.controllerLookDirection.y = 0;
+	} else {
+			transform.parent.gameObject.GetComponent<RigidbodyNetworkedPlayerController> ().controllableHittingFloor = false;
+	}
 
     //apply movement
     _controlledTarget.transform.position = _controlledTarget.transform.position + move_direction;
@@ -212,6 +214,6 @@ public class NetworkedControllablePower : MonoBehaviour
   void MovePower(Vector3 currentPosition, Vector3 newPosition, Vector3 velocity)
   {
     _controlledProjectile.transform.position = Vector3.Lerp(currentPosition, newPosition, _drag * Time.deltaTime);
-		Debug.Log("Whip it real good:" + _controlledProjectile.transform.position);
+		//Debug.Log("Whip it real good:" + _controlledProjectile.transform.position);
   }
 }

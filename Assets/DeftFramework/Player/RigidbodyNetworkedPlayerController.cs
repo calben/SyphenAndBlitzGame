@@ -82,6 +82,9 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
   float fullSyncRateTmp;
   GameManager gameManager;
 
+  [HideInInspector]
+  public bool controllableHittingFloor = false;
+
   void Awake()
   {
 	gameManager = GameObject.Find ("GameManager").GetComponent<GameManager>();
@@ -174,9 +177,21 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
   public float minVerticalAngle = -60f;
   void AdjustCamera()
   {
+	if (this.playerState == PlayerControllerState.AIMING) {
+		if(gameObject.name.Contains ("Syphen")){
+			this.horizontalAimingSpeed = 30f;
+			this.verticalAimingSpeed = 30f;
+		} else{
+			this.horizontalAimingSpeed = 100f;
+			this.verticalAimingSpeed = 100f;
+		}
+	} else{
+			this.horizontalAimingSpeed = 400f;
+			this.verticalAimingSpeed = 400f;
+	}
     angleH += this.controllerLookDirection.x * this.horizontalAimingSpeed * Time.deltaTime;
     angleV += this.controllerLookDirection.y * this.verticalAimingSpeed * Time.deltaTime;
-		angleV = Mathf.Clamp(angleV, minVerticalAngle, maxVerticalAngle);
+	angleV = Mathf.Clamp(angleV, minVerticalAngle, maxVerticalAngle);
     Quaternion aimRotation = Quaternion.Euler(-angleV, angleH, 0);
     if (this.GetComponent<Rigidbody>().velocity.magnitude > 0.2f)
     {
@@ -319,7 +334,12 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
         this.controllerLookDirection = GamePad.GetAxis(GamePad.Axis.RightStick, this.padIndex);
         this.controllerMoveDirection.y = Mathf.Pow(this.controllerMoveDirection.y, this.exponentialControllerJoystickModifier);
         this.controllerMoveDirection.x = Mathf.Pow(this.controllerMoveDirection.x, this.exponentialControllerJoystickModifier);
-        this.controllerLookDirection.y = Mathf.Pow(this.controllerLookDirection.y, this.exponentialControllerJoystickModifier);
+		
+		if(controllableHittingFloor && this.controllerLookDirection.y < 0){
+			this.controllerLookDirection.y = 0;
+		} else{
+			this.controllerLookDirection.y = Mathf.Pow(this.controllerLookDirection.y, this.exponentialControllerJoystickModifier);
+		}
         this.controllerLookDirection.x = Mathf.Pow(this.controllerLookDirection.x, this.exponentialControllerJoystickModifier);
       }
       else
