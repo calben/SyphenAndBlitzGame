@@ -126,6 +126,7 @@ public class GameManager : MonoBehaviour
   public void activateNewObjective() 
   {
 	NewObjectiveWindow.SetActive (true);
+  GameObject.Find("Layer10SyncManager").GetComponent<DeftLayerSyncManager>().SetLastSavedState();
 	activateNextDepot();
   }
   public void activateNextDepot() 
