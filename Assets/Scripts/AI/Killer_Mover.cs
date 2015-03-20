@@ -63,23 +63,23 @@ public class Killer_Mover : AI_Mover {
 
 		}
 
-		if (other.rigidbody.velocity.magnitude >= killSpeed)
+		if(other.gameObject.tag.Equals("Player"))
 		{
-			if(other.gameObject.tag.Equals("Player"))
-			{
-				GameObject.Find ("GameManager").GetComponent<GameManager>().decreaseHealth("Feeder");
-				myStatus.updateText(true);
-
-			}
-
-			health = health - damageTaken;
-
-			StartCoroutine(flashRed ());
-
+			GameObject.Find ("GameManager").GetComponent<GameManager>().decreaseHealth("Killer");
+			myStatus.updateText(true);
+			
 		}
 		
 	}
 
+	public void damage()
+	{
+
+		health = health - damageTaken;
+		
+		StartCoroutine(flashRed ());
+
+	}
 
 	protected override void react()
 	{

@@ -138,7 +138,7 @@ public class Feeder_Mover : AI_Mover {
 		if(other.gameObject.tag.Equals("Player"))
 		{
 			GameObject.Find ("GameManager").GetComponent<GameManager>().decreaseHealth("Feeder");
-			takeDamage();
+			damage();
 			return;
 
 		}
@@ -146,12 +146,12 @@ public class Feeder_Mover : AI_Mover {
 		if(other.gameObject.rigidbody != null && other.gameObject.rigidbody.velocity.magnitude >= killSpeed)
 		{
 
-			takeDamage ();
+			damage ();
 
 		}
 	}
 
-	void takeDamage()
+	public void damage()
 	{
 
 		health = health - damageTaken;
