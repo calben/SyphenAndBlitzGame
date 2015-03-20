@@ -8,6 +8,7 @@ public class StatusUpdate : MonoBehaviour {
 
 	public string normalText;
 	public string chasingText;
+	public float depthThreshold = 30;
 
 
 	// Use this for initialization
@@ -25,9 +26,15 @@ public class StatusUpdate : MonoBehaviour {
 	void Update()
 	{
 
+		if (myCamera.WorldToViewportPoint (transform.position).z < depthThreshold) {
+			status.renderer.enabled = true;
+		} else {
+			status.renderer.enabled = false;
+		}
+
 		gameObject.transform.LookAt (myCamera.transform.position);
 		gameObject.transform.RotateAround (transform.position, transform.up, 180f);
-
+		
 	}
 
 	public void updateText(bool playerClose)
