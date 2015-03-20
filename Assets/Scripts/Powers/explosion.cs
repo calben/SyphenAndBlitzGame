@@ -8,7 +8,10 @@ public class explosion : MonoBehaviour {
 	public float delay;
 	public GameObject effect;
 	public AudioManager _audioManager;
-	
+	public float liftTime;
+	public float liftMag;
+	private int maxLift = 1000000;
+
 	void Start(){
 		StartCoroutine ("MyMethod");
 	}
@@ -25,16 +28,39 @@ public class explosion : MonoBehaviour {
 		}
 	}
 
+	IEnumerator Lift(Collider[] colliders, float airTime){
+		//Debug.Log("got into lift!");
+		float curTime = 0;
+		while (curTime < airTime) {
+			//Debug.Log("lifting stuff");
+			curTime += Time.deltaTime;
+			foreach (Collider hit in colliders) {
+				PhysicsStatus ps = (PhysicsStatus) hit.GetComponent<PhysicsStatus>();
+				if( ps && (ps.liftable||ps.pushable) && hit.attachedRigidbody){ 
+					hit.rigidbody.AddForce( Vector3.up * Mathf.Clamp(liftMag/Vector3.Magnitude(this.transform.position - hit.transform.position), 0, maxLift) , ForceMode.Impulse);
+				}
+			}
+		}
+		yield return null;
+	}
+
 	IEnumerator MyMethod() {
 		_audioManager.Initialize();
 		_audioManager.Play("grenade_beeping", 0.25f, false);
 		yield return new WaitForSeconds(delay);
 		_audioManager.Play("grenade_explosion", 0.0f, false);
 
-		Instantiate(effect, transform.position, transform.rotation);
 		Vector3 explosionPos = transform.position;
-
 		Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
+
+		float airTime = liftTime;
+
+		yield return StartCoroutine (Lift (colliders, airTime)); // should be waiting for coroutine to finish
+		Debug.Log ("Returned from lift");
+
+		Instantiate(effect, explosionPos, transform.rotation);
+		//Vector3 explosionPos = transform.position;
+
 		foreach (Collider hit in colliders) {
 			// can add cases for non physics objects later
 			DealDamage(hit); // call to method that hurts ai
