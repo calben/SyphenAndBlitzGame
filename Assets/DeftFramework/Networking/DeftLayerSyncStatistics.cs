@@ -21,7 +21,7 @@ public class DeftLayerSyncStatistics : MonoBehaviour
 
   public void addLineOnSync(float time, NetworkViewID viewId, Vector3 currentPosition, Vector3 goalPosition)
   {
-    string tmp = time.ToString() + "," + viewId.ToString() + "," + currentPosition.ToString() + "," + goalPosition.ToString() + "," + Vector3.SqrMagnitude(currentPosition - goalPosition);
+    string tmp = Network.time.ToString() + "," + viewId.ToString() + "," + currentPosition.ToString() + "," + goalPosition.ToString() + "," + Vector3.SqrMagnitude(currentPosition - goalPosition);
     tmp = tmp.Replace("(", "");
     tmp = tmp.Replace(")", "");
     onsyncfile.WriteLine(tmp);
@@ -40,7 +40,7 @@ public class DeftLayerSyncStatistics : MonoBehaviour
 
   public void addLineToFullState()
   {
-    string tmp = Time.time.ToString();
+    string tmp = Network.time.ToString();
     foreach (GameObject state in this.objectsToTrack)
     {
       tmp += "," + state.transform.position.x.ToString() + "," + state.transform.position.y.ToString() + "," + state.transform.position.z.ToString();
@@ -62,7 +62,8 @@ public class DeftLayerSyncStatistics : MonoBehaviour
 
   void FixedUpdate()
   {
-    acc += Time.deltaTime;
+    if (Network.isServer || Network.isClient)
+      acc += Time.deltaTime;
     this.addLineToFullState();
     if (acc >= flushTimer)
     {
