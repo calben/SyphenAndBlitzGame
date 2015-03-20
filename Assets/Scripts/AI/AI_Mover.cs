@@ -54,7 +54,7 @@ public class AI_Mover : MonoBehaviour {
 		}
 
 		this.agent.SetDestination (Vector3.Lerp (transform.position, this.waypoint.position, 0.5f));
-	
+
 	}
 
 }

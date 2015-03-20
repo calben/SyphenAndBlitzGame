@@ -58,6 +58,7 @@ public class AudioManager : MonoBehaviour {
 				_audioSource.loop = _isLooping;
 				_audioSource.clip = _clips[i];
 				_audioSource.Play();
+				Debug.Log("Playing: " + clipName);
 			}
 		}
 	}

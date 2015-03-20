@@ -36,7 +36,14 @@ public class NetworkedGrenadeManager : MonoBehaviour
   public AudioManager _audioManager;
 
   private bool goingToFire = false;
-	
+
+	private Vector3 forward;
+	public LineRenderer sightLine;
+	public int segmentCount = 20;
+	public float segmentScale = 1;
+	private Collider _hitObject;
+	public Collider hitObject { get { return _hitObject; } }
+
   void Start()
   {
 	controller = _controllerObject.GetComponent<RigidbodyNetworkedPlayerController>();
@@ -50,18 +57,21 @@ public class NetworkedGrenadeManager : MonoBehaviour
       cooldown -= Time.deltaTime; // reduce cooldown timer
 
 		if (trigger){
+			sightLine.enabled = true;
 			controller.playerState = PlayerControllerState.AIMING; //let blitz aim (even if no ammo)
 			goingToFire = true; // bool to indicate intent to fire
 			if (curTime<maxTime){ // start charging up
 				curTime+=Time.deltaTime; 
 				curThrow=Mathf.Lerp (minThrow,maxThrow,curTime/maxTime); // lerp between min and max by percentage
 			}
+			forward = Camera.main.transform.TransformDirection(Vector3.forward);
+			forward = forward.normalized;
+			ShowTrajectory(forward,curThrow);
 		} else if (!trigger) {
+			sightLine.enabled = false;
 			controller.playerState = PlayerControllerState.IDLE; // on trigger release, revert to idle
 			if (cooldown <= 0.0 && currentAmmo > 0 && goingToFire) // conditions for firing
 			{
-				Vector3 forward = Camera.main.transform.TransformDirection(Vector3.forward);
-				forward = forward.normalized;
 				networkView.RPC("throwGrenade", RPCMode.All, forward, transform.position, transform.rotation, curThrow);
 				//throwGrenade(forward, transform.position, transform.rotation, curThrow); 
 				currentAmmo--; // reduce ammo
@@ -97,4 +107,39 @@ public class NetworkedGrenadeManager : MonoBehaviour
 		clone.rigidbody.velocity = forward * magnitude;
 		_audioManager.Play("grenade_toss", 0.0f, false);
 	}
+
+	// https://www.auto.tuwien.ac.at/wordpress/?p=526
+	void ShowTrajectory(Vector3 forward, float curThrow){
+		Vector3[] segments = new Vector3[segmentCount];
+		segments[0] = transform.position;
+		Vector3 segVelocity = forward * curThrow;
+		_hitObject = null;
+		for (int i = 1; i < segmentCount; i++) {
+			float segTime = (segVelocity.sqrMagnitude != 0) ? segmentScale / segVelocity.magnitude : 0;
+			segVelocity = segVelocity + Physics.gravity * segTime;
+			RaycastHit hit;
+			if (Physics.Raycast(segments[i - 1], segVelocity, out hit, segmentScale)){
+				_hitObject = hit.collider;
+				segments[i] = segments[i - 1] + segVelocity.normalized * hit.distance;
+				segVelocity = segVelocity - Physics.gravity * (segmentScale - hit.distance) / segVelocity.magnitude;
+				//segVelocity = Vector3.Reflect(segVelocity, hit.normal);
+			} 
+			else
+			{
+				segments[i] = segments[i - 1] + segVelocity * segTime;
+			}
+		}
+		//Color startColor = Color.red;
+		//Color endColor = startColor;
+		//startColor.a = 1;
+		//endColor.a = 0;
+		//sightLine.SetColors(startColor, endColor);
+		sightLine.SetVertexCount(segmentCount);
+		for (int i = 0; i < segmentCount; i++)
+			sightLine.SetPosition(i, segments[i]);
+	}
+
+
+
+
 }

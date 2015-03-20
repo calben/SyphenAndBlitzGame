@@ -204,17 +204,14 @@ public class NetworkedControllablePower : MonoBehaviour
 	if (Network.isClient || Network.isServer)
 	{
 		this.networkView.RPC("MovePower", RPCMode.Others, _controlledProjectile.transform.position, _controlledTarget.transform.position, new Vector3(0, 0, 0));
-
 	}
-	else
-	{
-		MovePower(_controlledProjectile.transform.position, _controlledTarget.transform.position, new Vector3(0, 0, 0));
-	}
+	MovePower(_controlledProjectile.transform.position, _controlledTarget.transform.position, new Vector3(0, 0, 0));
   }
 
   [RPC]
   void MovePower(Vector3 currentPosition, Vector3 newPosition, Vector3 velocity)
   {
     _controlledProjectile.transform.position = Vector3.Lerp(currentPosition, newPosition, _drag * Time.deltaTime);
+		Debug.Log("Whip it real good:" + _controlledProjectile.transform.position);
   }
 }

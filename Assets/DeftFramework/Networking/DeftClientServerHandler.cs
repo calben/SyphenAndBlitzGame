@@ -3,7 +3,6 @@ using System.Collections;
 
 public class DeftClientServerHandler : MonoBehaviour
 {
-
   public enum DeftNetworkRole { SEARCHER, CLIENT, WILLHOST, UNASSIGNED, HOST };
   public DeftNetworkRole currentRole = DeftNetworkRole.UNASSIGNED;
 
