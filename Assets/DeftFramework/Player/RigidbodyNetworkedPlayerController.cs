@@ -12,6 +12,7 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
   public MovementType movementType;
   public string name;
   public bool inverted;
+  public bool longRangeUnlocked;
 
   public float baseSpeed = 2.0f;
   public float runSpeedMultiplier = 1.5f;
@@ -79,9 +80,11 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
 
   public float fullSyncRate = 1.0f;
   float fullSyncRateTmp;
+  GameManager gameManager;
 
   void Awake()
   {
+	gameManager = GameObject.Find ("GameManager").GetComponent<GameManager>();
     if (debug)
     {
       Debug.Log(this.ToString() + " awake.");
@@ -328,7 +331,7 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
     #endregion
 
     #region SettingPlayerState
-    if (this.gamepadState.LeftTrigger > 0.20f)
+    if (this.gamepadState.LeftTrigger > 0.20f && gameManager.longRangeUnlocked)
     {
       this.playerState = PlayerControllerState.AIMING;
     }
