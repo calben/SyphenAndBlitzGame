@@ -80,6 +80,9 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
   public float fullSyncRate = 1.0f;
   float fullSyncRateTmp;
 
+  [HideInInspector]
+  public bool controllableHittingFloor = false;
+
   void Awake()
   {
     if (debug)
@@ -172,8 +175,13 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
   void AdjustCamera()
   {
 	if (this.playerState == PlayerControllerState.AIMING) {
+		if(gameObject.name.Contains ("Syphen")){
+			this.horizontalAimingSpeed = 30f;
+			this.verticalAimingSpeed = 30f;
+		} else{
 			this.horizontalAimingSpeed = 100f;
 			this.verticalAimingSpeed = 100f;
+		}
 	} else{
 			this.horizontalAimingSpeed = 400f;
 			this.verticalAimingSpeed = 400f;
@@ -323,7 +331,12 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
         this.controllerLookDirection = GamePad.GetAxis(GamePad.Axis.RightStick, this.padIndex);
         this.controllerMoveDirection.y = Mathf.Pow(this.controllerMoveDirection.y, this.exponentialControllerJoystickModifier);
         this.controllerMoveDirection.x = Mathf.Pow(this.controllerMoveDirection.x, this.exponentialControllerJoystickModifier);
-        this.controllerLookDirection.y = Mathf.Pow(this.controllerLookDirection.y, this.exponentialControllerJoystickModifier);
+		
+		if(controllableHittingFloor && this.controllerLookDirection.y < 0){
+			this.controllerLookDirection.y = 0;
+		} else{
+			this.controllerLookDirection.y = Mathf.Pow(this.controllerLookDirection.y, this.exponentialControllerJoystickModifier);
+		}
         this.controllerLookDirection.x = Mathf.Pow(this.controllerLookDirection.x, this.exponentialControllerJoystickModifier);
       }
       else
