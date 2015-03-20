@@ -12,7 +12,6 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
   public MovementType movementType;
   public string name;
   public bool inverted;
-  public bool longRangeUnlocked;
 
   public float baseSpeed = 2.0f;
   public float runSpeedMultiplier = 1.5f;
