@@ -306,9 +306,9 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
     this.fullSyncRateTmp -= Time.deltaTime;
     #endregion
 
+	if (this.isThisMachinesPlayer)
+	{
     #region GatherInput
-    if (this.isThisMachinesPlayer)
-    {
       if (this.useGamePad)
       {
         this.gamepadState = GamePad.GetState(this.padIndex);
@@ -325,7 +325,6 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
         this.controllerMoveDirection = new Vector2(Input.GetAxis("Horizontal"), -Input.GetAxis("Vertical"));
         this.controllerLookDirection = new Vector2(Mathf.Clamp(Input.GetAxis("Mouse X"), -1, 1), Mathf.Clamp(Input.GetAxis("Mouse Y"), -1, 1));
       }
-    }
     #endregion
 
     #region SettingPlayerState
@@ -367,15 +366,19 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
         break;
     }
     #endregion
-	if (inverted)
-		this.controllerLookDirection.y *= -1;
+		if (inverted){
+			this.controllerLookDirection.y *= -1;
+		}
+	}
   }
 
   void FixedUpdate()
   {
 
     #region Camera
-    AdjustCamera();
+	if (this.isThisMachinesPlayer){
+    	AdjustCamera();
+	}
     #endregion
 
     #region Movement
