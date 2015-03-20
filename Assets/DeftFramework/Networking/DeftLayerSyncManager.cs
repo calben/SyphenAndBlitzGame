@@ -12,11 +12,11 @@ public class DeftLayerSyncManager : MonoBehaviour
   public List<DeftBodyState> lastSavedStates;
   DeftLayerSyncStatistics statisticsManager;
   public int layer;
-  public float hardSyncThreshold = 5.0f;
-  public float maxSyncRate = 0.05f;
-  public float maxQueueBuildRate = 1.0f;
-  public float distanceThreshold = 5.0f;
-  public int bodiesPerBundle = 5;
+  public float hardSyncThreshold = 0.0f;
+  public float maxSyncRate = 0.0f;
+  public float maxQueueBuildRate = 0.0f;
+  public float distanceThreshold = 0.0f;
+  public int updatesPerBundle = 5;
 
   public bool considerPlayer = true;
   public float tooCloseToPlayerSquaredDistance = 9.0f;
@@ -45,14 +45,6 @@ public class DeftLayerSyncManager : MonoBehaviour
     foreach (DeftBodyState state in this.lastSavedStates)
     {
       UpdateDeftBodyState(state);
-    }
-  }
-
-  public void SendDeftStateBundle(DeftBodyState[] states)
-  {
-    foreach (DeftBodyState state in states)
-    {
-      this.networkView.RPC("UpdateDeftBodyStateRaw", RPCMode.OthersBuffered, state.position, state.rotation, (float)state.timestamp, state.velocity, state.angularVelocity, state.id);
     }
   }
 
@@ -105,7 +97,7 @@ public class DeftLayerSyncManager : MonoBehaviour
     this.objectsInLayer[state.id].GetComponent<DeftSyncWorker>().goalState = state;
     if (statistics)
     {
-      this.statisticsManager.addLine(Time.time, id, this.objectsInLayer[state.id].gameObject.GetComponent<Rigidbody>().position, state.position);
+      this.statisticsManager.addLineOnSync(Time.time, id, this.objectsInLayer[state.id].gameObject.GetComponent<Rigidbody>().position, state.position);
     }
     this.objectsInLayer[state.id].GetComponent<DeftSyncWorker>().StartSync();
   }
@@ -168,7 +160,7 @@ public class DeftLayerSyncManager : MonoBehaviour
     }
   }
 
-  void Awake()
+  void Start()
   {
     foreach (NetworkView netView in this.GetComponents<NetworkView>())
     {
@@ -178,41 +170,45 @@ public class DeftLayerSyncManager : MonoBehaviour
     this.syncQueue = new Queue<DeftBodyState>();
     this.lastSavedStates = new List<DeftBodyState>();
     this.SetObjectsInLayer();
-    this.statisticsManager = this.gameObject.GetComponent<DeftLayerSyncStatistics>();
+    if (statistics)
+    {
+      this.statisticsManager = this.gameObject.GetComponent<DeftLayerSyncStatistics>();
+      this.statisticsManager.objectsToTrack = new List<GameObject>();
+      foreach (GameObject obj in this.objectsInLayer.Values)
+      {
+        this.statisticsManager.objectsToTrack.Add(obj);
+      }
+      this.statisticsManager.addHeaderOnSync();
+      this.statisticsManager.addHeaderFullState();
+    }
   }
 
   public float maxSyncRateTmp;
   public float maxQueueBuildRateTmp;
-  void Update()
+  void FixedUpdate()
   {
     this.maxSyncRateTmp += Time.deltaTime;
     this.maxQueueBuildRateTmp += Time.deltaTime;
     if (Network.isServer)
     {
-      if (this.syncQueue.Count > 0)
+      int i = 0;
+      while (i < this.updatesPerBundle && this.syncQueue.Count > 0)
       {
         if (maxSyncRateTmp > maxSyncRate)
         {
-          List<DeftBodyState> states = new List<DeftBodyState>();
-          for (int i = 0; i < this.bodiesPerBundle; i++)
+          //DeftBodyState state = DeftBodyStateUtil.BuildState(this.objectsInLayer[this.syncQueue.Dequeue().id]);
+          DeftBodyState state = DeftBodyStateUtil.BuildState(this.objectsInLayer[this.syncQueue.Dequeue().id]);
+          if (debug)
           {
-            if (this.syncQueue.Count > 0)
-            {
-              states.Add(DeftBodyStateUtil.BuildState(this.objectsInLayer[this.syncQueue.Dequeue().id]));
-            }
-            else
-            {
-              break;
-            }
+            Debug.Log(Time.time + ": Sending " + state.id.ToString());
           }
-          DeftBodyState[] statesArray = states.ToArray();
           //this.networkView.RPC("UpdateDeftBodyState", RPCMode.AllBuffered, DeftBodyStateUtil.MarshallDeftBodyState(state));
-          // this.networkView.RPC("UpdateDeftBodyStateRaw", RPCMode.OthersBuffered, state.position, state.rotation, (float)state.timestamp, state.velocity, state.angularVelocity, state.id);
-          SendDeftStateBundle(statesArray);
+          this.networkView.RPC("UpdateDeftBodyStateRaw", RPCMode.OthersBuffered, state.position, state.rotation, (float)state.timestamp, state.velocity, state.angularVelocity, state.id);
           this.maxSyncRateTmp = 0.0f;
         }
+        i++;
       }
-      else
+      if (this.syncQueue.Count == 0)
       {
         BuildSyncQueue();
       }
