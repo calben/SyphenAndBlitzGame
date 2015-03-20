@@ -87,9 +87,9 @@ public class ForceOnCollision: MonoBehaviour {
 	void DealDamage(Collider other){
 		Killer_Mover km = other.GetComponent<Killer_Mover>(); // grab scripts
 		Feeder_Mover fm = other.GetComponent<Feeder_Mover>();
-		int dmg = 0; // initialize dmg amount
-		if (_forceType==ForceType.Push) dmg = 50; // alter dmg amount according to ability
-		if (_forceType==ForceType.Pull) dmg = 10; // pull does much less
+		//int dmg = 0; // initialize dmg amount
+		//if (_forceType==ForceType.Push) dmg = 50; // alter dmg amount according to ability
+		//if (_forceType==ForceType.Pull) dmg = 10; // pull does much less
 		if (km) km.damage (); // reduce health here
 		if (fm) fm.damage ();
 	}
