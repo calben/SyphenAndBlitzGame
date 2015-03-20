@@ -55,6 +55,7 @@ public class explosion : MonoBehaviour {
 				}
 			}
 		}
+		_audioManager.Play("grenade_explosion", 0.0f, false);
 		Destroy (gameObject);
 	}
 }
