@@ -24,6 +24,9 @@ public class ShatterSelf : MonoBehaviour {
 				{
 					this.gameObject.GetComponent<Rigidbody>().isKinematic = false;
 				}
+				else{
+					this.gameObject.SetActive(false);
+				}
 			}
 		}
 	}
