@@ -2,10 +2,16 @@
 using System.Collections;
 
 public class ShatterSelf : MonoBehaviour {
-	public float _velocityThreshold;
+//	public float _velocityThreshold;
+	public bool _immovable;
 
 	public void switchToFractured(){
-		this.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+		if (_immovable) {
+						this.gameObject.SetActive (false);
+		}
+		else {
+			this.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+		}
 		//_fractureSet.gameObject.SetActive(true);
 	}
 	/*
