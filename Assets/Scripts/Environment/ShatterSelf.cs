@@ -3,17 +3,12 @@ using System.Collections;
 
 public class ShatterSelf : MonoBehaviour {
 	public float _velocityThreshold;
-	
-	// Use this for initialization
-	void Start () {
-		
+
+	public void switchToFractured(){
+		this.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+		//_fractureSet.gameObject.SetActive(true);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-	
+	/*
 	void OnCollisionEnter(Collision col) {
 		if (col.rigidbody) {
 			float velocity = col.rigidbody.velocity.sqrMagnitude;
@@ -30,7 +25,8 @@ public class ShatterSelf : MonoBehaviour {
 			}
 		}
 	}
-	
+	*/
+
 	//	public void switchToFractured(){
 	//		this.gameObject.SetActive(false);
 	//		_fractureSet.gameObject.SetActive(true);

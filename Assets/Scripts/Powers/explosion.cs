@@ -78,8 +78,13 @@ public class explosion : MonoBehaviour {
 			PhysicsStatus ps = (PhysicsStatus) hit.GetComponent<PhysicsStatus>(); // grab physics status of object
 			if( ps && ps.pushable ){ 
 				Shatterable shatterable = hit.gameObject.GetComponent<Shatterable>();
+				ShatterSelf SS = hit.gameObject.GetComponent<ShatterSelf>();
 				if(shatterable){
 					shatterable.switchToFractured(); // shatter shatterables
+					hit.GetComponent<PhysicsStatus>().pullable = true; // switch objects to pullable
+				} else if(SS){
+					SS.switchToFractured();
+					hit.GetComponent<PhysicsStatus>().pullable = true; // switch objects to pullable
 				} else if(hit.attachedRigidbody){
 					hit.GetComponent<PhysicsStatus>().pullable = true; // switch objects to pullable
 				}

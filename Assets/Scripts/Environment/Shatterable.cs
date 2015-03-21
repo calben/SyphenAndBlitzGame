@@ -14,7 +14,8 @@ public class Shatterable : MonoBehaviour {
 	void Update () {
 
 	}
-
+	/* commenting this out so rigid bodies cannot fracture shatterables
+	 * we really only want powers to do that
     void OnCollisionEnter(Collision col) {
 		if (col.rigidbody) {
 			float velocity = col.rigidbody.velocity.sqrMagnitude;
@@ -29,7 +30,7 @@ public class Shatterable : MonoBehaviour {
 			}
 		}
     }
-
+	*/
 	public void switchToFractured(){
 		this.gameObject.SetActive(false);
 		_fractureSet.gameObject.SetActive(true);
