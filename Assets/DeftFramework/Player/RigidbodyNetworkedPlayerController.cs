@@ -172,8 +172,11 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
 
   float angleH;
   float angleV;
-  public float maxVerticalAngle = 30f;
+  public float maxVerticalAngle = 60f;
   public float minVerticalAngle = -60f;
+  float maxVertAngle_constant = 60f;
+  float minVertAngle_constant = -60f;
+
   void AdjustCamera()
   {
 	if (this.playerState == PlayerControllerState.AIMING) {
@@ -225,8 +228,8 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
     }
 	
 	if (playerState != PlayerControllerState.ZOOM_OUT) {
-		maxVerticalAngle = 30;
-		minVerticalAngle = -35;
+    maxVerticalAngle = maxVertAngle_constant;
+    minVerticalAngle = minVertAngle_constant;
 	}
     this.myCamera.fieldOfView = Mathf.Lerp(this.myCamera.fieldOfView, targetFOV, Time.deltaTime);
 
