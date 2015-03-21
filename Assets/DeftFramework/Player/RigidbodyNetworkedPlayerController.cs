@@ -18,9 +18,9 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
   public float aimSpeedMultiplier = 0.2f;
 
   [HideInInspector]
-  public float horizontalAimingSpeed = 400f;
+  public float horizontalAimingSpeed = 175f;
   [HideInInspector]
-  public float verticalAimingSpeed = 400f;
+  public float verticalAimingSpeed = 175f;
   [HideInInspector]
   public float velocityDampingSpeed = 0.02f;
   [HideInInspector]
@@ -177,25 +177,27 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
   float angleV;
   public float maxVerticalAngle = 60f;
   public float minVerticalAngle = -40f;
-	float maxVertAngle_temp = 60f;
-	float minVertAngle_temp = -40f;
+  float maxVertAngle_temp = 60f;
+  float minVertAngle_temp = -40f;
+  float horizAimingSpeed_temp;
+  float vertAimingSpeed_temp;
 
   void AdjustCamera()
   {
 	if (this.playerState == PlayerControllerState.AIMING) {
 		if(gameObject.name.Contains ("Syphen")){
-			this.horizontalAimingSpeed = 30f;
-			this.verticalAimingSpeed = 30f;
+			this.horizAimingSpeed_temp = 60f;
+			this.vertAimingSpeed_temp = 60f;
 		} else{
-			this.horizontalAimingSpeed = 100f;
-			this.verticalAimingSpeed = 100f;
+			this.horizAimingSpeed_temp = 100f;
+			this.vertAimingSpeed_temp = 100f;
 		}
 	} else{
-			this.horizontalAimingSpeed = 400f;
-			this.verticalAimingSpeed = 400f;
+			this.horizAimingSpeed_temp = this.horizontalAimingSpeed; // defaults
+			this.vertAimingSpeed_temp = this.verticalAimingSpeed;
 	}
-    angleH += this.controllerLookDirection.x * this.horizontalAimingSpeed * Time.deltaTime;
-    angleV += this.controllerLookDirection.y * this.verticalAimingSpeed * Time.deltaTime;
+		angleH += this.controllerLookDirection.x * this.horizAimingSpeed_temp * Time.deltaTime;
+		angleV += this.controllerLookDirection.y * this.vertAimingSpeed_temp * Time.deltaTime;
 	angleV = Mathf.Clamp(angleV, minVertAngle_temp, maxVertAngle_temp);
     Quaternion aimRotation = Quaternion.Euler(-angleV, angleH, 0);
     if (this.GetComponent<Rigidbody>().velocity.magnitude > 0.2f)
@@ -214,8 +216,8 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
 		targetPivotOffset = new Vector3(0,0,-4);
 		targetCamOffset = new Vector3(0,2.5f,-7);
 		targetFOV = aimFOV;
-			maxVertAngle_temp = 10;
-			maxVertAngle_temp = -10;
+		maxVertAngle_temp = 10;
+		maxVertAngle_temp = -10;
 	}
     else if (this.playerState == PlayerControllerState.RUNNING)
     {
