@@ -77,15 +77,12 @@ public class Killer_Mover : AI_Mover {
 		{
 			return;
 
-		}else if(other.gameObject.tag.Equals("Player"))
+		}
+
+		if(other.gameObject.tag.Equals("Player"))
 		{
 			GameObject.Find ("GameManager").GetComponent<GameManager>().decreaseHealth("Killer");
 			myStatus.updateText(true);
-			
-		}else if(other.gameObject.rigidbody != null && other.gameObject.rigidbody.velocity.magnitude >= killSpeed)
-		{
-			
-			damage ();
 			
 		}
 

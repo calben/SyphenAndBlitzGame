@@ -170,13 +170,7 @@ public class Feeder_Mover : AI_Mover {
 			return;
 
 		}
-
-		if(other.gameObject.rigidbody != null && other.gameObject.rigidbody.velocity.magnitude >= killSpeed)
-		{
-
-			damage ();
-
-		}
+		
 	}
 
 	public void damage()
