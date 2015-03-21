@@ -12,6 +12,7 @@ public class AI_Mover : MonoBehaviour {
 	public int damageTaken;
 
 
+
 	public bool interest()
 	{
 

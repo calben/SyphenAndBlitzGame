@@ -16,11 +16,19 @@ public class Feeder_Mover : AI_Mover {
 	float tempSpeed;
 	StatusUpdate myStatus;
 
-
+	enum State
+	{
+		roaming,
+		eating
+	}
+	
+	State currState;
 
 	// Use this for initialization
 	void Start ()
 	{
+		StartCoroutine (changeState (State.roaming));
+
 		//setting agent
 		this.agent = GetComponent<NavMeshAgent> ();
 
@@ -181,7 +189,8 @@ public class Feeder_Mover : AI_Mover {
 
 	public override void isInterested()
 	{
-		
+		StartCoroutine (changeState (State.eating));
+
 		this.interested = true;
 
 		myStatus.updateText (true);
@@ -201,9 +210,9 @@ public class Feeder_Mover : AI_Mover {
 
 	public void notInterested()
 	{
+		StartCoroutine (changeState (State.roaming));
 
 		this.agent.speed = this.tempSpeed;
-		Debug.Log (this.agent.speed);
 
 		this.interested = false;
 
@@ -239,18 +248,28 @@ public class Feeder_Mover : AI_Mover {
 
 	IEnumerator falconPull()
 	{
-		Debug.Log ("wait for it");
+		//Debug.Log ("wait for it");
 		yield return new WaitForSeconds (1.3f);
 
 		this.tempSpeed = this.agent.speed;
 		this.agent.speed = 0f;
 
-		Debug.Log ("a few more seconds");
+		//Debug.Log ("a few more seconds");
 		yield return new WaitForSeconds(1.0f);
 
-		Debug.Log ("ok go");
+		//Debug.Log ("ok go");
 		notInterested ();
 
+	}
+
+
+	IEnumerator changeState(State newState)
+	{
+		
+		yield return new WaitForSeconds (1.0f);
+		
+		this.currState = newState;
+		
 	}
 
 }

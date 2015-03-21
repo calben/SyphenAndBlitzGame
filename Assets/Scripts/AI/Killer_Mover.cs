@@ -6,9 +6,19 @@ public class Killer_Mover : AI_Mover {
 	protected StatusUpdate myStatus;
 
 	public float killSpeed;
+	
+	enum State
+	{
+		roaming,
+		chasing
+	}
+
+	State currState;
 
 	// Use this for initialization
 	void Start () {
+
+		StartCoroutine(changeState (State.roaming));
 
 		//setting agent
 		this.agent = GetComponent<NavMeshAgent> ();
@@ -65,7 +75,6 @@ public class Killer_Mover : AI_Mover {
 
 		if(other.rigidbody == null)
 		{
-
 			return;
 
 		}else if(other.gameObject.tag.Equals("Player"))
@@ -101,11 +110,12 @@ public class Killer_Mover : AI_Mover {
 
 	public override void isInterested()
 	{
-		
+		StartCoroutine(changeState (State.chasing));
+
 		this.interested = true;
 
 		this.myStatus.updateText (true);
-		
+
 		react ();
 		
 	}
@@ -113,6 +123,7 @@ public class Killer_Mover : AI_Mover {
 
 	public void notInterested()
 	{
+		StartCoroutine(changeState (State.roaming));
 		
 		this.interested = false;
 
@@ -122,15 +133,26 @@ public class Killer_Mover : AI_Mover {
 
 	}
 
+
 	IEnumerator flashRed()
 	{
-		
+
 		gameObject.renderer.material.color = Color.red;
 		
 		yield return new WaitForSeconds(0.2f);
 		
 		gameObject.renderer.material.color = Color.black;
 		
+	}
+
+
+	IEnumerator changeState(State newState)
+	{
+
+		yield return new WaitForSeconds (1.0f);
+
+		this.currState = newState;
+
 	}
 
 }
