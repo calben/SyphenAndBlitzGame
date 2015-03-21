@@ -86,7 +86,10 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
 
   void Awake()
   {
-	gameManager = GameObject.Find ("GameManager").GetComponent<GameManager>();
+	 if(GameObject.Find ("GameManager")){
+			gameManager = GameObject.Find ("GameManager").GetComponent<GameManager>();
+		}
+	
     if (debug)
     {
       Debug.Log(this.ToString() + " awake.");
@@ -173,9 +176,9 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
   float angleH;
   float angleV;
   public float maxVerticalAngle = 60f;
-  public float minVerticalAngle = -60f;
-  float maxVertAngle_constant = 60f;
-  float minVertAngle_constant = -60f;
+  public float minVerticalAngle = -40f;
+	float maxVertAngle_temp = 60f;
+	float minVertAngle_temp = -40f;
 
   void AdjustCamera()
   {
@@ -193,7 +196,7 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
 	}
     angleH += this.controllerLookDirection.x * this.horizontalAimingSpeed * Time.deltaTime;
     angleV += this.controllerLookDirection.y * this.verticalAimingSpeed * Time.deltaTime;
-	angleV = Mathf.Clamp(angleV, minVerticalAngle, maxVerticalAngle);
+	angleV = Mathf.Clamp(angleV, minVertAngle_temp, maxVertAngle_temp);
     Quaternion aimRotation = Quaternion.Euler(-angleV, angleH, 0);
     if (this.GetComponent<Rigidbody>().velocity.magnitude > 0.2f)
     {
@@ -211,8 +214,8 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
 		targetPivotOffset = new Vector3(0,0,-4);
 		targetCamOffset = new Vector3(0,2.5f,-7);
 		targetFOV = aimFOV;
-			maxVerticalAngle = 10;
-			minVerticalAngle = -10;
+			maxVertAngle_temp = 10;
+			maxVertAngle_temp = -10;
 	}
     else if (this.playerState == PlayerControllerState.RUNNING)
     {
@@ -228,8 +231,8 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
     }
 	
 	if (playerState != PlayerControllerState.ZOOM_OUT) {
-    maxVerticalAngle = maxVertAngle_constant;
-    minVerticalAngle = minVertAngle_constant;
+			maxVertAngle_temp = maxVerticalAngle;
+			minVertAngle_temp = minVerticalAngle;
 	}
     this.myCamera.fieldOfView = Mathf.Lerp(this.myCamera.fieldOfView, targetFOV, Time.deltaTime);
 
@@ -353,10 +356,12 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
     #endregion
 
     #region SettingPlayerState
-    if (this.gamepadState.LeftTrigger > 0.20f && gameManager.longRangeUnlocked)
-    {
-      this.playerState = PlayerControllerState.AIMING;
-    }
+    if (this.gamepadState.LeftTrigger > 0.20f){
+			if(gameManager == null || gameManager.longRangeUnlocked)
+		    {
+		      this.playerState = PlayerControllerState.AIMING;
+		    }
+	}
 	else if(this.gamepadState.RightTrigger > 0.20f && gameObject.name.Contains ("Syphen")){
 		this.playerState = PlayerControllerState.ZOOM_OUT;
 	}
