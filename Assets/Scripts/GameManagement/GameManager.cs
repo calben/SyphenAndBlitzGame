@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.EventSystems;
 
-public enum PlayerCharacter {  Syphen, Blitz };
+public enum PlayerCharacter { Syphen, Blitz };
 
 public class GameManager : MonoBehaviour
 {
@@ -32,11 +32,11 @@ public class GameManager : MonoBehaviour
 
   void Start()
   {
-	longRangeUnlocked = false;
+    longRangeUnlocked = false;
     gameOverWindow.SetActive(false);
-	SyphenPowerUnlock.SetActive (false);
-	BlitzPowerUnlock.SetActive(false);
-	NewObjectiveWindow.SetActive(false);
+    SyphenPowerUnlock.SetActive(false);
+    BlitzPowerUnlock.SetActive(false);
+    NewObjectiveWindow.SetActive(false);
     winText.SetActive(false);
     loseText.SetActive(false);
     eventSystem = eventSystemObject.GetComponent<EventSystem>();
@@ -53,21 +53,31 @@ public class GameManager : MonoBehaviour
     depots[0].SetActive(true);
     depotUI_objects[0].SetActive(true);
   }
-  public void StartHealthBar(string name) {
-		GameObject hb = GameObject.Find ("HealthBar");
-		GameObject hs = GameObject.Find ("HealthStats");
-		if (name.Contains ("Syphen")) {
-			hb.GetComponent<HealthBar> ().StartHealthBar (0);
-			hs.GetComponent<HealthStats> ().StartStats (0);
-		} else {
-			hb.GetComponent<HealthBar> ().StartHealthBar (1);
-			hs.GetComponent<HealthStats> ().StartStats (1);
-		}
-  }
-  public void StartGrenadeBar() {
-		GameObject.Find ("GrenadeBar").GetComponent<GrenadeBar>().StartGrenadeUI();
+
+  [RPC]
+  public void StartHealthBar(string name)
+  {
+    GameObject hb = GameObject.Find("HealthBar");
+    GameObject hs = GameObject.Find("HealthStats");
+    if (name.Contains("Syphen"))
+    {
+      hb.GetComponent<HealthBar>().StartHealthBar(0);
+      hs.GetComponent<HealthStats>().StartStats(0);
+    }
+    else
+    {
+      hb.GetComponent<HealthBar>().StartHealthBar(1);
+      hs.GetComponent<HealthStats>().StartStats(1);
+    }
   }
 
+  [RPC]
+  public void StartGrenadeBar()
+  {
+    GameObject.Find("GrenadeBar").GetComponent<GrenadeBar>().StartGrenadeUI();
+  }
+
+  [RPC]
   public void decreaseHealth(string attackerName)
   {
     int damage;
@@ -79,26 +89,30 @@ public class GameManager : MonoBehaviour
     {
       damage = killerAttackDamage;
     }
-   
+
     playerCurrentHealth -= damage;
-   
+
     if (playerCurrentHealth <= 0)
     {
       gameOver();
     }
   }
 
-  //Increases resource count of a certain depot
+  [RPC]
   public void increaseResourceCount(int depotNumber)
   {
-		if (depotCurrentStock[depotNumber] < depotCapacity[depotNumber]) {
-			depotCurrentStock[depotNumber] += depotResourceValue[depotNumber];
-			if (depotCurrentStock [depotNumber] >= depotCapacity[depotNumber]) {
-				depotFull ();
-				Debug.Log ("called DepotFull()");
-			}
-		}
+    if (depotCurrentStock[depotNumber] < depotCapacity[depotNumber])
+    {
+      depotCurrentStock[depotNumber] += depotResourceValue[depotNumber];
+      if (depotCurrentStock[depotNumber] >= depotCapacity[depotNumber])
+      {
+        depotFull();
+        Debug.Log("called DepotFull()");
+      }
+    }
   }
+
+  [RPC]
   public void depotFull()
   {
     Debug.Log("A Depot is FULL");
@@ -109,36 +123,48 @@ public class GameManager : MonoBehaviour
     }
     else
     {
-		//Activate second power
-		longRangeUnlocked = true;
-		//Activate the Power Unlock window 
-		string name = DeftClientServer.GetComponent<PlayerSelect>().selectedPlayer.name;
-		if (name.Contains("Blitz")) {
-				Debug.Log ("Activating tutorial for blitz");
-			BlitzPowerUnlock.SetActive(true);
-		} else {
-			SyphenPowerUnlock.SetActive(true);
-			Debug.Log ("Activating tutorial for syphen");
-			try {
-				GameObject button = SyphenPowerUnlock.transform.FindChild ("Button").gameObject;
-				GameObject.Find("EventSystem").GetComponent<EventSystem>().SetSelectedGameObject (button);
-			} catch (System.NullReferenceException e) {
-			}
-		}
+      //Activate second power
+      longRangeUnlocked = true;
+      //Activate the Power Unlock window 
+      string name = DeftClientServer.GetComponent<PlayerSelect>().selectedPlayer.name;
+      if (name.Contains("Blitz"))
+      {
+        Debug.Log("Activating tutorial for blitz");
+        BlitzPowerUnlock.SetActive(true);
+      }
+      else
+      {
+        SyphenPowerUnlock.SetActive(true);
+        Debug.Log("Activating tutorial for syphen");
+        try
+        {
+          GameObject button = SyphenPowerUnlock.transform.FindChild("Button").gameObject;
+          GameObject.Find("EventSystem").GetComponent<EventSystem>().SetSelectedGameObject(button);
+        }
+        catch (System.NullReferenceException e)
+        {
+        }
+      }
     }
   }
-  public void activateNewObjective() 
+
+  [RPC]
+  public void activateNewObjective()
   {
-	NewObjectiveWindow.SetActive (true);
-  GameObject.Find("Layer10SyncManager").GetComponent<DeftLayerSyncManager>().SetLastSavedState();
-	activateNextDepot();
+    NewObjectiveWindow.SetActive(true);
+    GameObject.Find("Layer10SyncManager").GetComponent<DeftLayerSyncManager>().SetLastSavedState();
+    activateNextDepot();
   }
-  public void activateNextDepot() 
+
+  [RPC]
+  public void activateNextDepot()
   {
-	//Activate next depot
-	depots[depotsFull].SetActive(true);
-	depotUI_objects[depotsFull].SetActive(true);
+    //Activate next depot
+    depots[depotsFull].SetActive(true);
+    depotUI_objects[depotsFull].SetActive(true);
   }
+
+  [RPC]
   public void lastDepotFull()
   {
     Debug.Log("YOU WIN.");
@@ -146,6 +172,8 @@ public class GameManager : MonoBehaviour
     winText.SetActive(true);
     eventSystem.SetSelectedGameObject(gameOverFirstSelected);
   }
+
+  [RPC]
   public void gameOver()
   {
     Debug.Log("YOU DIED.");
@@ -153,6 +181,5 @@ public class GameManager : MonoBehaviour
     loseText.SetActive(true);
     eventSystem.SetSelectedGameObject(gameOverFirstSelected);
   }
-
 
 }
