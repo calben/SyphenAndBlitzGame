@@ -39,7 +39,11 @@ public class NetworkedLaserPower : MonoBehaviour
   // Use this for initialization
   void Start()
   {
-	_gameManager = GameObject.Find ("GameManager").GetComponent<GameManager>();
+	GameObject gameManager = GameObject.Find ("GameManager");
+	if(gameManager){
+		_gameManager = gameManager.GetComponent<GameManager>();
+	}
+
     _cooldownTimer = _cooldown;
     _controller = _controllerObject.GetComponent<RigidbodyNetworkedPlayerController>();
     if (_parent)
@@ -65,7 +69,7 @@ public class NetworkedLaserPower : MonoBehaviour
       if (_cooldownTimer <= 0.0f)
       {
         //----FIRING----//
-        if ((leftTriggerHeld && _projectileButton == ProjectileTriggerButton.LEFT && _gameManager.longRangeUnlocked)
+		if ((leftTriggerHeld && _projectileButton == ProjectileTriggerButton.LEFT && (_gameManager == null || _gameManager.longRangeUnlocked))
             || (rightTriggerHeld && _projectileButton == ProjectileTriggerButton.RIGHT))
         {
           FireBeam();
