@@ -6,11 +6,14 @@ public class ShatterSelf : MonoBehaviour {
 	public bool _immovable;
 
 	public void switchToFractured(){
+		PhysicsStatus ps = this.GetComponent<PhysicsStatus>();
 		if (_immovable) {
-						this.gameObject.SetActive (false);
+			this.gameObject.SetActive (false);
 		}
-		else {
+		else if (ps && ps.pushable)
+		{
 			this.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+			this.GetComponent<PhysicsStatus>.pullable = true;
 		}
 		//_fractureSet.gameObject.SetActive(true);
 	}
