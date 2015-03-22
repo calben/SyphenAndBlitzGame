@@ -13,8 +13,9 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
   public string name;
   public bool inverted;
 
-  public float baseSpeed = 2.0f;
-  public float runSpeedMultiplier = 1.5f;
+  
+  public float baseSpeed = 0.45f;
+  //public float runSpeedMultiplier = 1.3f;
   public float aimSpeedMultiplier = 0.2f;
 
   [HideInInspector]
@@ -81,7 +82,7 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
   float fullSyncRateTmp;
   GameManager gameManager;
 
-  [HideInInspector]
+  
   public bool controllableHittingFloor = false;
 
   void Awake()
@@ -219,12 +220,12 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
 		maxVertAngle_temp = 10;
 		maxVertAngle_temp = -10;
 	}
-    else if (this.playerState == PlayerControllerState.RUNNING)
+    /*else if (this.playerState == PlayerControllerState.RUNNING)
     {
       targetPivotOffset = runPivotOffset;
       targetCamOffset = runCamOffset;
       targetFOV = runFOV;
-    }
+    }*/
     else
     {
       targetPivotOffset = pivotOffset;
@@ -321,8 +322,7 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
     }
   }
   #endregion
-
-
+	
   void Update()
   {
 
@@ -367,10 +367,10 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
 	else if(this.gamepadState.RightTrigger > 0.20f && gameObject.name.Contains ("Syphen")){
 		this.playerState = PlayerControllerState.ZOOM_OUT;
 	}
-    else if (this.gamepadState.LeftStick)
+   /* else if (this.gamepadState.LeftStick)
     {
       this.playerState = PlayerControllerState.RUNNING;
-    }
+    }*/
     else
     {
       this.playerState = PlayerControllerState.WALKING;
@@ -380,7 +380,7 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
     #region RunningActionByState
     Vector3 forward = this.myCamera.transform.TransformDirection(Vector3.forward);
     forward = forward.normalized;
-    this.moveDirection = this.controllerMoveDirection.y * forward + this.controllerMoveDirection.x * new Vector3(forward.z, 0, -forward.x);
+			this.moveDirection = this.controllerMoveDirection.y * new Vector3(forward.x, 0, forward.z) + this.controllerMoveDirection.x * new Vector3(forward.z, 0, -forward.x);
 		if (this.moveDirection.x != 0 || this.moveDirection.z != 0)
 		{
 			lastInput = moveDirection;
@@ -390,9 +390,9 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
     {
       case PlayerControllerState.WALKING:
         break;
-      case PlayerControllerState.RUNNING:
-        moveDirection *= this.runSpeedMultiplier;
-        break;
+     /* case PlayerControllerState.RUNNING:
+        	moveDirection *= this.runSpeedMultiplier;
+        break;*/
       case PlayerControllerState.AIMING:
         moveDirection *= this.aimSpeedMultiplier;
         break;
@@ -432,20 +432,19 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
 		  
 		  Vector3 angularVelocity = this.GetComponent<Rigidbody>().angularVelocity;
           this.GetComponent<Rigidbody>().angularVelocity = Vector3.Lerp(angularVelocity, new Vector3(0,angularVelocity.y,0), 3.0f * Time.deltaTime);
-          if (this.playerState == PlayerControllerState.RUNNING)
+          
+		/* Commenting out in case we want this again later; THIS CODE CAUSES FLYING BTW
+		  if (this.playerState == PlayerControllerState.RUNNING)
           {
-            this.GetComponent<Rigidbody>().velocity *= this.runSpeedMultiplier;
+            this.GetComponent<Rigidbody>().velocity *= this.runSpeedMultiplier; // tweaking the velocity vector is a dangerous game
+            // ^try to implement this without touching the y component
           }
-          else if (this.playerState == PlayerControllerState.AIMING)
+		*/
+          if (this.playerState == PlayerControllerState.AIMING)
           {
             this.GetComponent<Rigidbody>().velocity *= this.aimSpeedMultiplier;
           }
-          if (grounded)
-          {
-
-          }
-          else
-          {
+          if (!grounded){
             this.GetComponent<Rigidbody>().velocity += Physics.gravity;
           }
           break;
