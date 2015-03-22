@@ -13,7 +13,7 @@ public class ShatterSelf : MonoBehaviour {
 		else if (ps && ps.pushable)
 		{
 			this.gameObject.GetComponent<Rigidbody>().isKinematic = false;
-			this.GetComponent<PhysicsStatus>.pullable = true;
+			this.GetComponent<PhysicsStatus>().pullable = true;
 		}
 		//_fractureSet.gameObject.SetActive(true);
 	}
