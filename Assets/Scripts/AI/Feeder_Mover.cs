@@ -32,6 +32,8 @@ public class Feeder_Mover : AI_Mover {
 		//setting agent
 		this.agent = GetComponent<NavMeshAgent> ();
 
+		this.tempSpeed = this.agent.speed;
+
 		this.myStatus = GetComponentInChildren<StatusUpdate> ();
 
 		gameObject.renderer.material.color = Color.magenta;

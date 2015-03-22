@@ -61,7 +61,7 @@ public class Killer_Mover : AI_Mover {
 			if(hit.distance <= 0.5f)
 			{
 			
-				transform.position = new Vector3(transform.position.x, 2.0f, transform.position.z);
+				transform.position = new Vector3(transform.position.x, 0.9f, transform.position.z);
 
 			}
 
