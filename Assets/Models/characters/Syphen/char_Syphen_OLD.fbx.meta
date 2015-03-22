@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f52141c817c547a499396df0735f8dfe
+guid: 9d4d772737392544094d214498a06525
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
@@ -160,7 +160,6 @@ ModelImporter:
     400152: Syphen_SH_Spine04J
     400154: Syphen_SH_SpineROOTJ
     4300000: Syphen_Mesh
-    7400000: SyphenOutfit_5_finished
     9500000: //RootNode
     13700000: Syphen_Mesh
   materials:
