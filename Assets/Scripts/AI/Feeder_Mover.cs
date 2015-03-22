@@ -70,7 +70,7 @@ public class Feeder_Mover : AI_Mover {
 			if(hit.distance <= 0.5f)
 			{
 				
-				transform.position = new Vector3(transform.position.x, 1.0f, transform.position.z);
+				transform.position = new Vector3(transform.position.x, 1.2f, transform.position.z);
 				
 			}
 			
