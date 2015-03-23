@@ -75,6 +75,11 @@ public class explosion : MonoBehaviour {
 			// can add cases for non physics objects later
 			DealDamage(hit); // call to method that hurts ai
 
+			// specifically ignore the barrier
+			if (hit.transform.parent.name=="entrance_unshattered" ||hit.transform.parent.name=="nonShatterGrp" ){
+				continue;
+			}
+
 			PhysicsStatus ps = (PhysicsStatus) hit.GetComponent<PhysicsStatus>(); // grab physics status of object
 			if( ps && ps.pushable ){ 
 				Shatterable shatterable = hit.gameObject.GetComponent<Shatterable>();
