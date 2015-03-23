@@ -18,6 +18,7 @@ public class NetworkedLaserPower : MonoBehaviour
   public AudioManager _audioManager;	//This stores the audio clips that need to be played
   public string _audioClipName = "suction";
   public Vector3 _offset;
+  public ArcReactorDemoGunControllerEdit _arcReactor;
 
   //Rate of fire
   public float _cooldown = 1;
@@ -72,6 +73,7 @@ public class NetworkedLaserPower : MonoBehaviour
 		if ((leftTriggerHeld && _projectileButton == ProjectileTriggerButton.LEFT && (_gameManager == null || _gameManager.longRangeUnlocked))
             || (rightTriggerHeld && _projectileButton == ProjectileTriggerButton.RIGHT))
         {
+		  _arcReactor.StartLaunch();
           FireBeam();
           _cooldownTimer = _cooldown;
         }
@@ -80,6 +82,7 @@ public class NetworkedLaserPower : MonoBehaviour
         {
           if (_alreadyFired)
           {
+			_arcReactor.EndLaunch();
             _alreadyFired = false;
 			if(Network.isClient || Network.isServer){
             	this.networkView.RPC("DeactivatePower", RPCMode.Others);

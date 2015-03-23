@@ -203,13 +203,26 @@ public class ArcReactor_Launcher : MonoBehaviour {
 
 		//End position will be raycasted in any case
 		end = tmpobj.transform;
-		if (Physics.Raycast(transform.position,transform.forward,out hit,Distance,layers.value))		
+
+		/* OLD
+		 if (Physics.Raycast(transform.position,transform.forward,out hit,Distance,layers.value))		
 		{
 			end.position = hit.point;
 			endObj = hit.transform.gameObject;
 		}
 		else		
 			end.position = transform.position + transform.forward * Distance;
+		*/
+		//MOJ EDITS START//
+		Vector3 cameraForward = Camera.main.transform.TransformDirection(Vector3.forward).normalized;
+		if (Physics.Raycast(Camera.main.transform.position, cameraForward,out hit,Distance,layers.value))		
+		{
+			end.position = hit.point;
+			endObj = hit.transform.gameObject;
+		}
+		else		
+			end.position = transform.position + transform.forward * Distance;
+		//MOJ EDITS END//
 		if (endBehaviour == RayTransformBehaivour.stick && hit.transform != null)
 		{
 			end.parent = hit.transform;
