@@ -367,13 +367,16 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
 	else if(this.gamepadState.RightTrigger > 0.20f && gameObject.name.Contains ("Syphen")){
 		this.playerState = PlayerControllerState.ZOOM_OUT;
 	}
-   /* else if (this.gamepadState.LeftStick)
+    else if (this.gamepadState.LeftStick)
     {
-      this.playerState = PlayerControllerState.RUNNING;
-    }*/
+		this.playerState = PlayerControllerState.RUNNING;
+    }
+	else if(controllerMoveDirection.magnitude > 0.10f){
+		this.playerState = PlayerControllerState.WALKING;
+	}
     else
     {
-      this.playerState = PlayerControllerState.WALKING;
+      this.playerState = PlayerControllerState.IDLE;
     }
     #endregion
 

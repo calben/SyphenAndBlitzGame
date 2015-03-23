@@ -30,6 +30,7 @@ public class NetworkedCharAnimator : MonoBehaviour
       //float speed = _rb.GetPointVelocity(Vector3.zero).magnitude;
       if (_controller.playerState == PlayerControllerState.WALKING)
       {
+				Debug.Log("state is walking");
         newStateIndex = 1;
       }
 	  else if (_controller.playerState == PlayerControllerState.AIMING)
