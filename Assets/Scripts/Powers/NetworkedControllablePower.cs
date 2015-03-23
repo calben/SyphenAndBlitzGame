@@ -22,6 +22,7 @@ public class NetworkedControllablePower : MonoBehaviour
   public float _controlPullSpeed = 0.1f;
   public float _distanceFromPlayer = 4f;
   public float _distanceFromFloor = 0.7f;
+  public ArcReactorDemoGunControllerEdit _arcReactor;
 
   public LayerMask layerMask;
 
@@ -126,6 +127,7 @@ public class NetworkedControllablePower : MonoBehaviour
   [RPC]
   void ActivatePower(Vector3 startPosition)
   {
+	_arcReactor.StartLaunch();
     if (Network.isClient || Network.isServer)
     {
       _controlledProjectile = Network.Instantiate(_projectile, startPosition, transform.rotation, 0) as GameObject;
@@ -145,6 +147,7 @@ public class NetworkedControllablePower : MonoBehaviour
   [RPC]
   void DeactivatePower()
   {
+	_arcReactor.EndLaunch();
     _audioManager.Stop(_audioClipName, 1.0f);
     if (_controlledProjectile) { Destroy(_controlledProjectile); }
     if (_controlledTarget) { Destroy(_controlledTarget); }

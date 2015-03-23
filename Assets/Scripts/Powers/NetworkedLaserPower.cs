@@ -18,6 +18,7 @@ public class NetworkedLaserPower : MonoBehaviour
   public AudioManager _audioManager;	//This stores the audio clips that need to be played
   public string _audioClipName = "suction";
   public Vector3 _offset;
+  public ArcReactorDemoGunControllerEdit _arcReactor;
 
   //Rate of fire
   public float _cooldown = 1;
@@ -94,6 +95,7 @@ public class NetworkedLaserPower : MonoBehaviour
   [RPC]
   void ActivatePower(Vector3 startPosition, Vector3 direction)
   {
+	_arcReactor.StartLaunch();
     _audioManager.Play(_audioClipName, 0.25f, true);
     _controlledProjectile = Instantiate(_projectile, startPosition, Quaternion.identity) as GameObject;
   }
@@ -101,6 +103,7 @@ public class NetworkedLaserPower : MonoBehaviour
   [RPC]
   void DeactivatePower()
   {
+	_arcReactor.EndLaunch();
     _audioManager.Stop(_audioClipName, 6.5f);
     if (_controlledProjectile)
     {
