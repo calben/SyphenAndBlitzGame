@@ -1,0 +1,110 @@
+fileFormatVersion: 2
+guid: 96f3c141da819314e9450386daaa4d2d
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: joint_Wrist_L
+    100002: //RootNode
+    100004: KillerMech_joint_Ankle_L
+    100006: KillerMech_joint_Ankle_R
+    100008: KillerMech_joint_Elbow_L
+    100010: KillerMech_joint_Elbow_R
+    100012: KillerMech_joint_Foot_L
+    100014: KillerMech_joint_Foot_R
+    100016: KillerMech_joint_FootTip_L
+    100018: KillerMech_joint_FootTip_R
+    100020: KillerMech_joint_Hand_L
+    100022: KillerMech_joint_Hand_R
+    100024: KillerMech_joint_HandTip_L
+    100026: KillerMech_joint_HandTip_R
+    100028: KillerMech_joint_Hip_L
+    100030: KillerMech_joint_Hip_R
+    100032: KillerMech_joint_Knee_L
+    100034: KillerMech_joint_Knee_R
+    100036: KillerMech_joint_ROOT
+    100038: KillerMech_joint_Shoulder_L
+    100040: KillerMech_joint_Shoulder_R
+    100042: KillerMech_joint_Torso
+    100044: KillerMech_joint_Wrist_R
+    100046: KillerMech_Mesh
+    400000: joint_Wrist_L
+    400002: //RootNode
+    400004: KillerMech_joint_Ankle_L
+    400006: KillerMech_joint_Ankle_R
+    400008: KillerMech_joint_Elbow_L
+    400010: KillerMech_joint_Elbow_R
+    400012: KillerMech_joint_Foot_L
+    400014: KillerMech_joint_Foot_R
+    400016: KillerMech_joint_FootTip_L
+    400018: KillerMech_joint_FootTip_R
+    400020: KillerMech_joint_Hand_L
+    400022: KillerMech_joint_Hand_R
+    400024: KillerMech_joint_HandTip_L
+    400026: KillerMech_joint_HandTip_R
+    400028: KillerMech_joint_Hip_L
+    400030: KillerMech_joint_Hip_R
+    400032: KillerMech_joint_Knee_L
+    400034: KillerMech_joint_Knee_R
+    400036: KillerMech_joint_ROOT
+    400038: KillerMech_joint_Shoulder_L
+    400040: KillerMech_joint_Shoulder_R
+    400042: KillerMech_joint_Torso
+    400044: KillerMech_joint_Wrist_R
+    400046: KillerMech_Mesh
+    4300000: KillerMech_Mesh
+    9500000: //RootNode
+    13700000: KillerMech_Mesh
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .100000001
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
