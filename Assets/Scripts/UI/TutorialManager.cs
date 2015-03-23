@@ -11,6 +11,7 @@ public class TutorialManager : MonoBehaviour {
 	public List<GameObject> blitzTutorials;
 	private EventSystem eventSystem;
 	private List<GameObject> tutorials;
+	public AudioManager _audioManager;
 
 	// Use this for initialization
 	void Start () {
@@ -38,7 +39,7 @@ public class TutorialManager : MonoBehaviour {
 		}
 		tutorials[0].SetActive (true);
 		eventSystem.SetSelectedGameObject(tutorialStartButton);
-			
+		_audioManager.Play ("tutorial_click", 1.0f, false);
 	}
 	public void NextTutorial() {
 		//Disable current menu and remove it from list
@@ -59,6 +60,7 @@ public class TutorialManager : MonoBehaviour {
 		}
 	}
 	private void ExitTutorial() {
+		_audioManager.Play ("tutorial_click", 1.0f, false);
 		GameObject[] players = GameObject.FindGameObjectsWithTag ("Player");
 		foreach (GameObject p in players) {
 			p.GetComponent<RigidbodyNetworkedPlayerController>().enabled = true;
