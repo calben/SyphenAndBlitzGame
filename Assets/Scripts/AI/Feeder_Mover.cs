@@ -9,6 +9,7 @@ public class Feeder_Mover : AI_Mover {
 	public float pullRadius;
 	public float pullForce;
 	public GameObject EnviroTile;
+	public AudioManager _audioManager;
 
 	Transform tempTarget;
 	bool isFeeding;
@@ -159,6 +160,7 @@ public class Feeder_Mover : AI_Mover {
 
 			Destroy (other.gameObject);
 			resourcesEaten++;
+			_audioManager.Play("enemy_drinking", 1.0f, false);
 			//StartCoroutine(flashGreen());
 			//StartCoroutine(falconPull());
 			return;
