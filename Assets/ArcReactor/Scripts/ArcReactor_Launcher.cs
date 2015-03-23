@@ -220,7 +220,7 @@ public class ArcReactor_Launcher : MonoBehaviour {
 			end.position = hit.point;
 			endObj = hit.transform.gameObject;
 		}
-		else		
+		else	
 			end.position = transform.position + transform.forward * Distance;
 		//MOJ EDITS END//
 		if (endBehaviour == RayTransformBehaivour.stick && hit.transform != null)
@@ -345,7 +345,11 @@ public class ArcReactor_Launcher : MonoBehaviour {
 				case ReflectSettings.no_reflections:
 					if (startBehaviour == RayTransformBehaivour.follow_raycast)
 					{
-						if (Physics.Raycast(transform.position,-transform.forward,out hit,rinfo.distance,layers.value))
+
+						//if (Physics.Raycast(transform.position,-transform.forward,out hit,rinfo.distance,layers.value))
+						//MOJ EDIT START//
+						Vector3 cameraForward = Camera.main.transform.TransformDirection(Vector3.forward).normalized;
+						if (Physics.Raycast(Camera.main.transform.position, cameraForward,out hit,rinfo.distance,layers.value))
 						{
 							if (SendMessageToHitObjects)
 							{
@@ -392,7 +396,10 @@ public class ArcReactor_Launcher : MonoBehaviour {
 					}
 					if (endBehaviour == RayTransformBehaivour.follow_raycast)
 					{
-						if (Physics.Raycast(transform.position,transform.forward,out hit,rinfo.distance,layers.value))
+						//if (Physics.Raycast(transform.position,transform.forward,out hit,rinfo.distance,layers.value))
+						//MOJ EDIT START//
+						Vector3 cameraForward = Camera.main.transform.TransformDirection(Vector3.forward).normalized;
+						if (Physics.Raycast(Camera.main.transform.position, cameraForward,out hit,rinfo.distance,layers.value))
 						{
 							if (SendMessageToHitObjects)
 							{
@@ -437,7 +444,9 @@ public class ArcReactor_Launcher : MonoBehaviour {
 								}
 							}
 							rinfo.endObject = null;
-							endPos = transform.position + transform.forward * rinfo.distance;
+							//MOJ EDIT START//
+							//endPos = transform.position + transform.forward * rinfo.distance;
+							endPos = transform.position + transform.forward * 0.5f;
 						}
 					}
 					else

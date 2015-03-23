@@ -73,7 +73,6 @@ public class NetworkedLaserPower : MonoBehaviour
 		if ((leftTriggerHeld && _projectileButton == ProjectileTriggerButton.LEFT && (_gameManager == null || _gameManager.longRangeUnlocked))
             || (rightTriggerHeld && _projectileButton == ProjectileTriggerButton.RIGHT))
         {
-		  _arcReactor.StartLaunch();
           FireBeam();
           _cooldownTimer = _cooldown;
         }
@@ -82,7 +81,6 @@ public class NetworkedLaserPower : MonoBehaviour
         {
           if (_alreadyFired)
           {
-			_arcReactor.EndLaunch();
             _alreadyFired = false;
 			if(Network.isClient || Network.isServer){
             	this.networkView.RPC("DeactivatePower", RPCMode.Others);
@@ -97,6 +95,7 @@ public class NetworkedLaserPower : MonoBehaviour
   [RPC]
   void ActivatePower(Vector3 startPosition, Vector3 direction)
   {
+	_arcReactor.StartLaunch();
     _audioManager.Play(_audioClipName, 0.25f, true);
     _controlledProjectile = Instantiate(_projectile, startPosition, Quaternion.identity) as GameObject;
   }
@@ -104,6 +103,7 @@ public class NetworkedLaserPower : MonoBehaviour
   [RPC]
   void DeactivatePower()
   {
+	_arcReactor.EndLaunch();
     _audioManager.Stop(_audioClipName, 6.5f);
     if (_controlledProjectile)
     {
