@@ -58,7 +58,10 @@ public class explosion : MonoBehaviour {
 		_audioManager.Initialize();
 		_audioManager.Play("grenade_beeping", 0.25f, false);
 		yield return new WaitForSeconds(delay);
-		_audioManager.Play("grenade_explosion", 0.0f, false);
+		GameObject explosionAudioManager = GameObject.Find("Audio_Explosion");
+		if(explosionAudioManager){
+			explosionAudioManager.GetComponent<AudioManager>().Play("grenade_explosion", 0.0f, false);
+		}
 
 		Vector3 explosionPos = transform.position;
 		Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
