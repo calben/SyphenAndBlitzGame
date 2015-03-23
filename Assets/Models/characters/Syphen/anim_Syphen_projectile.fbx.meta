@@ -1,0 +1,807 @@
+fileFormatVersion: 2
+guid: 3e8752cfad3a92c429d16d5f7c0cc88c
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Female_Skinny1_Retopo
+    100004: polySurface109
+    100006: polySurface111
+    100008: polySurface113
+    100010: Syphen
+    100012: Syphen_Mesh
+    100014: Syphen_SH_HeadJ
+    100016: Syphen_SH_HeadTipJ
+    100018: Syphen_SH_JawJ
+    100020: Syphen_SH_JawTipJ
+    100022: Syphen_SH_lAnkleJ
+    100024: Syphen_SH_lBallJ
+    100026: Syphen_SH_lClavicleJ
+    100028: Syphen_SH_lElbowJ
+    100030: Syphen_SH_lEyeJ
+    100032: Syphen_SH_lFinger1J1
+    100034: Syphen_SH_lFinger1J2
+    100036: Syphen_SH_lFinger1J3
+    100038: Syphen_SH_lFinger1JTip
+    100040: Syphen_SH_lFinger2J1
+    100042: Syphen_SH_lFinger2J2
+    100044: Syphen_SH_lFinger2J3
+    100046: Syphen_SH_lFinger2JTip
+    100048: Syphen_SH_lFinger3J1
+    100050: Syphen_SH_lFinger3J2
+    100052: Syphen_SH_lFinger3J3
+    100054: Syphen_SH_lFinger3JTip
+    100056: Syphen_SH_lFinger4J1
+    100058: Syphen_SH_lFinger4J2
+    100060: Syphen_SH_lFinger4J3
+    100062: Syphen_SH_lFinger4JTip
+    100064: Syphen_SH_lForearmJ
+    100066: Syphen_SH_lHipJ
+    100068: Syphen_SH_lKneeJ
+    100070: Syphen_SH_lPalmJ
+    100072: Syphen_SH_lShoulderJ
+    100074: Syphen_SH_lThumbJ1
+    100076: Syphen_SH_lThumbJ2
+    100078: Syphen_SH_lThumbJ3
+    100080: Syphen_SH_lThumbJTip
+    100082: Syphen_SH_lToeJ
+    100084: Syphen_SH_lWristJ
+    100086: Syphen_SH_Neck01J
+    100088: Syphen_SH_Neck02J
+    100090: Syphen_SH_rAnkleJ
+    100092: Syphen_SH_rBallJ
+    100094: Syphen_SH_rClavicleJ
+    100096: Syphen_SH_rElbowJ
+    100098: Syphen_SH_rEyeJ
+    100100: Syphen_SH_rFinger1J1
+    100102: Syphen_SH_rFinger1J2
+    100104: Syphen_SH_rFinger1J3
+    100106: Syphen_SH_rFinger1JTip
+    100108: Syphen_SH_rFinger2J1
+    100110: Syphen_SH_rFinger2J2
+    100112: Syphen_SH_rFinger2J3
+    100114: Syphen_SH_rFinger2JTip
+    100116: Syphen_SH_rFinger3J1
+    100118: Syphen_SH_rFinger3J2
+    100120: Syphen_SH_rFinger3J3
+    100122: Syphen_SH_rFinger3JTip
+    100124: Syphen_SH_rFinger4J1
+    100126: Syphen_SH_rFinger4J2
+    100128: Syphen_SH_rFinger4J3
+    100130: Syphen_SH_rFinger4JTip
+    100132: Syphen_SH_rForearmJ
+    100134: Syphen_SH_rHipJ
+    100136: Syphen_SH_rKneeJ
+    100138: Syphen_SH_ROOTJ
+    100140: Syphen_SH_rPalmJ
+    100142: Syphen_SH_rShoulderJ
+    100144: Syphen_SH_rThumbJ1
+    100146: Syphen_SH_rThumbJ2
+    100148: Syphen_SH_rThumbJ3
+    100150: Syphen_SH_rThumbJTip
+    100152: Syphen_SH_rToeJ
+    100154: Syphen_SH_rWristJ
+    100156: Syphen_SH_spine01J
+    100158: Syphen_SH_spine02J
+    100160: Syphen_SH_spine03J
+    100162: Syphen_SH_Spine04J
+    100164: Syphen_SH_SpineROOTJ
+    400000: //RootNode
+    400002: Female_Skinny1_Retopo
+    400004: polySurface109
+    400006: polySurface111
+    400008: polySurface113
+    400010: Syphen
+    400012: Syphen_Mesh
+    400014: Syphen_SH_HeadJ
+    400016: Syphen_SH_HeadTipJ
+    400018: Syphen_SH_JawJ
+    400020: Syphen_SH_JawTipJ
+    400022: Syphen_SH_lAnkleJ
+    400024: Syphen_SH_lBallJ
+    400026: Syphen_SH_lClavicleJ
+    400028: Syphen_SH_lElbowJ
+    400030: Syphen_SH_lEyeJ
+    400032: Syphen_SH_lFinger1J1
+    400034: Syphen_SH_lFinger1J2
+    400036: Syphen_SH_lFinger1J3
+    400038: Syphen_SH_lFinger1JTip
+    400040: Syphen_SH_lFinger2J1
+    400042: Syphen_SH_lFinger2J2
+    400044: Syphen_SH_lFinger2J3
+    400046: Syphen_SH_lFinger2JTip
+    400048: Syphen_SH_lFinger3J1
+    400050: Syphen_SH_lFinger3J2
+    400052: Syphen_SH_lFinger3J3
+    400054: Syphen_SH_lFinger3JTip
+    400056: Syphen_SH_lFinger4J1
+    400058: Syphen_SH_lFinger4J2
+    400060: Syphen_SH_lFinger4J3
+    400062: Syphen_SH_lFinger4JTip
+    400064: Syphen_SH_lForearmJ
+    400066: Syphen_SH_lHipJ
+    400068: Syphen_SH_lKneeJ
+    400070: Syphen_SH_lPalmJ
+    400072: Syphen_SH_lShoulderJ
+    400074: Syphen_SH_lThumbJ1
+    400076: Syphen_SH_lThumbJ2
+    400078: Syphen_SH_lThumbJ3
+    400080: Syphen_SH_lThumbJTip
+    400082: Syphen_SH_lToeJ
+    400084: Syphen_SH_lWristJ
+    400086: Syphen_SH_Neck01J
+    400088: Syphen_SH_Neck02J
+    400090: Syphen_SH_rAnkleJ
+    400092: Syphen_SH_rBallJ
+    400094: Syphen_SH_rClavicleJ
+    400096: Syphen_SH_rElbowJ
+    400098: Syphen_SH_rEyeJ
+    400100: Syphen_SH_rFinger1J1
+    400102: Syphen_SH_rFinger1J2
+    400104: Syphen_SH_rFinger1J3
+    400106: Syphen_SH_rFinger1JTip
+    400108: Syphen_SH_rFinger2J1
+    400110: Syphen_SH_rFinger2J2
+    400112: Syphen_SH_rFinger2J3
+    400114: Syphen_SH_rFinger2JTip
+    400116: Syphen_SH_rFinger3J1
+    400118: Syphen_SH_rFinger3J2
+    400120: Syphen_SH_rFinger3J3
+    400122: Syphen_SH_rFinger3JTip
+    400124: Syphen_SH_rFinger4J1
+    400126: Syphen_SH_rFinger4J2
+    400128: Syphen_SH_rFinger4J3
+    400130: Syphen_SH_rFinger4JTip
+    400132: Syphen_SH_rForearmJ
+    400134: Syphen_SH_rHipJ
+    400136: Syphen_SH_rKneeJ
+    400138: Syphen_SH_ROOTJ
+    400140: Syphen_SH_rPalmJ
+    400142: Syphen_SH_rShoulderJ
+    400144: Syphen_SH_rThumbJ1
+    400146: Syphen_SH_rThumbJ2
+    400148: Syphen_SH_rThumbJ3
+    400150: Syphen_SH_rThumbJTip
+    400152: Syphen_SH_rToeJ
+    400154: Syphen_SH_rWristJ
+    400156: Syphen_SH_spine01J
+    400158: Syphen_SH_spine02J
+    400160: Syphen_SH_spine03J
+    400162: Syphen_SH_Spine04J
+    400164: Syphen_SH_SpineROOTJ
+    4300000: Syphen_Mesh
+    7400000: anim_Syphen_projectile_enter
+    7400002: anim_Syphen_projectile_exit
+    7400004: anim_Syphen_projectile_loop
+    9500000: //RootNode
+    13700000: Syphen_Mesh
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: anim_Syphen_projectile_enter
+      takeName: anim_Syphen_projectile
+      firstFrame: 10
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Female_Skinny1_Retopo
+        weight: 1
+      - path: Female_Skinny1_Retopo/polySurface109
+        weight: 1
+      - path: Female_Skinny1_Retopo/polySurface109/polySurface111
+        weight: 1
+      - path: Female_Skinny1_Retopo/polySurface109/polySurface111/polySurface113
+        weight: 1
+      - path: Syphen
+        weight: 1
+      - path: Syphen/Syphen_Mesh
+        weight: 1
+      - path: Syphen_SH_ROOTJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_lHipJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_lHipJ/Syphen_SH_lKneeJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_lHipJ/Syphen_SH_lKneeJ/Syphen_SH_lAnkleJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_lHipJ/Syphen_SH_lKneeJ/Syphen_SH_lAnkleJ/Syphen_SH_lBallJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_lHipJ/Syphen_SH_lKneeJ/Syphen_SH_lAnkleJ/Syphen_SH_lBallJ/Syphen_SH_lToeJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_rHipJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_rHipJ/Syphen_SH_rKneeJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_rHipJ/Syphen_SH_rKneeJ/Syphen_SH_rAnkleJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_rHipJ/Syphen_SH_rKneeJ/Syphen_SH_rAnkleJ/Syphen_SH_rBallJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_rHipJ/Syphen_SH_rKneeJ/Syphen_SH_rAnkleJ/Syphen_SH_rBallJ/Syphen_SH_rToeJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lForearmJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lPalmJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lPalmJ/Syphen_SH_lFinger1J1
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lPalmJ/Syphen_SH_lFinger1J1/Syphen_SH_lFinger1J2
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lPalmJ/Syphen_SH_lFinger1J1/Syphen_SH_lFinger1J2/Syphen_SH_lFinger1J3
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lPalmJ/Syphen_SH_lFinger1J1/Syphen_SH_lFinger1J2/Syphen_SH_lFinger1J3/Syphen_SH_lFinger1JTip
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lPalmJ/Syphen_SH_lFinger2J1
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lPalmJ/Syphen_SH_lFinger2J1/Syphen_SH_lFinger2J2
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lPalmJ/Syphen_SH_lFinger2J1/Syphen_SH_lFinger2J2/Syphen_SH_lFinger2J3
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lPalmJ/Syphen_SH_lFinger2J1/Syphen_SH_lFinger2J2/Syphen_SH_lFinger2J3/Syphen_SH_lFinger2JTip
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lPalmJ/Syphen_SH_lFinger3J1
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lPalmJ/Syphen_SH_lFinger3J1/Syphen_SH_lFinger3J2
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lPalmJ/Syphen_SH_lFinger3J1/Syphen_SH_lFinger3J2/Syphen_SH_lFinger3J3
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lPalmJ/Syphen_SH_lFinger3J1/Syphen_SH_lFinger3J2/Syphen_SH_lFinger3J3/Syphen_SH_lFinger3JTip
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lPalmJ/Syphen_SH_lFinger4J1
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lPalmJ/Syphen_SH_lFinger4J1/Syphen_SH_lFinger4J2
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lPalmJ/Syphen_SH_lFinger4J1/Syphen_SH_lFinger4J2/Syphen_SH_lFinger4J3
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lPalmJ/Syphen_SH_lFinger4J1/Syphen_SH_lFinger4J2/Syphen_SH_lFinger4J3/Syphen_SH_lFinger4JTip
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lThumbJ1
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lThumbJ1/Syphen_SH_lThumbJ2
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lThumbJ1/Syphen_SH_lThumbJ2/Syphen_SH_lThumbJ3
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lThumbJ1/Syphen_SH_lThumbJ2/Syphen_SH_lThumbJ3/Syphen_SH_lThumbJTip
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_Neck01J
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_Neck01J/Syphen_SH_Neck02J
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_Neck01J/Syphen_SH_Neck02J/Syphen_SH_HeadJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_Neck01J/Syphen_SH_Neck02J/Syphen_SH_HeadJ/Syphen_SH_HeadTipJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_Neck01J/Syphen_SH_Neck02J/Syphen_SH_HeadJ/Syphen_SH_JawJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_Neck01J/Syphen_SH_Neck02J/Syphen_SH_HeadJ/Syphen_SH_JawJ/Syphen_SH_JawTipJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_Neck01J/Syphen_SH_Neck02J/Syphen_SH_HeadJ/Syphen_SH_lEyeJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_Neck01J/Syphen_SH_Neck02J/Syphen_SH_HeadJ/Syphen_SH_rEyeJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rForearmJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rPalmJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rPalmJ/Syphen_SH_rFinger1J1
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rPalmJ/Syphen_SH_rFinger1J1/Syphen_SH_rFinger1J2
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rPalmJ/Syphen_SH_rFinger1J1/Syphen_SH_rFinger1J2/Syphen_SH_rFinger1J3
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rPalmJ/Syphen_SH_rFinger1J1/Syphen_SH_rFinger1J2/Syphen_SH_rFinger1J3/Syphen_SH_rFinger1JTip
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rPalmJ/Syphen_SH_rFinger2J1
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rPalmJ/Syphen_SH_rFinger2J1/Syphen_SH_rFinger2J2
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rPalmJ/Syphen_SH_rFinger2J1/Syphen_SH_rFinger2J2/Syphen_SH_rFinger2J3
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rPalmJ/Syphen_SH_rFinger2J1/Syphen_SH_rFinger2J2/Syphen_SH_rFinger2J3/Syphen_SH_rFinger2JTip
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rPalmJ/Syphen_SH_rFinger3J1
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rPalmJ/Syphen_SH_rFinger3J1/Syphen_SH_rFinger3J2
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rPalmJ/Syphen_SH_rFinger3J1/Syphen_SH_rFinger3J2/Syphen_SH_rFinger3J3
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rPalmJ/Syphen_SH_rFinger3J1/Syphen_SH_rFinger3J2/Syphen_SH_rFinger3J3/Syphen_SH_rFinger3JTip
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rPalmJ/Syphen_SH_rFinger4J1
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rPalmJ/Syphen_SH_rFinger4J1/Syphen_SH_rFinger4J2
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rPalmJ/Syphen_SH_rFinger4J1/Syphen_SH_rFinger4J2/Syphen_SH_rFinger4J3
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rPalmJ/Syphen_SH_rFinger4J1/Syphen_SH_rFinger4J2/Syphen_SH_rFinger4J3/Syphen_SH_rFinger4JTip
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rThumbJ1
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rThumbJ1/Syphen_SH_rThumbJ2
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rThumbJ1/Syphen_SH_rThumbJ2/Syphen_SH_rThumbJ3
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rThumbJ1/Syphen_SH_rThumbJ2/Syphen_SH_rThumbJ3/Syphen_SH_rThumbJTip
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: anim_Syphen_projectile_exit
+      takeName: anim_Syphen_projectile
+      firstFrame: 50
+      lastFrame: 75
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Female_Skinny1_Retopo
+        weight: 1
+      - path: Female_Skinny1_Retopo/polySurface109
+        weight: 1
+      - path: Female_Skinny1_Retopo/polySurface109/polySurface111
+        weight: 1
+      - path: Female_Skinny1_Retopo/polySurface109/polySurface111/polySurface113
+        weight: 1
+      - path: Syphen
+        weight: 1
+      - path: Syphen/Syphen_Mesh
+        weight: 1
+      - path: Syphen_SH_ROOTJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_lHipJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_lHipJ/Syphen_SH_lKneeJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_lHipJ/Syphen_SH_lKneeJ/Syphen_SH_lAnkleJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_lHipJ/Syphen_SH_lKneeJ/Syphen_SH_lAnkleJ/Syphen_SH_lBallJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_lHipJ/Syphen_SH_lKneeJ/Syphen_SH_lAnkleJ/Syphen_SH_lBallJ/Syphen_SH_lToeJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_rHipJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_rHipJ/Syphen_SH_rKneeJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_rHipJ/Syphen_SH_rKneeJ/Syphen_SH_rAnkleJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_rHipJ/Syphen_SH_rKneeJ/Syphen_SH_rAnkleJ/Syphen_SH_rBallJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_rHipJ/Syphen_SH_rKneeJ/Syphen_SH_rAnkleJ/Syphen_SH_rBallJ/Syphen_SH_rToeJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lForearmJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lPalmJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lPalmJ/Syphen_SH_lFinger1J1
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lPalmJ/Syphen_SH_lFinger1J1/Syphen_SH_lFinger1J2
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lPalmJ/Syphen_SH_lFinger1J1/Syphen_SH_lFinger1J2/Syphen_SH_lFinger1J3
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lPalmJ/Syphen_SH_lFinger1J1/Syphen_SH_lFinger1J2/Syphen_SH_lFinger1J3/Syphen_SH_lFinger1JTip
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lPalmJ/Syphen_SH_lFinger2J1
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lPalmJ/Syphen_SH_lFinger2J1/Syphen_SH_lFinger2J2
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lPalmJ/Syphen_SH_lFinger2J1/Syphen_SH_lFinger2J2/Syphen_SH_lFinger2J3
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lPalmJ/Syphen_SH_lFinger2J1/Syphen_SH_lFinger2J2/Syphen_SH_lFinger2J3/Syphen_SH_lFinger2JTip
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lPalmJ/Syphen_SH_lFinger3J1
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lPalmJ/Syphen_SH_lFinger3J1/Syphen_SH_lFinger3J2
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lPalmJ/Syphen_SH_lFinger3J1/Syphen_SH_lFinger3J2/Syphen_SH_lFinger3J3
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lPalmJ/Syphen_SH_lFinger3J1/Syphen_SH_lFinger3J2/Syphen_SH_lFinger3J3/Syphen_SH_lFinger3JTip
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lPalmJ/Syphen_SH_lFinger4J1
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lPalmJ/Syphen_SH_lFinger4J1/Syphen_SH_lFinger4J2
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lPalmJ/Syphen_SH_lFinger4J1/Syphen_SH_lFinger4J2/Syphen_SH_lFinger4J3
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lPalmJ/Syphen_SH_lFinger4J1/Syphen_SH_lFinger4J2/Syphen_SH_lFinger4J3/Syphen_SH_lFinger4JTip
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lThumbJ1
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lThumbJ1/Syphen_SH_lThumbJ2
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lThumbJ1/Syphen_SH_lThumbJ2/Syphen_SH_lThumbJ3
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lThumbJ1/Syphen_SH_lThumbJ2/Syphen_SH_lThumbJ3/Syphen_SH_lThumbJTip
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_Neck01J
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_Neck01J/Syphen_SH_Neck02J
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_Neck01J/Syphen_SH_Neck02J/Syphen_SH_HeadJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_Neck01J/Syphen_SH_Neck02J/Syphen_SH_HeadJ/Syphen_SH_HeadTipJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_Neck01J/Syphen_SH_Neck02J/Syphen_SH_HeadJ/Syphen_SH_JawJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_Neck01J/Syphen_SH_Neck02J/Syphen_SH_HeadJ/Syphen_SH_JawJ/Syphen_SH_JawTipJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_Neck01J/Syphen_SH_Neck02J/Syphen_SH_HeadJ/Syphen_SH_lEyeJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_Neck01J/Syphen_SH_Neck02J/Syphen_SH_HeadJ/Syphen_SH_rEyeJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rForearmJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rPalmJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rPalmJ/Syphen_SH_rFinger1J1
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rPalmJ/Syphen_SH_rFinger1J1/Syphen_SH_rFinger1J2
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rPalmJ/Syphen_SH_rFinger1J1/Syphen_SH_rFinger1J2/Syphen_SH_rFinger1J3
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rPalmJ/Syphen_SH_rFinger1J1/Syphen_SH_rFinger1J2/Syphen_SH_rFinger1J3/Syphen_SH_rFinger1JTip
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rPalmJ/Syphen_SH_rFinger2J1
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rPalmJ/Syphen_SH_rFinger2J1/Syphen_SH_rFinger2J2
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rPalmJ/Syphen_SH_rFinger2J1/Syphen_SH_rFinger2J2/Syphen_SH_rFinger2J3
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rPalmJ/Syphen_SH_rFinger2J1/Syphen_SH_rFinger2J2/Syphen_SH_rFinger2J3/Syphen_SH_rFinger2JTip
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rPalmJ/Syphen_SH_rFinger3J1
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rPalmJ/Syphen_SH_rFinger3J1/Syphen_SH_rFinger3J2
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rPalmJ/Syphen_SH_rFinger3J1/Syphen_SH_rFinger3J2/Syphen_SH_rFinger3J3
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rPalmJ/Syphen_SH_rFinger3J1/Syphen_SH_rFinger3J2/Syphen_SH_rFinger3J3/Syphen_SH_rFinger3JTip
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rPalmJ/Syphen_SH_rFinger4J1
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rPalmJ/Syphen_SH_rFinger4J1/Syphen_SH_rFinger4J2
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rPalmJ/Syphen_SH_rFinger4J1/Syphen_SH_rFinger4J2/Syphen_SH_rFinger4J3
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rPalmJ/Syphen_SH_rFinger4J1/Syphen_SH_rFinger4J2/Syphen_SH_rFinger4J3/Syphen_SH_rFinger4JTip
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rThumbJ1
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rThumbJ1/Syphen_SH_rThumbJ2
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rThumbJ1/Syphen_SH_rThumbJ2/Syphen_SH_rThumbJ3
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rThumbJ1/Syphen_SH_rThumbJ2/Syphen_SH_rThumbJ3/Syphen_SH_rThumbJTip
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: anim_Syphen_projectile_loop
+      takeName: anim_Syphen_projectile
+      firstFrame: 30
+      lastFrame: 50
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Female_Skinny1_Retopo
+        weight: 1
+      - path: Female_Skinny1_Retopo/polySurface109
+        weight: 1
+      - path: Female_Skinny1_Retopo/polySurface109/polySurface111
+        weight: 1
+      - path: Female_Skinny1_Retopo/polySurface109/polySurface111/polySurface113
+        weight: 1
+      - path: Syphen
+        weight: 1
+      - path: Syphen/Syphen_Mesh
+        weight: 1
+      - path: Syphen_SH_ROOTJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_lHipJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_lHipJ/Syphen_SH_lKneeJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_lHipJ/Syphen_SH_lKneeJ/Syphen_SH_lAnkleJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_lHipJ/Syphen_SH_lKneeJ/Syphen_SH_lAnkleJ/Syphen_SH_lBallJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_lHipJ/Syphen_SH_lKneeJ/Syphen_SH_lAnkleJ/Syphen_SH_lBallJ/Syphen_SH_lToeJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_rHipJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_rHipJ/Syphen_SH_rKneeJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_rHipJ/Syphen_SH_rKneeJ/Syphen_SH_rAnkleJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_rHipJ/Syphen_SH_rKneeJ/Syphen_SH_rAnkleJ/Syphen_SH_rBallJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_rHipJ/Syphen_SH_rKneeJ/Syphen_SH_rAnkleJ/Syphen_SH_rBallJ/Syphen_SH_rToeJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lForearmJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lPalmJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lPalmJ/Syphen_SH_lFinger1J1
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lPalmJ/Syphen_SH_lFinger1J1/Syphen_SH_lFinger1J2
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lPalmJ/Syphen_SH_lFinger1J1/Syphen_SH_lFinger1J2/Syphen_SH_lFinger1J3
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lPalmJ/Syphen_SH_lFinger1J1/Syphen_SH_lFinger1J2/Syphen_SH_lFinger1J3/Syphen_SH_lFinger1JTip
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lPalmJ/Syphen_SH_lFinger2J1
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lPalmJ/Syphen_SH_lFinger2J1/Syphen_SH_lFinger2J2
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lPalmJ/Syphen_SH_lFinger2J1/Syphen_SH_lFinger2J2/Syphen_SH_lFinger2J3
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lPalmJ/Syphen_SH_lFinger2J1/Syphen_SH_lFinger2J2/Syphen_SH_lFinger2J3/Syphen_SH_lFinger2JTip
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lPalmJ/Syphen_SH_lFinger3J1
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lPalmJ/Syphen_SH_lFinger3J1/Syphen_SH_lFinger3J2
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lPalmJ/Syphen_SH_lFinger3J1/Syphen_SH_lFinger3J2/Syphen_SH_lFinger3J3
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lPalmJ/Syphen_SH_lFinger3J1/Syphen_SH_lFinger3J2/Syphen_SH_lFinger3J3/Syphen_SH_lFinger3JTip
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lPalmJ/Syphen_SH_lFinger4J1
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lPalmJ/Syphen_SH_lFinger4J1/Syphen_SH_lFinger4J2
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lPalmJ/Syphen_SH_lFinger4J1/Syphen_SH_lFinger4J2/Syphen_SH_lFinger4J3
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lPalmJ/Syphen_SH_lFinger4J1/Syphen_SH_lFinger4J2/Syphen_SH_lFinger4J3/Syphen_SH_lFinger4JTip
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lThumbJ1
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lThumbJ1/Syphen_SH_lThumbJ2
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lThumbJ1/Syphen_SH_lThumbJ2/Syphen_SH_lThumbJ3
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_lClavicleJ/Syphen_SH_lShoulderJ/Syphen_SH_lElbowJ/Syphen_SH_lWristJ/Syphen_SH_lThumbJ1/Syphen_SH_lThumbJ2/Syphen_SH_lThumbJ3/Syphen_SH_lThumbJTip
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_Neck01J
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_Neck01J/Syphen_SH_Neck02J
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_Neck01J/Syphen_SH_Neck02J/Syphen_SH_HeadJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_Neck01J/Syphen_SH_Neck02J/Syphen_SH_HeadJ/Syphen_SH_HeadTipJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_Neck01J/Syphen_SH_Neck02J/Syphen_SH_HeadJ/Syphen_SH_JawJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_Neck01J/Syphen_SH_Neck02J/Syphen_SH_HeadJ/Syphen_SH_JawJ/Syphen_SH_JawTipJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_Neck01J/Syphen_SH_Neck02J/Syphen_SH_HeadJ/Syphen_SH_lEyeJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_Neck01J/Syphen_SH_Neck02J/Syphen_SH_HeadJ/Syphen_SH_rEyeJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rForearmJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rPalmJ
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rPalmJ/Syphen_SH_rFinger1J1
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rPalmJ/Syphen_SH_rFinger1J1/Syphen_SH_rFinger1J2
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rPalmJ/Syphen_SH_rFinger1J1/Syphen_SH_rFinger1J2/Syphen_SH_rFinger1J3
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rPalmJ/Syphen_SH_rFinger1J1/Syphen_SH_rFinger1J2/Syphen_SH_rFinger1J3/Syphen_SH_rFinger1JTip
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rPalmJ/Syphen_SH_rFinger2J1
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rPalmJ/Syphen_SH_rFinger2J1/Syphen_SH_rFinger2J2
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rPalmJ/Syphen_SH_rFinger2J1/Syphen_SH_rFinger2J2/Syphen_SH_rFinger2J3
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rPalmJ/Syphen_SH_rFinger2J1/Syphen_SH_rFinger2J2/Syphen_SH_rFinger2J3/Syphen_SH_rFinger2JTip
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rPalmJ/Syphen_SH_rFinger3J1
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rPalmJ/Syphen_SH_rFinger3J1/Syphen_SH_rFinger3J2
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rPalmJ/Syphen_SH_rFinger3J1/Syphen_SH_rFinger3J2/Syphen_SH_rFinger3J3
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rPalmJ/Syphen_SH_rFinger3J1/Syphen_SH_rFinger3J2/Syphen_SH_rFinger3J3/Syphen_SH_rFinger3JTip
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rPalmJ/Syphen_SH_rFinger4J1
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rPalmJ/Syphen_SH_rFinger4J1/Syphen_SH_rFinger4J2
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rPalmJ/Syphen_SH_rFinger4J1/Syphen_SH_rFinger4J2/Syphen_SH_rFinger4J3
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rPalmJ/Syphen_SH_rFinger4J1/Syphen_SH_rFinger4J2/Syphen_SH_rFinger4J3/Syphen_SH_rFinger4JTip
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rThumbJ1
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rThumbJ1/Syphen_SH_rThumbJ2
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rThumbJ1/Syphen_SH_rThumbJ2/Syphen_SH_rThumbJ3
+        weight: 1
+      - path: Syphen_SH_ROOTJ/Syphen_SH_SpineROOTJ/Syphen_SH_spine01J/Syphen_SH_spine02J/Syphen_SH_spine03J/Syphen_SH_Spine04J/Syphen_SH_rClavicleJ/Syphen_SH_rShoulderJ/Syphen_SH_rElbowJ/Syphen_SH_rWristJ/Syphen_SH_rThumbJ1/Syphen_SH_rThumbJ2/Syphen_SH_rThumbJ3/Syphen_SH_rThumbJTip
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
