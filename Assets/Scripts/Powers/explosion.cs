@@ -76,8 +76,10 @@ public class explosion : MonoBehaviour {
 			DealDamage(hit); // call to method that hurts ai
 
 			// specifically ignore the barrier
-			if (hit.transform.parent.name=="entrance_unshattered" ||hit.transform.parent.name=="nonShatterGrp" ){
-				continue;
+			if(hit.transform.parent != null){
+				if (hit.transform.parent.name=="entrance_unshattered" ||hit.transform.parent.name=="nonShatterGrp" ){
+					continue;
+				}
 			}
 
 			PhysicsStatus ps = (PhysicsStatus) hit.GetComponent<PhysicsStatus>(); // grab physics status of object
