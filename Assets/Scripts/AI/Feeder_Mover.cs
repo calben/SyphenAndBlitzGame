@@ -38,7 +38,7 @@ public class Feeder_Mover : AI_Mover
 
     this.myStatus = GetComponentInChildren<StatusUpdate>();
 
-    gameObject.renderer.material.color = Color.magenta;
+    //gameObject.renderer.material.color = Color.magenta;
 
     this.prevWaypoint = this.waypoint;
 
@@ -221,7 +221,7 @@ public class Feeder_Mover : AI_Mover
   {
 
     health = health - damageTaken;
-    StartCoroutine(flashRed());
+    //StartCoroutine(flashRed());
 
   }
 
