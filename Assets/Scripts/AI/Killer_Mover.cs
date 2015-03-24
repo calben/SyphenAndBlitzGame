@@ -1,155 +1,183 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Killer_Mover : AI_Mover {
+public class Killer_Mover : AI_Mover
+{
 
-	protected StatusUpdate myStatus;
+  protected StatusUpdate myStatus;
 
-	public float killSpeed;
-	
-	enum State
-	{
-		roaming,
-		chasing
-	}
+  public float killSpeed;
 
-	State currState;
+  enum State
+  {
+    roaming,
+    chasing
+  }
 
-	// Use this for initialization
-	void Start () {
+  State currState;
 
-		StartCoroutine(changeState (State.roaming));
+  // Use this for initialization
+  void Start()
+  {
 
-		//setting agent
-		this.agent = GetComponent<NavMeshAgent> ();
+    StartCoroutine(changeState(State.roaming));
 
-		myStatus = GetComponentInChildren<StatusUpdate> ();
+    //setting agent
+    this.agent = GetComponent<NavMeshAgent>();
 
-		this.prevWaypoint = this.waypoint;
+    myStatus = GetComponentInChildren<StatusUpdate>();
 
-		gameObject.renderer.material.color = Color.black;
-			
-	}
+    this.prevWaypoint = this.waypoint;
 
-	
-	// Update is called once per frame
-	void Update () 
-	{
+    gameObject.renderer.material.color = Color.black;
 
-		move ();
+  }
 
 
-		if(this.health <= 0)
-		{
+  // Update is called once per frame
+  void Update()
+  {
 
-			Destroy (this.gameObject);
-
-		}
-
-		if(gameObject.rigidbody.velocity.magnitude >= 2.0f)
-		{
-			gameObject.rigidbody.velocity = gameObject.rigidbody.velocity * 0.5f;
-
-		}
+    move();
 
 
-		RaycastHit hit;
+    if (this.health <= 0)
+    {
 
-		if(Physics.Raycast (transform.position, -Vector3.up, out hit, 100.0f))
-		{
+      Destroy(this.gameObject);
 
-			if(hit.distance <= 0.5f)
-			{
-			
-				transform.position = new Vector3(transform.position.x, 0.9f, transform.position.z);
+    }
 
-			}
+    if (gameObject.rigidbody.velocity.magnitude >= 2.0f)
+    {
+      gameObject.rigidbody.velocity = gameObject.rigidbody.velocity * 0.5f;
 
-		}
-
-	}
+    }
 
 
-	protected void OnCollisionEnter(Collision other)
-	{
+    RaycastHit hit;
 
-		if(other.rigidbody == null)
-		{
-			return;
+    if (Physics.Raycast(transform.position, -Vector3.up, out hit, 100.0f))
+    {
 
-		}
+      if (hit.distance <= 0.5f)
+      {
 
-		if(other.gameObject.tag.Equals("Player"))
-		{
-			GameObject.Find ("GameManager").GetComponent<GameManager>().decreaseHealth("Killer");
-			myStatus.updateText(true);
-			
-		}
+        transform.position = new Vector3(transform.position.x, 0.9f, transform.position.z);
 
-	}
+      }
 
-	public void damage()
-	{
+    }
 
-		health = health - damageTaken;
-		
-		StartCoroutine(flashRed ());
-
-	}
-
-	protected override void react()
-	{
-
-		updateWaypoint (GameObject.FindGameObjectWithTag ("Player").gameObject.transform);
-
-	}
+  }
 
 
-	public override void isInterested()
-	{
-		StartCoroutine(changeState (State.chasing));
+  protected void OnCollisionEnter(Collision other)
+  {
 
-		this.interested = true;
+    if (other.rigidbody == null)
+    {
+      return;
 
-		this.myStatus.updateText (true);
+    }
 
-		react ();
-		
-	}
+    if (other.gameObject.tag.Equals("Player"))
+    {
+      GameObject.Find("GameManager").GetComponent<GameManager>().decreaseHealth("Killer");
+      myStatus.updateText(true);
 
+    }
 
-	public void notInterested()
-	{
-		StartCoroutine(changeState (State.roaming));
-		
-		this.interested = false;
+  }
 
-		this.myStatus.updateText (false);
-		
-		updateWaypoint(this.prevWaypoint);
+  public void damage()
+  {
 
-	}
+    health = health - damageTaken;
 
+    StartCoroutine(flashRed());
 
-	IEnumerator flashRed()
-	{
+  }
 
-		gameObject.renderer.material.color = Color.red;
-		
-		yield return new WaitForSeconds(0.2f);
-		
-		gameObject.renderer.material.color = Color.black;
-		
-	}
+  protected override void react()
+  {
+
+    updateWaypoint(GameObject.FindGameObjectWithTag("Player").gameObject.transform);
+
+  }
 
 
-	IEnumerator changeState(State newState)
-	{
+  public override void isInterested()
+  {
+    StartCoroutine(changeState(State.chasing));
 
-		yield return new WaitForSeconds (1.0f);
+    this.interested = true;
 
-		this.currState = newState;
+    this.myStatus.updateText(true);
 
-	}
+    react();
 
+  }
+
+
+  public void notInterested()
+  {
+    StartCoroutine(changeState(State.roaming));
+
+    this.interested = false;
+
+    this.myStatus.updateText(false);
+
+    updateWaypoint(this.prevWaypoint);
+
+  }
+
+
+  IEnumerator flashRed()
+  {
+
+    gameObject.renderer.material.color = Color.red;
+
+    yield return new WaitForSeconds(0.2f);
+
+    gameObject.renderer.material.color = Color.black;
+
+  }
+
+
+  IEnumerator changeState(State newState)
+  {
+
+    yield return new WaitForSeconds(1.0f);
+
+    this.currState = newState;
+
+  }
+
+
+  #region Networking
+  [RPC]
+  public void UpdateFullKillerState(Vector3 position, Quaternion rotation, Vector3 velocity, Vector3 angularVelocity, NetworkViewID id)
+  {
+    if (this.networkView.viewID == id)
+    {
+      this.GetComponent<Rigidbody>().position = position;
+      this.GetComponent<Rigidbody>().rotation = rotation;
+      this.GetComponent<Rigidbody>().velocity = velocity;
+      this.GetComponent<Rigidbody>().angularVelocity = angularVelocity;
+    }
+  }
+  #endregion
+
+  public void FixedUpdate()
+  {
+    #region NetworkUpdate
+    if (Network.isServer)
+    {
+      Rigidbody rigidbody = this.GetComponent<Rigidbody>();
+      PlayerFields fields = this.GetComponent<PlayerFields>();
+      this.networkView.RPC("UpdateFullKillerState", RPCMode.Others, rigidbody.position, rigidbody.rotation, rigidbody.velocity, rigidbody.angularVelocity, this.networkView.viewID);
+    }
+    #endregion
+  }
 }

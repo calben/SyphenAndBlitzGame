@@ -138,11 +138,7 @@ public class Feeder_Mover : AI_Mover
   }*/
 
   #region Networking
-  DeftBodyState goalState;
-  float syncTime;
-
   [RPC]
-
   public void UpdateFullFeederState(Vector3 position, Quaternion rotation, Vector3 velocity, Vector3 angularVelocity, float health, NetworkViewID id)
   {
     if (this.networkView.viewID == id)
@@ -151,7 +147,6 @@ public class Feeder_Mover : AI_Mover
       this.GetComponent<Rigidbody>().rotation = rotation;
       this.GetComponent<Rigidbody>().velocity = velocity;
       this.GetComponent<Rigidbody>().angularVelocity = angularVelocity;
-      this.GetComponent<PlayerFields>().health = health;
     }
   }
   #endregion
@@ -163,7 +158,7 @@ public class Feeder_Mover : AI_Mover
     {
       Rigidbody rigidbody = this.GetComponent<Rigidbody>();
       PlayerFields fields = this.GetComponent<PlayerFields>();
-      this.networkView.RPC("UpdateFullFeederState", RPCMode.Others, rigidbody.position, rigidbody.rotation, rigidbody.velocity, rigidbody.angularVelocity, fields.health, this.networkView.viewID);
+      this.networkView.RPC("UpdateFullKillerState", RPCMode.Others, rigidbody.position, rigidbody.rotation, rigidbody.velocity, rigidbody.angularVelocity, this.networkView.viewID);
     }
     #endregion
   }
