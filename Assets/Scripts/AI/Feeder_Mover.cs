@@ -284,7 +284,6 @@ public class Feeder_Mover : AI_Mover
 
   }
 
-/*
   IEnumerator falconPull()
   {
     //Debug.Log ("wait for it");
@@ -300,7 +299,7 @@ public class Feeder_Mover : AI_Mover
     notInterested();
 
   }
-*/
+
 
   IEnumerator changeState(State newState)
   {
