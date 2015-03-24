@@ -207,6 +207,14 @@ public class Feeder_Mover : AI_Mover
 
     }
 
+	if(other.gameObject.tag.Equals ("Feeder") || other.gameObject.tag.Equals ("Killer"))
+	{
+
+			Physics.IgnoreCollision(other.collider, collider);
+
+		
+	}
+
   }
 
   public void damage()
@@ -242,7 +250,7 @@ public class Feeder_Mover : AI_Mover
   {
     StartCoroutine(changeState(State.roaming));
 
-    this.agent.speed = this.tempSpeed;
+    //this.agent.speed = this.tempSpeed;
 
     this.interested = false;
 
