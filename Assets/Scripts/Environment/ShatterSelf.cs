@@ -7,7 +7,7 @@ public class ShatterSelf : MonoBehaviour {
 
 	public void switchToFractured(){
 		PhysicsStatus ps = this.GetComponent<PhysicsStatus>();
-		if (!_immovable)
+		if (ps && !_immovable)
 		{
 			this.gameObject.GetComponent<Rigidbody>().isKinematic = false;
 			this.GetComponent<PhysicsStatus>().pullable = true;

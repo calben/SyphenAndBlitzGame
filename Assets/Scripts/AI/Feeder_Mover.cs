@@ -38,7 +38,7 @@ public class Feeder_Mover : AI_Mover
 
     this.myStatus = GetComponentInChildren<StatusUpdate>();
 
-    gameObject.renderer.material.color = Color.magenta;
+    //gameObject.renderer.material.color = Color.magenta;
 
     this.prevWaypoint = this.waypoint;
 
@@ -202,13 +202,21 @@ public class Feeder_Mover : AI_Mover
 
     }
 
+	if(other.gameObject.tag.Equals ("Feeder") || other.gameObject.tag.Equals ("Killer"))
+	{
+
+			Physics.IgnoreCollision(other.collider, collider);
+
+		
+	}
+
   }
 
   public void damage()
   {
 
     health = health - damageTaken;
-    StartCoroutine(flashRed());
+    //StartCoroutine(flashRed());
 
   }
 
@@ -237,7 +245,7 @@ public class Feeder_Mover : AI_Mover
   {
     StartCoroutine(changeState(State.roaming));
 
-    this.agent.speed = this.tempSpeed;
+    //this.agent.speed = this.tempSpeed;
 
     this.interested = false;
 

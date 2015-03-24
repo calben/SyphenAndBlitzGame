@@ -26,5 +26,15 @@ public class Sphere_Of_Influence_Feeder : MonoBehaviour {
 		
 	}
 
+	void OnTriggerStay(Collider other)
+	{
 
+		if(other.tag.Equals ("EnviroTile"))
+		{
+			Destroy(other.gameObject);
+
+			GetComponentInParent<Feeder_Mover>().notInterested();
+		}
+
+	}
 }
