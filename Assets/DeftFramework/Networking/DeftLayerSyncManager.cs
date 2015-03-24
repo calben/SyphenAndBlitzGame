@@ -38,7 +38,14 @@ public class DeftLayerSyncManager : MonoBehaviour
     {
       this.lastSavedStates.Add(DeftBodyStateUtil.BuildState(entry.Value));
     }
-    
+    foreach (GameObject p in players)
+    {
+      if (p.GetComponent<RigidbodyNetworkedPlayerController>().isThisMachinesPlayer)
+      {
+        this.lastSavedPlayerState = DeftBodyStateUtil.BuildState(p);
+        break;
+      }
+    }
   }
 
   public void SetLastSavedState()
@@ -70,9 +77,17 @@ public class DeftLayerSyncManager : MonoBehaviour
   [RPC]
   void LoadLastSavedStateRPC()
   {
+    Debug.Log("Loading saved state.");
     foreach (DeftBodyState state in this.lastSavedStates)
     {
       UpdateDeftBodyState(state);
+    }
+    foreach (GameObject p in players)
+    {
+      if (p.GetComponent<RigidbodyNetworkedPlayerController>().isThisMachinesPlayer)
+      {
+        DeftBodyStateUtil.SetGameObjectToDeftBodyStateValues(p, this.lastSavedPlayerState);
+      }
     }
   }
 
