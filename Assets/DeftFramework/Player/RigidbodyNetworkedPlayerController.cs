@@ -15,7 +15,7 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
 
   
   public float baseSpeed = 0.45f;
-  //public float runSpeedMultiplier = 1.3f;
+  public float runSpeedMultiplier = 1.3f;
   public float aimSpeedMultiplier = 0.2f;
 
   [HideInInspector]
@@ -393,9 +393,9 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
     {
       case PlayerControllerState.WALKING:
         break;
-     /* case PlayerControllerState.RUNNING:
+     case PlayerControllerState.ZOOM_OUT:
         	moveDirection *= this.runSpeedMultiplier;
-        break;*/
+        break;
       case PlayerControllerState.AIMING:
         moveDirection *= this.aimSpeedMultiplier;
         break;

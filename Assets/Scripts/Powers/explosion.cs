@@ -58,7 +58,10 @@ public class explosion : MonoBehaviour {
 		_audioManager.Initialize();
 		_audioManager.Play("grenade_beeping", 0.25f, false);
 		yield return new WaitForSeconds(delay);
-		_audioManager.Play("grenade_explosion", 0.0f, false);
+		GameObject explosionAudioManager = GameObject.Find("Audio_Explosion");
+		if(explosionAudioManager){
+			explosionAudioManager.GetComponent<AudioManager>().Play("grenade_explosion", 0.0f, false);
+		}
 
 		Vector3 explosionPos = transform.position;
 		Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
@@ -74,6 +77,13 @@ public class explosion : MonoBehaviour {
 		foreach (Collider hit in colliders) {
 			// can add cases for non physics objects later
 			DealDamage(hit); // call to method that hurts ai
+
+			// specifically ignore the barrier
+			if(hit.transform.parent != null){
+				if (hit.transform.parent.name=="entrance_unshattered" ||hit.transform.parent.name=="nonShatterGrp" ){
+					continue;
+				}
+			}
 
 			PhysicsStatus ps = (PhysicsStatus) hit.GetComponent<PhysicsStatus>(); // grab physics status of object
 			if( ps && ps.pushable ){ 

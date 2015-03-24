@@ -9,12 +9,14 @@ public class depotAbsorb : MonoBehaviour {
 	public float animGrowRate = 0.1f;
 	//Link to game manager to update stats
 	public GameObject gameManager;
+	public AudioManager _audioManager;
 
 	private GameManager gameStats;
 	private bool depotFull;
 	private int capacity;
 	private int resourceVal;
 	private Animator myAnim;
+
 
 	void Start(){
 		myAnim = this.GetComponent<Animator>();
@@ -36,6 +38,7 @@ public class depotAbsorb : MonoBehaviour {
 				myAnim.SetBool("isPlaying", true);
 				myAnim.SetBool("isStopped", false);
 				myAnim.Play("depotGrow", 0, myAnim.GetCurrentAnimatorStateInfo(0).length * gameStats.depotCurrentStock [depotNumber]/gameStats.depotCapacity [depotNumber] * animGrowRate);
+				_audioManager.Play("depot_absorb",0.01f, false);
 			} else if (!depotFull) {
 				depotFull = true;
 			}
