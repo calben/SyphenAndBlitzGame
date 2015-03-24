@@ -86,10 +86,7 @@ public class DeftLayerSyncManager : MonoBehaviour
       }
     }
     this.players = GameObject.FindGameObjectsWithTag("Player");
-    if (debug)
-    {
-      Debug.Log(this.objectsInLayer.Count + " objects tracked in layer " + this.layer + "  with " + this.players.Length + " players observed.");
-    }
+    Debug.Log(this.objectsInLayer.Count + " objects tracked in layer " + this.layer + "  with " + this.players.Length + " players observed.");
   }
 
   [RPC]
