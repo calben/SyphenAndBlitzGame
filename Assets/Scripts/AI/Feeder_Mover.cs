@@ -139,7 +139,7 @@ public class Feeder_Mover : AI_Mover
 
   #region Networking
   [RPC]
-  public void UpdateFullFeederState(Vector3 position, Quaternion rotation, Vector3 velocity, Vector3 angularVelocity, float health, NetworkViewID id)
+  public void UpdateFullKillerState(Vector3 position, Quaternion rotation, Vector3 velocity, Vector3 angularVelocity, float health, NetworkViewID id)
   {
     if (this.networkView.viewID == id)
     {

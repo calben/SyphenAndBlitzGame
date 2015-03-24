@@ -41,6 +41,10 @@ public class DeftBodyStateUtil
     return state;
   }
 
+  public static SetGameObjectToDeftBodyStateValues(GameObject obj, DeftBodyState state)
+  {
+
+  }
 
   public static byte[] MarshallDeftBodyState(DeftBodyState state)
   {

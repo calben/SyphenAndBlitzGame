@@ -28,6 +28,7 @@ public class DeftLayerSyncManager : MonoBehaviour
   public int statisticsSyncsSavedByPlayerDistanceThreshholds;
 
   GameObject[] players;
+  DeftBodyState lastSavedPlayerState;
 
   [RPC]
   void SetLastSavedStateRPC()
@@ -37,6 +38,7 @@ public class DeftLayerSyncManager : MonoBehaviour
     {
       this.lastSavedStates.Add(DeftBodyStateUtil.BuildState(entry.Value));
     }
+    
   }
 
   public void SetLastSavedState()
