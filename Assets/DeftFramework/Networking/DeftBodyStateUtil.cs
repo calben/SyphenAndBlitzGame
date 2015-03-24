@@ -41,9 +41,12 @@ public class DeftBodyStateUtil
     return state;
   }
 
-  public static SetGameObjectToDeftBodyStateValues(GameObject obj, DeftBodyState state)
+  public static void SetGameObjectToDeftBodyStateValues(GameObject obj, DeftBodyState state)
   {
-
+    obj.transform.position = state.position;
+    obj.GetComponent<Rigidbody>().velocity = state.velocity;
+    obj.GetComponent<Rigidbody>().rotation = state.rotation;
+    obj.GetComponent<Rigidbody>().angularVelocity = state.angularVelocity;
   }
 
   public static byte[] MarshallDeftBodyState(DeftBodyState state)
