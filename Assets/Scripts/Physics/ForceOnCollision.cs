@@ -60,7 +60,7 @@ public class ForceOnCollision: MonoBehaviour {
 							SS.switchToFractured();
 							other.GetComponent<PhysicsStatus>().pullable = true;
 						}
-						else if(other.attachedRigidbody){
+						if(other.attachedRigidbody){
 							Vector3 direction = Vector3.Normalize( other.transform.position - this.transform.position );
               				other.rigidbody.isKinematic = false;
 							other.rigidbody.AddForce( direction * Mathf.Clamp(_magnitude/Vector3.Magnitude(  other.transform.position - this.transform.position ), 0, _maxMagnitude) , ForceMode.Impulse);
