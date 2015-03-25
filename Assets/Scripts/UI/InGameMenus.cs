@@ -16,7 +16,12 @@ public class InGameMenus : MonoBehaviour
   public void RestartGame()
   {
     GameObject.Find("Layer10SyncManager").GetComponent<DeftLayerSyncManager>().LoadLastSavedState();
-
+	if (GameObject.Find ("GameOverWindow") != null) {
+		GameObject.Find ("GameOverWindow").SetActive (false);
+	}
+	if (GameObject.Find ("PauseWindow") != null) {
+		GameObject.Find ("PauseWindow").SetActive (false);
+	}
   }
 
   public void InvertControls()
