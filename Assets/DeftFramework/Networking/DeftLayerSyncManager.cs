@@ -80,12 +80,13 @@ public class DeftLayerSyncManager : MonoBehaviour
     Debug.Log("Loading saved state.");
     foreach (DeftBodyState state in this.lastSavedStates)
     {
-      UpdateDeftBodyState(state);
+      DeftBodyStateUtil.SetGameObjectToDeftBodyStateValues(this.objectsInLayer[state.id], state);
     }
     foreach (GameObject p in players)
     {
       if (p.GetComponent<RigidbodyNetworkedPlayerController>().isThisMachinesPlayer)
       {
+        Debug.Log("Setting player");
         DeftBodyStateUtil.SetGameObjectToDeftBodyStateValues(p, this.lastSavedPlayerState);
       }
     }
@@ -134,12 +135,13 @@ public class DeftLayerSyncManager : MonoBehaviour
     state.velocity = velocity;
     state.angularVelocity = angularVelocity;
     state.id = id;
-    this.objectsInLayer[state.id].GetComponent<DeftSyncWorker>().goalState = state;
-    if (statistics)
-    {
-      this.statisticsManager.addLineOnSync(Time.time, id, this.objectsInLayer[state.id].gameObject.GetComponent<Rigidbody>().position, state.position);
-    }
-    this.objectsInLayer[state.id].GetComponent<DeftSyncWorker>().StartSync();
+    DeftBodyStateUtil.SetGameObjectToDeftBodyStateValues(this.objectsInLayer[id], state);
+    //this.objectsInLayer[state.id].GetComponent<DeftSyncWorker>().goalState = state;
+    //if (statistics)
+    //{
+    //  this.statisticsManager.addLineOnSync(Time.time, id, this.objectsInLayer[state.id].gameObject.GetComponent<Rigidbody>().position, state.position);
+    //}
+    //this.objectsInLayer[state.id].GetComponent<DeftSyncWorker>().StartSync();
   }
 
   void BuildSyncQueue()
