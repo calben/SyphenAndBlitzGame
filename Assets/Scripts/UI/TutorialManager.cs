@@ -12,6 +12,7 @@ public class TutorialManager : MonoBehaviour {
 	private EventSystem eventSystem;
 	private List<GameObject> tutorials;
 	public AudioManager _audioManager;
+	string _playerName;
 
 	// Use this for initialization
 	void Start () {
@@ -26,13 +27,18 @@ public class TutorialManager : MonoBehaviour {
 //		StartTutorial ("Syphen");
 	}
 	public void StartTutorial(string playerName) {
+		_playerName = playerName;
 		GameObject[] players = GameObject.FindGameObjectsWithTag ("Player");
 		foreach (GameObject p in players) {
 			p.GetComponent<RigidbodyNetworkedPlayerController>().enabled = false;
 		}
-
+		if (_playerName.Contains ("Syphen")) {
+			GameObject.Find ("gun_proximity").GetComponent<NetworkedProjectilePower> ().enabled = false;
+		} else {
+			GameObject.Find ("GrenadeManager").GetComponent<NetworkedGrenadeManager>().enabled = false;
+		}
 		//Start first tutorial panel
-		if (playerName.Contains("Syphen")) {
+		if (_playerName.Contains("Syphen")) {
 			tutorials = syphenTutorials;
 		} else {
 			tutorials = blitzTutorials;
@@ -64,6 +70,15 @@ public class TutorialManager : MonoBehaviour {
 		GameObject[] players = GameObject.FindGameObjectsWithTag ("Player");
 		foreach (GameObject p in players) {
 			p.GetComponent<RigidbodyNetworkedPlayerController>().enabled = true;
+		}
+		Invoke ("EnablePowers", 1);
+
+	}
+	private void EnablePowers() {
+		if (_playerName.Contains ("Syphen")) {
+			GameObject.Find ("gun_proximity").GetComponent<NetworkedProjectilePower> ().enabled = true;
+		} else {
+			GameObject.Find ("GrenadeManager").GetComponent<NetworkedGrenadeManager>().enabled = true;
 		}
 	}
 }
