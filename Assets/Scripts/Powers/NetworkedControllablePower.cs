@@ -41,10 +41,15 @@ public class NetworkedControllablePower : MonoBehaviour
   GameObject _controlledTarget = null;
   GameObject _controlledProjectile = null;
 
-
+  GameManager _gameManager;
+	
   // Use this for initialization
   void Start()
   {
+	GameObject gameManager = GameObject.Find ("GameManager");
+	if(gameManager){
+		_gameManager = gameManager.GetComponent<GameManager>();
+	}
     _cooldownTimer = _cooldown;
     _controller = _controllerObject.GetComponent<RigidbodyNetworkedPlayerController>();
     if (_parent)
@@ -70,7 +75,7 @@ public class NetworkedControllablePower : MonoBehaviour
       if (_cooldownTimer <= 0.0f)
       {
         //----FIRING----//
-        if ((leftTriggerHeld && _projectileButton == ProjectileTriggerButton.LEFT)
+        if ((leftTriggerHeld && _projectileButton == ProjectileTriggerButton.LEFT && (_gameManager == null || _gameManager.longRangeUnlocked))
             || (rightTriggerHeld && _projectileButton == ProjectileTriggerButton.RIGHT))
         {
           if (!_alreadyFired)
