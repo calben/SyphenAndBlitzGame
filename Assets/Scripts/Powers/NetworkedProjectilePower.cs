@@ -18,7 +18,7 @@ public class NetworkedProjectilePower : MonoBehaviour
   public AudioManager _audioManager;	//This stores the audio clips that need to be played
   public string _audioClipName = "suction";
   public Vector3 _offset;
-  public float _magnitude = 50;
+  public float _magnitude;
   public bool _makeChild = false;
 
   //Rate of fire
