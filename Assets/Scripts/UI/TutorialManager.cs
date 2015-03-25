@@ -34,9 +34,7 @@ public class TutorialManager : MonoBehaviour {
 		}
 		if (_playerName.Contains ("Syphen")) {
 			GameObject.Find ("gun_proximity").GetComponent<NetworkedProjectilePower> ().enabled = false;
-		} else {
-			GameObject.Find ("GrenadeManager").GetComponent<NetworkedGrenadeManager>().enabled = false;
-		}
+		} 
 		//Start first tutorial panel
 		if (_playerName.Contains("Syphen")) {
 			tutorials = syphenTutorials;
@@ -78,7 +76,7 @@ public class TutorialManager : MonoBehaviour {
 		if (_playerName.Contains ("Syphen")) {
 			GameObject.Find ("gun_proximity").GetComponent<NetworkedProjectilePower> ().enabled = true;
 		} else {
-			GameObject.Find ("GrenadeManager").GetComponent<NetworkedGrenadeManager>().enabled = true;
+			GameObject.Find ("GrenadeManager").GetComponent<NetworkedGrenadeManager>().powerEnabled = true;
 		}
 	}
 }

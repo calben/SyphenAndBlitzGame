@@ -43,9 +43,11 @@ public class NetworkedGrenadeManager : MonoBehaviour
 	public float segmentScale = 1;
 	private Collider _hitObject;
 	public Collider hitObject { get { return _hitObject; } }
+	public bool powerEnabled;
 
   void Start()
   {
+	powerEnabled = false;
 	controller = _controllerObject.GetComponent<RigidbodyNetworkedPlayerController>();
   }
 
@@ -53,7 +55,7 @@ public class NetworkedGrenadeManager : MonoBehaviour
   {
     if (networkView.isMine)
     {
-      trigger = controller.gamepadState.RightShoulder || (controller.gamepadState.RightTrigger > 0.20f); 
+      trigger = (controller.gamepadState.RightShoulder || (controller.gamepadState.RightTrigger > 0.20f)) && powerEnabled; 
       cooldown -= Time.deltaTime; // reduce cooldown timer
 
 		if (trigger){
