@@ -80,10 +80,18 @@ public class DeftLayerSyncManager : MonoBehaviour
     Debug.Log("Loading saved state.");
     foreach (DeftBodyState state in this.lastSavedStates)
     {
-      DeftBodyStateUtil.SetGameObjectToDeftBodyStateValues(this.objectsInLayer[state.id], state);
+      try
+      {
+        DeftBodyStateUtil.SetGameObjectToDeftBodyStateValues(this.objectsInLayer[state.id], state);
+      }
+      catch(MissingReferenceException e)
+      {
+        Debug.Log(e.Message);
+      }
     }
     foreach (GameObject p in players)
     {
+      Debug.Log("Checking position for " + p.name);
       if (p.GetComponent<RigidbodyNetworkedPlayerController>().isThisMachinesPlayer)
       {
         Debug.Log("Setting player");

@@ -43,10 +43,18 @@ public class DeftBodyStateUtil
 
   public static void SetGameObjectToDeftBodyStateValues(GameObject obj, DeftBodyState state)
   {
-    obj.transform.position = state.position;
-    obj.GetComponent<Rigidbody>().velocity = state.velocity;
-    obj.GetComponent<Rigidbody>().rotation = state.rotation;
-    obj.GetComponent<Rigidbody>().angularVelocity = state.angularVelocity;
+    if (obj.GetComponent<Rigidbody>().isKinematic)
+    {
+      obj.transform.position = state.position;
+      obj.GetComponent<Rigidbody>().rotation = state.rotation;
+    }
+    else
+    {
+      obj.transform.position = state.position;
+      obj.GetComponent<Rigidbody>().rotation = state.rotation;
+      obj.GetComponent<Rigidbody>().velocity = state.velocity;
+      obj.GetComponent<Rigidbody>().angularVelocity = state.angularVelocity;
+    }
   }
 
   public static byte[] MarshallDeftBodyState(DeftBodyState state)
