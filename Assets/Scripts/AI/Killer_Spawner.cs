@@ -4,15 +4,30 @@ using System.Collections;
 public class Killer_Spawner : MonoBehaviour {
 
 	public GameObject killers;
-	public int numKillers;
 	public float spawnDelay;
+	public Transform goHere;
+
+	int numKillers;
+	float numKilled;
 	
 	
 	void Start()
 	{
-		
-		StartCoroutine (spawnStarter (spawnDelay));
-		
+		numKillers = 2;
+		numKilled = 2;
+	
+	}
+
+	void Update()
+	{
+
+		if(numKilled != 0 && ((numKilled%2) == 0))
+		{
+
+			spawn ();
+
+		}
+
 	}
 	
 	
@@ -25,22 +40,20 @@ public class Killer_Spawner : MonoBehaviour {
 		{
 			
 			tempObj = Instantiate(killers, gameObject.transform.position, Quaternion.identity) as GameObject;
-			
+
+			tempObj.GetComponent<Killer_Mover>().updateWaypoint (goHere);
+
 			i++;
 		}
 		
 		
 	}
-	
-	
-	public IEnumerator spawnStarter(float timeToWait)
+
+	public void somethingDied()
 	{
-		
-		yield return new WaitForSeconds (timeToWait);
-		
-		spawn ();
-		
-		
+
+		numKilled++;
+
 	}
 
 }

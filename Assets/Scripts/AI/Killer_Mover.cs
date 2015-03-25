@@ -7,7 +7,7 @@ public class Killer_Mover : AI_Mover
   protected StatusUpdate myStatus;
 
   public float killSpeed;
-  public Killer_Spawner kSpawner;
+  Killer_Spawner kSpawner;
 
   enum State
   {
@@ -20,9 +20,13 @@ public class Killer_Mover : AI_Mover
   // Use this for initialization
   void Start()
   {
-
+	
     StartCoroutine(changeState(State.roaming));
-
+	
+	GameObject tempObj = GameObject.FindGameObjectWithTag("Killer_Spawner");
+	
+	kSpawner = tempObj.GetComponent<Killer_Spawner>();
+	
     //setting agent
     this.agent = GetComponent<NavMeshAgent>();
 
@@ -30,7 +34,7 @@ public class Killer_Mover : AI_Mover
 
     this.prevWaypoint = this.waypoint;
 
-    gameObject.renderer.material.color = Color.black;
+    //StartCoroutine(HOLY_SHIT_DELETE_THIS());
 
   }
 
@@ -72,12 +76,20 @@ public class Killer_Mover : AI_Mover
 
   }
 
+ /* IEnumerator HOLY_SHIT_DELETE_THIS()
+  {
+
+		yield return new WaitForSeconds (5.0f);
+
+		kill ();
+
+  }*/
 
   public void kill()
   {
 	
 		Destroy (this.gameObject);
-		//kSpawner.somethingDied ();
+		kSpawner.somethingDied ();
 
   }
 
