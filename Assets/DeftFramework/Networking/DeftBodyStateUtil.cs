@@ -32,11 +32,11 @@ public class DeftBodyStateUtil
   public static DeftBodyState BuildState(GameObject obj)
   {
     DeftBodyState state = new DeftBodyState();
-    state.id = obj.networkView.viewID;
     state.position = obj.transform.position;
     state.rotation = obj.transform.rotation;
     state.velocity = obj.rigidbody.velocity;
     state.angularVelocity = obj.rigidbody.angularVelocity;
+    state.id = obj.GetComponent<NetworkView>().viewID;
     state.timestamp = Time.time;
     return state;
   }

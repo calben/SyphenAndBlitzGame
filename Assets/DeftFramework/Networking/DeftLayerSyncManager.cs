@@ -128,6 +128,10 @@ public class DeftLayerSyncManager : MonoBehaviour
   [RPC]
   public void UpdateDeftBodyStateRaw(Vector3 position, Quaternion rotation, float timestamp, Vector3 velocity, Vector3 angularVelocity, NetworkViewID id)
   {
+    if (debug)
+    {
+      Debug.Log("Updating deft body state.");
+    }
     DeftBodyState state = new DeftBodyState();
     state.position = position;
     state.rotation = rotation;
@@ -153,49 +157,50 @@ public class DeftLayerSyncManager : MonoBehaviour
     }
     foreach (KeyValuePair<NetworkViewID, GameObject> entry in this.objectsInLayer)
     {
-      DeftBodyState lastChecked = entry.Value.GetComponent<DeftSyncWorker>().lastCheckedState;
-      float selfDistance = DeftBodyStateUtil.SquaredPositionalDifference(entry.Value, lastChecked);
-      if (selfDistance > this.distanceThreshold || Time.time - lastChecked.timestamp > this.hardSyncThreshold)
+      DeftBodyState lastChecked = DeftBodyStateUtil.BuildState(entry.Value);
+      //DeftBodyState lastChecked = entry.Value.GetComponent<DeftSyncWorker>().lastCheckedState;
+      //float selfDistance = DeftBodyStateUtil.SquaredPositionalDifference(entry.Value, lastChecked);
+      //if (selfDistance > this.distanceThreshold || Time.time - lastChecked.timestamp > this.hardSyncThreshold)
+      //{
+      if (debug)
       {
-        if (debug)
+        Debug.Log("Adding " + entry.Key + "to sync queue with selfDistance difference of " + DeftBodyStateUtil.SquaredPositionalDifference(entry.Value, lastChecked));
+      }
+      if (this.considerPlayer)
+      {
+        bool sync = true;
+        foreach (DeftBodyState playerState in playerStates)
         {
-          Debug.Log("Adding " + entry.Key + "to sync queue with selfDistance difference of " + DeftBodyStateUtil.SquaredPositionalDifference(entry.Value, lastChecked));
-        }
-        if (this.considerPlayer)
-        {
-          bool sync = true;
-          foreach (DeftBodyState playerState in playerStates)
+          if (DeftBodyStateUtil.SquaredPositionalDifference(playerState, lastChecked) > this.tooFarFromPlayerSquaredDistance || DeftBodyStateUtil.SquaredPositionalDifference(playerState, lastChecked) < this.tooCloseToPlayerSquaredDistance)
           {
-            if (DeftBodyStateUtil.SquaredPositionalDifference(playerState, lastChecked) > this.tooFarFromPlayerSquaredDistance || DeftBodyStateUtil.SquaredPositionalDifference(playerState, lastChecked) < this.tooCloseToPlayerSquaredDistance)
-            {
-              sync = false;
-            }
-          }
-          if (sync)
-          {
-            entry.Value.GetComponent<DeftSyncWorker>().lastCheckedState = DeftBodyStateUtil.BuildState(entry.Value);
-            this.syncQueue.Enqueue(lastChecked);
-          }
-          else
-          {
-            this.statisticsSyncsSavedByPlayerDistanceThreshholds++;
+            sync = false;
           }
         }
-        else
+        if (sync)
         {
           entry.Value.GetComponent<DeftSyncWorker>().lastCheckedState = DeftBodyStateUtil.BuildState(entry.Value);
           this.syncQueue.Enqueue(lastChecked);
         }
+        else
+        {
+          this.statisticsSyncsSavedByPlayerDistanceThreshholds++;
+        }
       }
       else
       {
-        this.statisticsSyncsSavedByDistanceThreshhold++;
-        //if (debug)
-        //{
-        //    Debug.Log("No need to sync " + lastChecked.id.ToString() + "(selfDistance: " + selfDistance);
-        //}
+        entry.Value.GetComponent<DeftSyncWorker>().lastCheckedState = DeftBodyStateUtil.BuildState(entry.Value);
+        this.syncQueue.Enqueue(lastChecked);
       }
     }
+    //else
+    //{
+    //  this.statisticsSyncsSavedByDistanceThreshhold++;
+    //  //if (debug)
+    //  //{
+    //  //    Debug.Log("No need to sync " + lastChecked.id.ToString() + "(selfDistance: " + selfDistance);
+    //  //}
+    //}
+    //}
     if (debug)
     {
       Debug.Log("Sync queue rebuilt with " + this.syncQueue.Count + " objects ready to sync.");
@@ -247,6 +252,7 @@ public class DeftLayerSyncManager : MonoBehaviour
           }
           //this.networkView.RPC("UpdateDeftBodyState", RPCMode.AllBuffered, DeftBodyStateUtil.MarshallDeftBodyState(state));
           this.networkView.RPC("UpdateDeftBodyStateRaw", RPCMode.OthersBuffered, state.position, state.rotation, (float)state.timestamp, state.velocity, state.angularVelocity, state.id);
+          UpdateDeftBodyStateRaw(state.position, state.rotation, (float)state.timestamp, state.velocity, state.angularVelocity, state.id);
           this.maxSyncRateTmp = 0.0f;
         }
         i++;
@@ -257,4 +263,5 @@ public class DeftLayerSyncManager : MonoBehaviour
       }
     }
   }
+
 }
