@@ -214,12 +214,15 @@ public class Feeder_Mover : AI_Mover
 
   public void damage()
   {
-
-    health = health - damageTaken;
-
-	StartCoroutine(damageText ());
+    this.networkView.RPC("RPCDamage", RPCMode.All, damageTaken);
     //StartCoroutine(flashRed());
+  }
 
+  [RPC]
+  public void RPCDamage(int damageAmount)
+  {
+    health = health - damageAmount;
+    StartCoroutine(damageText());
   }
 
   IEnumerator damageText()

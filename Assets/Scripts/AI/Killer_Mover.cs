@@ -90,22 +90,26 @@ public class Killer_Mover : AI_Mover
 
   }
 
+
   public void damage()
   {
-
-    health = health - damageTaken;
-	
-	StartCoroutine(damageText ());
-	//StartCoroutine(flashRed());
-		
+    this.networkView.RPC("RPCDamage", RPCMode.All, damageTaken);
+    //StartCoroutine(flashRed());
   }
-	
+
+  [RPC]
+  public void RPCDamage(int damageAmount)
+  {
+    health = health - damageAmount;
+    StartCoroutine(damageText());
+  }
+
   IEnumerator damageText()
   {
-		myStatus.hitText ();
-		yield return new WaitForSeconds (0.2f);
-		myStatus.updateText (false);
-	}
+    myStatus.hitText();
+    yield return new WaitForSeconds(0.2f);
+    myStatus.updateText(false);
+  }
 
   protected override void react()
   {
