@@ -20,6 +20,10 @@ public class ArcReactor_Launcher : MonoBehaviour {
 	public ReflectionSettings reflectionSettings;
 	public InertialSettings rayInertiaSettings;
 	public Transform globalSpaceTransform;
+	//MOJ EDIT START//
+	public GameObject _controllerObject; 	//This is the game object that has the controller
+	RigidbodyNetworkedPlayerController _controller;
+	//MOJ EDIT END//
 
 
 	const int maxReflections = 100;
@@ -214,14 +218,20 @@ public class ArcReactor_Launcher : MonoBehaviour {
 			end.position = transform.position + transform.forward * Distance;
 		*/
 		//MOJ EDITS START//
-		Vector3 cameraForward = Camera.main.transform.TransformDirection(Vector3.forward).normalized;
-		if (Physics.Raycast(Camera.main.transform.position, cameraForward,out hit,Distance,layers.value))		
+		_controller = _controllerObject.GetComponent<RigidbodyNetworkedPlayerController>();
+		if (_controller.isThisMachinesPlayer)
 		{
-			end.position = hit.point;
-			endObj = hit.transform.gameObject;
+			Vector3 cameraForward = Camera.main.transform.TransformDirection(Vector3.forward).normalized;
+			if (Physics.Raycast(Camera.main.transform.position, cameraForward,out hit,Distance,layers.value))		
+			{
+				end.position = hit.point;
+				endObj = hit.transform.gameObject;
+			}
+			else	
+				end.position = transform.position + transform.forward * Distance;
 		}
-		else	
-			end.position = transform.position + transform.forward * Distance;
+		else
+			end.position = transform.position;// + transform.forward * 0.5f;
 		//MOJ EDITS END//
 		if (endBehaviour == RayTransformBehaivour.stick && hit.transform != null)
 		{
@@ -346,10 +356,10 @@ public class ArcReactor_Launcher : MonoBehaviour {
 					if (startBehaviour == RayTransformBehaivour.follow_raycast)
 					{
 
-						//if (Physics.Raycast(transform.position,-transform.forward,out hit,rinfo.distance,layers.value))
+						if (Physics.Raycast(transform.position,-transform.forward,out hit,rinfo.distance,layers.value))
 						//MOJ EDIT START//
-						Vector3 cameraForward = Camera.main.transform.TransformDirection(Vector3.forward).normalized;
-						if (Physics.Raycast(Camera.main.transform.position, cameraForward,out hit,rinfo.distance,layers.value))
+						//Vector3 cameraForward = Camera.main.transform.TransformDirection(Vector3.forward).normalized;
+						//if (Physics.Raycast(Camera.main.transform.position, cameraForward,out hit,rinfo.distance,layers.value))
 						{
 							if (SendMessageToHitObjects)
 							{
@@ -398,56 +408,63 @@ public class ArcReactor_Launcher : MonoBehaviour {
 					{
 						//if (Physics.Raycast(transform.position,transform.forward,out hit,rinfo.distance,layers.value))
 						//MOJ EDIT START//
-						Vector3 cameraForward = Camera.main.transform.TransformDirection(Vector3.forward).normalized;
-						if (Physics.Raycast(Camera.main.transform.position, cameraForward,out hit,rinfo.distance,layers.value))
+						_controller = _controllerObject.GetComponent<RigidbodyNetworkedPlayerController>();
+						if (_controller.isThisMachinesPlayer)
 						{
-							if (SendMessageToHitObjects)
+							Vector3 cameraForward = Camera.main.transform.TransformDirection(Vector3.forward).normalized;
+							if (Physics.Raycast(Camera.main.transform.position, cameraForward,out hit,rinfo.distance,layers.value))
 							{
-								ArcReactorHitInfo arcHit = new ArcReactorHitInfo();
-								arcHit.launcher = this;
-								arcHit.rayInfo = rinfo;
-								arcHit.raycastHit = hit;
-								hit.transform.gameObject.SendMessage("ArcReactorHit",arcHit,SendMessageOptions.DontRequireReceiver);
-							}
-
-							if (SendMessageToTouchedObjects)
-							{
-								RaycastHit[] hits;
-								hits = Physics.RaycastAll(transform.position,transform.forward, Vector3.Distance(transform.position,hit.point), touchLayers);			
-								foreach (RaycastHit touchHit in hits)
+								if (SendMessageToHitObjects)
 								{
 									ArcReactorHitInfo arcHit = new ArcReactorHitInfo();
 									arcHit.launcher = this;
 									arcHit.rayInfo = rinfo;
-									arcHit.raycastHit = touchHit;
-									touchHit.transform.gameObject.SendMessage("ArcReactorTouch",arcHit,SendMessageOptions.DontRequireReceiver);
+									arcHit.raycastHit = hit;
+									hit.transform.gameObject.SendMessage("ArcReactorHit",arcHit,SendMessageOptions.DontRequireReceiver);
 								}
-							}
 
-							rinfo.endObject = hit.transform.gameObject;
-							endPos = transform.position + (hit.point - transform.position).normalized * (float)((hit.point - transform.position).magnitude - 0.05);
-							//endPos = hit.point;
+								if (SendMessageToTouchedObjects)
+								{
+									RaycastHit[] hits;
+									hits = Physics.RaycastAll(transform.position,transform.forward, Vector3.Distance(transform.position,hit.point), touchLayers);			
+									foreach (RaycastHit touchHit in hits)
+									{
+										ArcReactorHitInfo arcHit = new ArcReactorHitInfo();
+										arcHit.launcher = this;
+										arcHit.rayInfo = rinfo;
+										arcHit.raycastHit = touchHit;
+										touchHit.transform.gameObject.SendMessage("ArcReactorTouch",arcHit,SendMessageOptions.DontRequireReceiver);
+									}
+								}
+
+								rinfo.endObject = hit.transform.gameObject;
+								endPos = transform.position + (hit.point - transform.position).normalized * (float)((hit.point - transform.position).magnitude - 0.05);
+								//endPos = hit.point;
+							}
+							else
+							{
+								if (SendMessageToTouchedObjects)
+								{
+									RaycastHit[] hits;
+									hits = Physics.RaycastAll(transform.position,transform.forward, rinfo.distance, touchLayers);			
+									foreach (RaycastHit touchHit in hits)
+									{
+										ArcReactorHitInfo arcHit = new ArcReactorHitInfo();
+										arcHit.launcher = this;
+										arcHit.rayInfo = rinfo;
+										arcHit.raycastHit = touchHit;
+										touchHit.transform.gameObject.SendMessage("ArcReactorTouch",arcHit,SendMessageOptions.DontRequireReceiver);
+									}
+								}
+								rinfo.endObject = null;
+								//MOJ EDIT START//
+								//endPos = transform.position + transform.forward * rinfo.distance;
+								endPos = transform.position + transform.forward * 0.5f;
+							}
 						}
 						else
-						{
-							if (SendMessageToTouchedObjects)
-							{
-								RaycastHit[] hits;
-								hits = Physics.RaycastAll(transform.position,transform.forward, rinfo.distance, touchLayers);			
-								foreach (RaycastHit touchHit in hits)
-								{
-									ArcReactorHitInfo arcHit = new ArcReactorHitInfo();
-									arcHit.launcher = this;
-									arcHit.rayInfo = rinfo;
-									arcHit.raycastHit = touchHit;
-									touchHit.transform.gameObject.SendMessage("ArcReactorTouch",arcHit,SendMessageOptions.DontRequireReceiver);
-								}
-							}
-							rinfo.endObject = null;
-							//MOJ EDIT START//
-							//endPos = transform.position + transform.forward * rinfo.distance;
 							endPos = transform.position + transform.forward * 0.5f;
-						}
+						//MOJ EDIT END//
 					}
 					else
 					{
