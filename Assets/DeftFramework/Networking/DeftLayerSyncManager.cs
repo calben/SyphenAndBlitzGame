@@ -30,9 +30,13 @@ public class DeftLayerSyncManager : MonoBehaviour
   GameObject[] players;
   DeftBodyState lastSavedPlayerState;
 
+  float resetLayerTimer = 10.0f;
+  float resetLayerTimerTmp;
+
   [RPC]
   void SetLastSavedStateRPC()
   {
+    Debug.Log("Saving!");
     this.lastSavedStates.Clear();
     foreach (KeyValuePair<NetworkViewID, GameObject> entry in this.objectsInLayer)
     {
@@ -40,9 +44,12 @@ public class DeftLayerSyncManager : MonoBehaviour
     }
     foreach (GameObject p in players)
     {
+      Debug.Log("Checking position for " + p.name);
       if (p.GetComponent<RigidbodyNetworkedPlayerController>().isThisMachinesPlayer)
       {
         this.lastSavedPlayerState = DeftBodyStateUtil.BuildState(p);
+        Debug.Log(this.lastSavedPlayerState.position.ToString());
+        this.lastSavedPlayerState.position = this.lastSavedPlayerState.position + new Vector3(0.0f, 5.0f, 0.0f);
         break;
       }
     }
@@ -50,7 +57,6 @@ public class DeftLayerSyncManager : MonoBehaviour
 
   public void SetLastSavedState()
   {
-    Debug.Log("Saving!");
     if (Network.isClient || Network.isServer)
     {
       this.networkView.RPC("SetLastSavedStateRPC", RPCMode.All);
@@ -78,17 +84,17 @@ public class DeftLayerSyncManager : MonoBehaviour
   void LoadLastSavedStateRPC()
   {
     Debug.Log("Loading saved state.");
-    foreach (DeftBodyState state in this.lastSavedStates)
-    {
-      try
-      {
-        DeftBodyStateUtil.SetGameObjectToDeftBodyStateValues(this.objectsInLayer[state.id], state);
-      }
-      catch(MissingReferenceException e)
-      {
-        Debug.Log(e.Message);
-      }
-    }
+    //foreach (DeftBodyState state in this.lastSavedStates)
+    //{
+    //  try
+    //  {
+    //    DeftBodyStateUtil.SetGameObjectToDeftBodyStateValues(this.objectsInLayer[state.id], state);
+    //  }
+    //  catch (MissingReferenceException e)
+    //  {
+    //    Debug.Log(e.Message);
+    //  }
+    //}
     foreach (GameObject p in players)
     {
       Debug.Log("Checking position for " + p.name);
@@ -96,6 +102,7 @@ public class DeftLayerSyncManager : MonoBehaviour
       {
         Debug.Log("Setting player");
         DeftBodyStateUtil.SetGameObjectToDeftBodyStateValues(p, this.lastSavedPlayerState);
+        GameObject.Find("GameManager").GetComponent<GameManager>().playerCurrentHealth = GameObject.Find("GameManager").GetComponent<GameManager>().playerTotalHealth;
       }
     }
   }
@@ -225,7 +232,6 @@ public class DeftLayerSyncManager : MonoBehaviour
     this.syncQueue = new Queue<DeftBodyState>();
     this.lastSavedStates = new List<DeftBodyState>();
     this.SetObjectsInLayer();
-    this.SetLastSavedState();
     if (statistics)
     {
       this.statisticsManager = this.gameObject.GetComponent<DeftLayerSyncStatistics>();
