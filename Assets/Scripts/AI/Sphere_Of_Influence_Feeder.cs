@@ -31,10 +31,21 @@ public class Sphere_Of_Influence_Feeder : MonoBehaviour {
 
 		if(other.tag.Equals ("EnviroTile"))
 		{
-			Destroy(other.gameObject);
-
-			GetComponentInParent<Feeder_Mover>().notInterested();
+			//Destroy(other.gameObject);
+			StartCoroutine(waits (other.gameObject));
+			//GetComponentInParent<Feeder_Mover>().notInterested();
 		}
+
+	}
+
+	IEnumerator waits(GameObject other)
+	{
+		//
+		yield return new WaitForSeconds(2.0f);
+
+		Destroy (other);
+
+		GetComponentInParent<Feeder_Mover>().notInterested();
 
 	}
 }
