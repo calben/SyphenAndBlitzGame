@@ -21,18 +21,27 @@ public class InGameMenus : MonoBehaviour
 
   public void InvertControls()
   {
-    string name = DeftClientServer.GetComponent<PlayerSelect>().selectedPlayer.name;
-    GameObject player = null;
-    foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Player"))
-    {
-      if (obj.name.Contains(name))
-      {
-        player = obj;
-      }
-    }
-    if (player != null)
-    {
-      player.GetComponent<RigidbodyNetworkedPlayerController>().inverted = !player.GetComponent<RigidbodyNetworkedPlayerController>().inverted;
-    }
+		if(DeftClientServer){
+			string name = DeftClientServer.GetComponent<PlayerSelect>().selectedPlayer.name;
+			GameObject player = null;
+			foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Player"))
+			{
+				if (obj.name.Contains(name))
+				{
+					player = obj;
+				}
+			}
+			if (player != null)
+			{
+				player.GetComponent<RigidbodyNetworkedPlayerController>().inverted = !player.GetComponent<RigidbodyNetworkedPlayerController>().inverted;
+			}
+		}
+		else{
+			GameObject[] player = GameObject.FindGameObjectsWithTag("Player");
+			if (player[0] != null)
+			{
+				player[0].GetComponent<RigidbodyNetworkedPlayerController>().inverted = !player[0].GetComponent<RigidbodyNetworkedPlayerController>().inverted;
+			}
+		}
   }
 }
