@@ -7,6 +7,7 @@ public class Killer_Mover : AI_Mover
   protected StatusUpdate myStatus;
 
   public float killSpeed;
+  public Killer_Spawner kSpawner;
 
   enum State
   {
@@ -41,10 +42,10 @@ public class Killer_Mover : AI_Mover
     move();
 
 
-    if (this.health <= 0)
+    if (this.health <= 0 || gameObject.transform.position.y <= -15f)
     {
 
-      Destroy(this.gameObject);
+		kill ();
 
     }
 
@@ -71,6 +72,14 @@ public class Killer_Mover : AI_Mover
 
   }
 
+
+  public void kill()
+  {
+	
+		Destroy (this.gameObject);
+		//kSpawner.somethingDied ();
+
+  }
 
   protected void OnCollisionEnter(Collision other)
   {
