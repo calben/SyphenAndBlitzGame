@@ -8,6 +8,8 @@ public class StatusUpdate : MonoBehaviour {
 
 	public string normalText;
 	public string chasingText;
+	public string damageText;
+
 	public float depthThreshold = 30;
 
 
@@ -53,6 +55,14 @@ public class StatusUpdate : MonoBehaviour {
 			status.text = normalText;
 
 		}
+
+	}
+
+	public void hitText()
+	{
+
+		status.color = Color.red;
+		status.text = damageText;
 
 	}
 

@@ -94,10 +94,18 @@ public class Killer_Mover : AI_Mover
   {
 
     health = health - damageTaken;
-
-    StartCoroutine(flashRed());
-
+	
+	StartCoroutine(damageText ());
+	//StartCoroutine(flashRed());
+		
   }
+	
+  IEnumerator damageText()
+  {
+		myStatus.hitText ();
+		yield return new WaitForSeconds (0.2f);
+		myStatus.updateText (false);
+	}
 
   protected override void react()
   {

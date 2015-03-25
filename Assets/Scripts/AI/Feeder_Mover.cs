@@ -216,8 +216,17 @@ public class Feeder_Mover : AI_Mover
   {
 
     health = health - damageTaken;
+
+	StartCoroutine(damageText ());
     //StartCoroutine(flashRed());
 
+  }
+
+  IEnumerator damageText()
+  {
+		myStatus.hitText ();
+		yield return new WaitForSeconds (0.2f);
+		myStatus.updateText (false);
   }
 
   public override void isInterested()
