@@ -34,8 +34,6 @@ public class Killer_Mover : AI_Mover
 
     this.prevWaypoint = this.waypoint;
 
-    //StartCoroutine(HOLY_SHIT_DELETE_THIS());
-
   }
 
 
@@ -76,14 +74,6 @@ public class Killer_Mover : AI_Mover
 
   }
 
- /* IEnumerator HOLY_SHIT_DELETE_THIS()
-  {
-
-		yield return new WaitForSeconds (5.0f);
-
-		kill ();
-
-  }*/
 
   public void kill()
   {

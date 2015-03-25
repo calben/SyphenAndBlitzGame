@@ -14,17 +14,19 @@ public class Killer_Spawner : MonoBehaviour {
 	void Start()
 	{
 		numKillers = 2;
-		numKilled = 2;
+		numKilled = 0;
 	
 	}
 
 	void Update()
 	{
 
-		if(numKilled != 0 && ((numKilled%2) == 0))
+		if(numKilled == 2)
 		{
 
 			spawn ();
+
+			numKilled = 0;
 
 		}
 
