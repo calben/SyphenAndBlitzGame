@@ -44,7 +44,7 @@ public class Killer_Mover : AI_Mover
     move();
 
 
-    if (this.health <= 0 || gameObject.transform.position.y <= -15f)
+    if (this.health <= 0 || this.gameObject.transform.position.y <= -15f)
     {
 
 		kill ();
