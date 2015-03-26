@@ -77,4 +77,8 @@ public class AudioManager : MonoBehaviour {
 		_nextClip = clipName;
 		_nextClipIsLooping = isLooping;
 	}
+
+	public void SetVolume(float volume){
+		_audioSource.volume = volume;
+	}
 }

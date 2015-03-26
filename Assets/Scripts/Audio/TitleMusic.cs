@@ -18,7 +18,11 @@ public class TitleMusic : MonoBehaviour {
 	void OnLevelWasLoaded(int level) {
 		if (level != 0)
 		{
-			_audioManager.Stop("MainMenu1", 0.0f);
+			_audioManager.Stop("MainMenu1", 1.0f);
+			_audioManager.SetVolume(0.0f);
+		}
+		else{
+			//_audioManager.SetVolume(0.4f);
 		}
 	}
 }
