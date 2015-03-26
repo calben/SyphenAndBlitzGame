@@ -16,7 +16,7 @@ public class HealthBar : MonoBehaviour {
 		//Set up health bar
 		healthbar = GetComponent<Image> ();
 		RectTransform healthRect = GetComponent<RectTransform> ();
-		healthRect.sizeDelta = new Vector2 (Screen.width*0.3f, Screen.height*0.04f);
+		healthRect.sizeDelta = new Vector2 (Screen.width*0.3f, healthRect.sizeDelta.y);
 	}
 	public void StartHealthBar(int playerNumber) {
 		this.playerID = playerNumber;
