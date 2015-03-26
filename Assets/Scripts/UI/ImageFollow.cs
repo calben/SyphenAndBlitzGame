@@ -27,7 +27,7 @@ public class ImageFollow : MonoBehaviour {
 		if (!background) {
 			float currentHealth = (float)enemy.health / enemy.maxHealth;
 			if (currentHealth < image.fillAmount) {
-				image.fillAmount = Mathf.MoveTowards (image.fillAmount, currentHealth, Time.deltaTime * 0.5f);
+				image.fillAmount = Mathf.MoveTowards (image.fillAmount, currentHealth, Time.deltaTime * 0.8f);
 			}
 		} else {
 			//If enemy died, deactivate the background health bar
