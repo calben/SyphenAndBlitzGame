@@ -26,7 +26,9 @@ public class GameManager : MonoBehaviour
   public GameObject BlitzPowerUnlock;
   public GameObject NewObjectiveWindow;
   public bool longRangeUnlocked;
-
+  
+  private string playerName;
+  private bool secondTutorial;
   private int depotsFull;
   private EventSystem eventSystem;
 
@@ -57,6 +59,7 @@ public class GameManager : MonoBehaviour
   [RPC]
   public void StartHealthBar(string name)
   {
+	playerName = name;
     GameObject hb = GameObject.Find("HealthBar");
     GameObject hs = GameObject.Find("HealthStats");
     if (name.Contains("Syphen"))
@@ -126,30 +129,49 @@ public class GameManager : MonoBehaviour
       //Activate second power
       longRangeUnlocked = true;
       //Activate the Power Unlock window 
-      string name = DeftClientServer.GetComponent<PlayerSelect>().selectedPlayer.name;
-      if (name.Contains("Blitz"))
-      {
-        Debug.Log("Activating tutorial for blitz");
-        BlitzPowerUnlock.SetActive(true);
-      }
-      else
-      {
-        SyphenPowerUnlock.SetActive(true);
-        Debug.Log("Activating tutorial for syphen");
-        try
-        {
-          GameObject button = SyphenPowerUnlock.transform.FindChild("Button").gameObject;
-          GameObject.Find("EventSystem").GetComponent<EventSystem>().SetSelectedGameObject(button);
-        }
-        catch (System.NullReferenceException e)
-        {
-        }
-      }
+//      string name = DeftClientServer.GetComponent<PlayerSelect>().selectedPlayer.name;
+//      if (playerName.Contains("Blitz"))
+//      {
+//        Debug.Log("Activating tutorial for blitz");
+//        BlitzPowerUnlock.SetActive(true);
+//      }
+//      else
+//      {
+//        SyphenPowerUnlock.SetActive(true);
+//        Debug.Log("Activating tutorial for syphen");
+//        try
+//        {
+//          GameObject button = SyphenPowerUnlock.transform.FindChild("Button").gameObject;
+//          GameObject.Find("EventSystem").GetComponent<EventSystem>().SetSelectedGameObject(button);
+//        }
+//        catch (System.NullReferenceException e)
+//        {
+//        }
+//      }
     }
   }
-
-  [RPC]
-  public void activateNewObjective()
+  void Update() {
+	//Check if first depot is full, if so display tutorial
+		if (!secondTutorial && depotCurrentStock[0] >= depotCapacity[0]) {
+			secondTutorial = true;
+			if (playerName.Contains("Blitz")) {
+        		BlitzPowerUnlock.SetActive(true);
+			} else {
+				SyphenPowerUnlock.SetActive(true);
+				try
+				{
+					GameObject button = SyphenPowerUnlock.transform.FindChild("Button").gameObject;
+					GameObject.Find("EventSystem").GetComponent<EventSystem>().SetSelectedGameObject(button);
+				}
+				catch (System.NullReferenceException e)
+				{
+				}
+			}
+		}
+	}
+	
+	[RPC]
+	public void activateNewObjective()
   {
     NewObjectiveWindow.SetActive(true);
     GameObject.Find("Layer10SyncManager").GetComponent<DeftLayerSyncManager>().SetLastSavedState();
