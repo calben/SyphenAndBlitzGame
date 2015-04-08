@@ -7,7 +7,6 @@ public class Killer_Mover : AI_Mover
   protected StatusUpdate myStatus;
 
   public float killSpeed;
-  Killer_Spawner kSpawner;
 
   enum State
   {
@@ -22,10 +21,6 @@ public class Killer_Mover : AI_Mover
   {
 	
     StartCoroutine(changeState(State.roaming));
-	
-	GameObject tempObj = GameObject.FindGameObjectWithTag("Killer_Spawner");
-	
-	kSpawner = tempObj.GetComponent<Killer_Spawner>();
 	
     //setting agent
     this.agent = GetComponent<NavMeshAgent>();
@@ -79,7 +74,6 @@ public class Killer_Mover : AI_Mover
   {
 	
 		Destroy (this.gameObject);
-		kSpawner.somethingDied ();
 
   }
 
