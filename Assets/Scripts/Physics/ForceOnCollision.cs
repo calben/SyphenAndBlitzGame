@@ -62,8 +62,8 @@ public class ForceOnCollision: MonoBehaviour {
 						}
 						if(other.attachedRigidbody){
 							Vector3 direction = Vector3.Normalize( other.transform.position - this.transform.position );
-              				other.rigidbody.isKinematic = false;
-							other.rigidbody.AddForce( direction * Mathf.Clamp(_magnitude/Vector3.Magnitude(  other.transform.position - this.transform.position ), 0, _maxMagnitude) , ForceMode.Impulse);
+              				other.GetComponent<Rigidbody>().isKinematic = false;
+							other.GetComponent<Rigidbody>().AddForce( direction * Mathf.Clamp(_magnitude/Vector3.Magnitude(  other.transform.position - this.transform.position ), 0, _maxMagnitude) , ForceMode.Impulse);
 							other.GetComponent<PhysicsStatus>().pullable = true;
 						}
 					}				
@@ -72,14 +72,14 @@ public class ForceOnCollision: MonoBehaviour {
 					if( ps.pullable ){
 						if(other.attachedRigidbody){
 							Vector3 direction = Vector3.Normalize( this.transform.position - other.transform.position );
-							other.rigidbody.AddForce( direction * Mathf.Clamp(_magnitude/Vector3.Magnitude(this.transform.position - other.transform.position), 0, _maxMagnitude) , ForceMode.Impulse);
+							other.GetComponent<Rigidbody>().AddForce( direction * Mathf.Clamp(_magnitude/Vector3.Magnitude(this.transform.position - other.transform.position), 0, _maxMagnitude) , ForceMode.Impulse);
 						}
 					}		
 					break;
 				case ForceType.Lift:
 					if( ps.liftable ){
 						if(other.attachedRigidbody){
-							other.rigidbody.AddForce( Vector3.up * Mathf.Clamp(_magnitude/Vector3.Magnitude(this.transform.position - other.transform.position), 0, _maxMagnitude) , ForceMode.Impulse);
+							other.GetComponent<Rigidbody>().AddForce( Vector3.up * Mathf.Clamp(_magnitude/Vector3.Magnitude(this.transform.position - other.transform.position), 0, _maxMagnitude) , ForceMode.Impulse);
 						}
 					}
 					break;

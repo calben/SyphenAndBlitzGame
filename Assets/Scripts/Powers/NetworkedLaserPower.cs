@@ -83,7 +83,7 @@ public class NetworkedLaserPower : MonoBehaviour
           {
             _alreadyFired = false;
 			if(Network.isClient || Network.isServer){
-            	this.networkView.RPC("DeactivatePower", RPCMode.Others);
+            	this.GetComponent<NetworkView>().RPC("DeactivatePower", RPCMode.Others);
 			}
             DeactivatePower();
           }
@@ -121,7 +121,7 @@ public class NetworkedLaserPower : MonoBehaviour
     if (!_alreadyFired)
     {
 		if(Network.isClient || Network.isServer){
-			this.networkView.RPC("ActivatePower", RPCMode.Others, this.transform.position, new Vector3(0, 0, 0));
+			this.GetComponent<NetworkView>().RPC("ActivatePower", RPCMode.Others, this.transform.position, new Vector3(0, 0, 0));
 		}
       ActivatePower(this.transform.position, new Vector3(0, 0, 0));
       _alreadyFired = true;
@@ -147,7 +147,7 @@ public class NetworkedLaserPower : MonoBehaviour
     if (_controller.isThisMachinesPlayer)
     {
 		if(Network.isClient || Network.isServer){
-	    	networkView.RPC("UpdatePowerPosition", RPCMode.Others, _controlledProjectile.transform.position,
+	    	GetComponent<NetworkView>().RPC("UpdatePowerPosition", RPCMode.Others, _controlledProjectile.transform.position,
 	                      _controlledProjectile.transform.rotation,
 	                      _controlledProjectile.transform.localScale);
 		}

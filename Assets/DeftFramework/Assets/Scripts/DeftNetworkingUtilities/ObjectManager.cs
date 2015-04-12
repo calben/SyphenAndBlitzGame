@@ -47,10 +47,10 @@ public class ObjectManager : MonoBehaviour
           Debug.Log("Syncing movement data for " + obj.name);
           if (stream.isWriting)
           {
-            Vector3 pos = obj.rigidbody.position;
-            Quaternion rot = obj.rigidbody.rotation;
-            Vector3 velocity = obj.rigidbody.velocity;
-            Vector3 angularVelocity = obj.rigidbody.angularVelocity;
+            Vector3 pos = obj.GetComponent<Rigidbody>().position;
+            Quaternion rot = obj.GetComponent<Rigidbody>().rotation;
+            Vector3 velocity = obj.GetComponent<Rigidbody>().velocity;
+            Vector3 angularVelocity = obj.GetComponent<Rigidbody>().angularVelocity;
 
             stream.Serialize(ref pos);
             stream.Serialize(ref velocity);
@@ -69,9 +69,9 @@ public class ObjectManager : MonoBehaviour
             stream.Serialize(ref angularVelocity);
             // DeftState state = new DeftState();
             obj.transform.position = pos;
-            obj.rigidbody.velocity = velocity;
-            obj.rigidbody.rotation = rot;
-            obj.rigidbody.angularVelocity = angularVelocity;
+            obj.GetComponent<Rigidbody>().velocity = velocity;
+            obj.GetComponent<Rigidbody>().rotation = rot;
+            obj.GetComponent<Rigidbody>().angularVelocity = angularVelocity;
             // obj.time = Time.time;
             // obj.GetComponent<InterpolatedPropertySet>().addToBuffer(state);
           }

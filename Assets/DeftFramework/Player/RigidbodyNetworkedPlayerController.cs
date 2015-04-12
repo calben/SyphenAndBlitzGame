@@ -134,7 +134,7 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
     {
       Debug.Log("Performing full update on " + this.name);
     }
-    if (this.networkView.viewID == id)
+    if (this.GetComponent<NetworkView>().viewID == id)
     {
       this.GetComponent<Rigidbody>().position = position;
       this.GetComponent<Rigidbody>().rotation = rotation;
@@ -151,7 +151,7 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
     {
       Debug.Log("Performing partial update on " + this.name);
     }
-    if (this.networkView.viewID == id)
+    if (this.GetComponent<NetworkView>().viewID == id)
     {
       this.GetComponent<Rigidbody>().position = position;
       this.GetComponent<Rigidbody>().rotation = rotation;
@@ -479,12 +479,12 @@ public class RigidbodyNetworkedPlayerController : MonoBehaviour
         {
           if (this.fullSyncRateTmp <= 0.0f)
           {
-            this.networkView.RPC("UpdateFullPlayerState", RPCMode.Others, rigidbody.position, rigidbody.rotation, rigidbody.velocity, rigidbody.angularVelocity, fields.health, this.networkView.viewID);
+            this.GetComponent<NetworkView>().RPC("UpdateFullPlayerState", RPCMode.Others, rigidbody.position, rigidbody.rotation, rigidbody.velocity, rigidbody.angularVelocity, fields.health, this.GetComponent<NetworkView>().viewID);
             this.fullSyncRateTmp = this.fullSyncRate;
           }
           else
           {
-            this.networkView.RPC("UpdatePartialPlayerState", RPCMode.Others, rigidbody.position, rigidbody.rotation, rigidbody.velocity, this.networkView.viewID);
+            this.GetComponent<NetworkView>().RPC("UpdatePartialPlayerState", RPCMode.Others, rigidbody.position, rigidbody.rotation, rigidbody.velocity, this.GetComponent<NetworkView>().viewID);
           }
         }
       }

@@ -47,7 +47,7 @@ public class LaserPower : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if (this.networkView.isMine || _controller.singlePlayer)
+		if (this.GetComponent<NetworkView>().isMine || _controller.singlePlayer)
 		{
 			_cooldownTimer -= Time.deltaTime;
 			
@@ -127,9 +127,9 @@ public class LaserPower : MonoBehaviour
 			_controlledProjectile.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
 		}
 		
-		if ((Network.isClient || Network.isServer) && this.networkView.isMine)
+		if ((Network.isClient || Network.isServer) && this.GetComponent<NetworkView>().isMine)
 		{
-			networkView.RPC("UpdatePowerPosition", RPCMode.Others, _controlledProjectile.transform.position,
+			GetComponent<NetworkView>().RPC("UpdatePowerPosition", RPCMode.Others, _controlledProjectile.transform.position,
 			                _controlledProjectile.transform.rotation,
 			                _controlledProjectile.transform.localScale);
 			

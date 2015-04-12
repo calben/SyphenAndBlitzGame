@@ -47,13 +47,13 @@ public class NetworkedGrenadeManager : MonoBehaviour
 
   void Start()
   {
-	powerEnabled = false;
+	powerEnabled = true;
 	controller = _controllerObject.GetComponent<RigidbodyNetworkedPlayerController>();
   }
 
   void Update()
   {
-    if (networkView.isMine)
+    if (GetComponent<NetworkView>().isMine)
     {
       trigger = (controller.gamepadState.RightShoulder || (controller.gamepadState.RightTrigger > 0.20f)) && powerEnabled; 
       cooldown -= Time.deltaTime; // reduce cooldown timer
@@ -74,7 +74,7 @@ public class NetworkedGrenadeManager : MonoBehaviour
 			controller.playerState = PlayerControllerState.IDLE; // on trigger release, revert to idle
 			if (cooldown <= 0.0 && currentAmmo > 0 && goingToFire) // conditions for firing
 			{
-				networkView.RPC("throwGrenade", RPCMode.All, forward, transform.position, transform.rotation, curThrow);
+				GetComponent<NetworkView>().RPC("throwGrenade", RPCMode.All, forward, transform.position, transform.rotation, curThrow);
 				//throwGrenade(forward, transform.position, transform.rotation, curThrow); 
 				currentAmmo--; // reduce ammo
 				cooldown = triggerCooldown; // reset cooldown
@@ -106,7 +106,7 @@ public class NetworkedGrenadeManager : MonoBehaviour
 	{
 		GameObject clone;
 		clone = Instantiate(prefab, position + forward, rotation) as GameObject;
-		clone.rigidbody.velocity = forward * magnitude;
+		clone.GetComponent<Rigidbody>().velocity = forward * magnitude;
 		_audioManager.Play("grenade_toss", 0.0f, false);
 	}
 

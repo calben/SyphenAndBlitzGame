@@ -34,11 +34,11 @@ public class Vacuum : MonoBehaviour
 
   void Update()
   {
-    if (this.networkView.isMine)
+    if (this.GetComponent<NetworkView>().isMine)
     {
       if (controller.gamepadState.RightTrigger > 0.20f && !this.active)
       {
-        this.networkView.RPC("Activate", RPCMode.Others);
+        this.GetComponent<NetworkView>().RPC("Activate", RPCMode.Others);
         this.Activate();
       }
       else if (controller.gamepadState.RightTrigger > 0.20f && this.active)
@@ -46,7 +46,7 @@ public class Vacuum : MonoBehaviour
       }
       else
       {
-        this.networkView.RPC("DeActivate", RPCMode.Others);
+        this.GetComponent<NetworkView>().RPC("DeActivate", RPCMode.Others);
         this.DeActivate();
       }
     }
@@ -58,13 +58,13 @@ public class Vacuum : MonoBehaviour
   void OnTriggerStay(Collider other)
   {
     if (active)
-      if (other.rigidbody!=null && other.rigidbody.useGravity && other.tag != "Player")
+      if (other.GetComponent<Rigidbody>()!=null && other.GetComponent<Rigidbody>().useGravity && other.tag != "Player")
       {
         PhysicsStatus status = other.gameObject.GetComponent<PhysicsStatus>();
         Vector3 direction = Vector3.Normalize(other.transform.position - this.transform.parent.position);
         if (status == null || status.pullable || affectEverything)
         {
-          other.rigidbody.AddForce(direction * (-1 * magnitude), ForceMode.Impulse);
+          other.GetComponent<Rigidbody>().AddForce(direction * (-1 * magnitude), ForceMode.Impulse);
         }
       }
   }

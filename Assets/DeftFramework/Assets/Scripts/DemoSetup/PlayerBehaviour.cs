@@ -15,7 +15,7 @@ public class PlayerBehaviour : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        this.rigidbody.AddForce(this.transform.forward * 50.0f);
+        this.GetComponent<Rigidbody>().AddForce(this.transform.forward * 50.0f);
         if (turn > 0)
         {
             turn -= Time.deltaTime;

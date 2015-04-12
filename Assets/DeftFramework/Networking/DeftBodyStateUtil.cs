@@ -34,8 +34,8 @@ public class DeftBodyStateUtil
     DeftBodyState state = new DeftBodyState();
     state.position = obj.transform.position;
     state.rotation = obj.transform.rotation;
-    state.velocity = obj.rigidbody.velocity;
-    state.angularVelocity = obj.rigidbody.angularVelocity;
+    state.velocity = obj.GetComponent<Rigidbody>().velocity;
+    state.angularVelocity = obj.GetComponent<Rigidbody>().angularVelocity;
     state.id = obj.GetComponent<NetworkView>().viewID;
     state.timestamp = Time.time;
     return state;

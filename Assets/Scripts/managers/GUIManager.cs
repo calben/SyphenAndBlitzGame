@@ -43,7 +43,7 @@ public class GUIManager : MonoBehaviour {
 
 	public void DisplayInGameMenu(){
 		if(Network.isServer || Network.isClient){
-			networkView.RPC("RPCDisplayInGameMenu", RPCMode.All);
+			GetComponent<NetworkView>().RPC("RPCDisplayInGameMenu", RPCMode.All);
 		}
 		else{
 			RPCDisplayInGameMenu();

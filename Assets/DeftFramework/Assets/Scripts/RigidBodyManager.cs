@@ -140,17 +140,17 @@ public class RigidBodyManager : MonoBehaviour
   void SnapSync(GameObject obj)
   {
     obj.transform.position = pos;
-    obj.rigidbody.velocity = velocity;
-    obj.rigidbody.rotation = rot;
-    obj.rigidbody.angularVelocity = angular_velocity;
+    obj.GetComponent<Rigidbody>().velocity = velocity;
+    obj.GetComponent<Rigidbody>().rotation = rot;
+    obj.GetComponent<Rigidbody>().angularVelocity = angular_velocity;
   }
 
   void FirstOrderSync(GameObject obj)
   {
     obj.transform.position = Vector3.Lerp(obj.transform.position, pos, 0.5f);
-    obj.rigidbody.velocity = Vector3.Lerp(obj.rigidbody.velocity, velocity, 0.5f);
-    obj.rigidbody.rotation = Quaternion.Slerp(obj.rigidbody.rotation, rot, 0.5f);
-    obj.rigidbody.angularVelocity = Vector3.Lerp(obj.rigidbody.angularVelocity, angular_velocity, 0.5f);
+    obj.GetComponent<Rigidbody>().velocity = Vector3.Lerp(obj.GetComponent<Rigidbody>().velocity, velocity, 0.5f);
+    obj.GetComponent<Rigidbody>().rotation = Quaternion.Slerp(obj.GetComponent<Rigidbody>().rotation, rot, 0.5f);
+    obj.GetComponent<Rigidbody>().angularVelocity = Vector3.Lerp(obj.GetComponent<Rigidbody>().angularVelocity, angular_velocity, 0.5f);
   }
 
   void PHBRSync(BodyState[] states)
@@ -250,10 +250,10 @@ public class RigidBodyManager : MonoBehaviour
       {
         if (stream.isWriting)
         {
-          pos = obj.rigidbody.position;
-          rot = obj.rigidbody.rotation;
-          velocity = obj.rigidbody.velocity;
-          angular_velocity = obj.rigidbody.angularVelocity;
+          pos = obj.GetComponent<Rigidbody>().position;
+          rot = obj.GetComponent<Rigidbody>().rotation;
+          velocity = obj.GetComponent<Rigidbody>().velocity;
+          angular_velocity = obj.GetComponent<Rigidbody>().angularVelocity;
           id = obj.GetInstanceID();
           stream.Serialize(ref pos);
           stream.Serialize(ref velocity);

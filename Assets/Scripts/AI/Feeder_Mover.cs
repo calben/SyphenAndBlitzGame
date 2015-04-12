@@ -58,9 +58,9 @@ public class Feeder_Mover : AI_Mover
 
     }
 
-    if (gameObject.rigidbody.velocity.magnitude >= 2.0f)
+    if (gameObject.GetComponent<Rigidbody>().velocity.magnitude >= 2.0f)
     {
-      gameObject.rigidbody.velocity = gameObject.rigidbody.velocity * 0.5f;
+      gameObject.GetComponent<Rigidbody>().velocity = gameObject.GetComponent<Rigidbody>().velocity * 0.5f;
 
     }
 
@@ -141,7 +141,7 @@ public class Feeder_Mover : AI_Mover
   [RPC]
   public void UpdateFullKillerState(Vector3 position, Quaternion rotation, Vector3 velocity, Vector3 angularVelocity, NetworkViewID id)
   {
-    if (this.networkView.viewID == id)
+    if (this.GetComponent<NetworkView>().viewID == id)
     {
       this.GetComponent<Rigidbody>().position = position;
       this.GetComponent<Rigidbody>().rotation = rotation;
@@ -158,7 +158,7 @@ public class Feeder_Mover : AI_Mover
     {
       Rigidbody rigidbody = this.GetComponent<Rigidbody>();
       PlayerFields fields = this.GetComponent<PlayerFields>();
-      this.networkView.RPC("UpdateFullKillerState", RPCMode.Others, rigidbody.position, rigidbody.rotation, rigidbody.velocity, rigidbody.angularVelocity, this.networkView.viewID);
+      this.GetComponent<NetworkView>().RPC("UpdateFullKillerState", RPCMode.Others, rigidbody.position, rigidbody.rotation, rigidbody.velocity, rigidbody.angularVelocity, this.GetComponent<NetworkView>().viewID);
     }
     #endregion
   }
@@ -205,7 +205,7 @@ public class Feeder_Mover : AI_Mover
 	if(other.gameObject.tag.Equals ("Feeder") || other.gameObject.tag.Equals ("Killer"))
 	{
 
-			Physics.IgnoreCollision(other.collider, collider);
+			Physics.IgnoreCollision(other.collider, GetComponent<Collider>());
 
 		
 	}
@@ -214,7 +214,7 @@ public class Feeder_Mover : AI_Mover
 
   public void damage()
   {
-    this.networkView.RPC("RPCDamage", RPCMode.All, damageTaken);
+    this.GetComponent<NetworkView>().RPC("RPCDamage", RPCMode.All, damageTaken);
     //StartCoroutine(flashRed());
   }
 
@@ -271,11 +271,11 @@ public class Feeder_Mover : AI_Mover
   IEnumerator flashRed()
   {
 
-    gameObject.renderer.material.color = Color.red;
+    gameObject.GetComponent<Renderer>().material.color = Color.red;
 
     yield return new WaitForSeconds(0.2f);
 
-    gameObject.renderer.material.color = Color.magenta;
+    gameObject.GetComponent<Renderer>().material.color = Color.magenta;
 
   }
 
@@ -283,11 +283,11 @@ public class Feeder_Mover : AI_Mover
   IEnumerator flashGreen()
   {
 
-    gameObject.renderer.material.color = Color.green;
+    gameObject.GetComponent<Renderer>().material.color = Color.green;
 
     yield return new WaitForSeconds(0.2f);
 
-    gameObject.renderer.material.color = Color.magenta;
+    gameObject.GetComponent<Renderer>().material.color = Color.magenta;
 
   }
 

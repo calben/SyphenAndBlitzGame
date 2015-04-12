@@ -34,7 +34,7 @@ public class MakeMap : MonoBehaviour
     {
         foreach (GameObject obj in GameObject.Find("RigidBodyManager").GetComponent<RigidBodyManager>().objectsToSync)
         {
-            obj.renderer.material.color = cubecolor;
+            obj.GetComponent<Renderer>().material.color = cubecolor;
         }
     }
 

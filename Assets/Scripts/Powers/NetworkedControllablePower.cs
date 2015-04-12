@@ -103,7 +103,7 @@ public class NetworkedControllablePower : MonoBehaviour
           {
             _alreadyFired = false;
 			if(Network.isClient || Network.isServer){
-				this.networkView.RPC("DeactivatePower", RPCMode.Others);
+				this.GetComponent<NetworkView>().RPC("DeactivatePower", RPCMode.Others);
 			}
             DeactivatePower();
           }
@@ -124,7 +124,7 @@ public class NetworkedControllablePower : MonoBehaviour
 		Vector3 startPosition = transform.position + _offset + (cameraForward * distance);
 		if (Network.isClient || Network.isServer)
 		{
-			this.networkView.RPC("ActivatePower", RPCMode.Others, startPosition);
+			this.GetComponent<NetworkView>().RPC("ActivatePower", RPCMode.Others, startPosition);
 		}
 		ActivatePower(startPosition);
 	}
@@ -144,8 +144,8 @@ public class NetworkedControllablePower : MonoBehaviour
     _audioManager.Play(_audioClipName, 1.0f, true);
     _controlledTarget = GameObject.CreatePrimitive(PrimitiveType.Sphere);
     _controlledTarget.transform.position = startPosition;
-    if (_controlledTarget.collider) { _controlledTarget.collider.enabled = false; }
-    _controlledTarget.renderer.enabled = false;
+    if (_controlledTarget.GetComponent<Collider>()) { _controlledTarget.GetComponent<Collider>().enabled = false; }
+    _controlledTarget.GetComponent<Renderer>().enabled = false;
     _controlledTarget.transform.parent = Camera.main.transform;
   }
 
@@ -213,7 +213,7 @@ public class NetworkedControllablePower : MonoBehaviour
 
 	if (Network.isClient || Network.isServer)
 	{
-		this.networkView.RPC("MovePower", RPCMode.Others, _controlledProjectile.transform.position, _controlledTarget.transform.position, new Vector3(0, 0, 0));
+		this.GetComponent<NetworkView>().RPC("MovePower", RPCMode.Others, _controlledProjectile.transform.position, _controlledTarget.transform.position, new Vector3(0, 0, 0));
 	}
 	MovePower(_controlledProjectile.transform.position, _controlledTarget.transform.position, new Vector3(0, 0, 0));
   }

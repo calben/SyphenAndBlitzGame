@@ -63,7 +63,7 @@ public class DeftPlayerController : MonoBehaviour
   void Awake()
   {
     animator = this.GetComponent<Animator>();
-    if (networkView.isMine || singlePlayer)
+    if (GetComponent<NetworkView>().isMine || singlePlayer)
     {
       Camera.main.GetComponent<DeftPlayerCamera>().player = this.gameObject;
       Camera.main.GetComponent<DeftPlayerCamera>().Reset();
@@ -76,7 +76,7 @@ public class DeftPlayerController : MonoBehaviour
 
   void Update()
   {
-    if (networkView.isMine || singlePlayer)
+    if (GetComponent<NetworkView>().isMine || singlePlayer)
     {
       bool gamePadExists = true;
       this.gamepadState = GamePad.GetState(this.pad_index);
@@ -184,7 +184,7 @@ public class DeftPlayerController : MonoBehaviour
         {
           if (speed_current > 0 && jumpCooldownTemp < 0)
           {
-            rigidbody.velocity += new Vector3(0, jumpHeight, 0);
+            GetComponent<Rigidbody>().velocity += new Vector3(0, jumpHeight, 0);
             jumpCooldownTemp = jumpCooldown;
           }
           break;
@@ -211,7 +211,7 @@ public class DeftPlayerController : MonoBehaviour
       Vector3 forward_without_y = new Vector3(transform.forward.x, 0, transform.forward.z);
       transform.forward = Vector3.Lerp(forward_without_y, last_input_without_y, smooth * Time.deltaTime);
       Vector3 move_without_y = new Vector3(this.move_direction.x, 0, this.move_direction.z);
-      this.rigidbody.velocity = new Vector3(move_direction.x * speed_current, rigidbody.velocity.y, move_direction.z * speed_current);
+      this.GetComponent<Rigidbody>().velocity = new Vector3(move_direction.x * speed_current, GetComponent<Rigidbody>().velocity.y, move_direction.z * speed_current);
     }
     else
     {

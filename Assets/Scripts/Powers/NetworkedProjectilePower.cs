@@ -65,7 +65,7 @@ public class NetworkedProjectilePower : MonoBehaviour
         {
           if (Network.isClient || Network.isServer)
           {
-            networkView.RPC("LaunchProjectile", RPCMode.All, _offset, _magnitude, _makeChild);
+            GetComponent<NetworkView>().RPC("LaunchProjectile", RPCMode.All, _offset, _magnitude, _makeChild);
           }
           else
           {
@@ -87,7 +87,7 @@ public class NetworkedProjectilePower : MonoBehaviour
 
     Vector3 forward = Camera.main.transform.TransformDirection(Vector3.forward);
     forward = forward.normalized;
-    clone.rigidbody.velocity = (new Vector3(forward.x * magnitude, 0, forward.z * magnitude));
+    clone.GetComponent<Rigidbody>().velocity = (new Vector3(forward.x * magnitude, 0, forward.z * magnitude));
 
     if (makeChild)
     {

@@ -15,17 +15,17 @@ public class Audio_Laserbeam : MonoBehaviour {
 	}
 
 	public void playPowerUp(){
-		audio.clip = _audioclips[0];
-		audio.Play();
+		GetComponent<AudioSource>().clip = _audioclips[0];
+		GetComponent<AudioSource>().Play();
 	}
 
 	public void playLoop(){
-		audio.clip = _audioclips[1];
-		audio.Play();
+		GetComponent<AudioSource>().clip = _audioclips[1];
+		GetComponent<AudioSource>().Play();
 	}
 
 	public void playPowerDown(){
-		audio.clip = _audioclips[2];
-		audio.Play();
+		GetComponent<AudioSource>().clip = _audioclips[2];
+		GetComponent<AudioSource>().Play();
 	}
 }

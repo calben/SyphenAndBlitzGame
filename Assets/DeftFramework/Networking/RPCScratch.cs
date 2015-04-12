@@ -70,7 +70,7 @@ public class RPCScratch : MonoBehaviour
                 state.timestamp = i;
                 state.angularVelocity = new Vector3(0f, 1.2f, 4f);
                 byte[] bytes = MarshalBodyState(state);
-                this.networkView.RPC("ReceiveBodyState", RPCMode.Others, bytes);
+                this.GetComponent<NetworkView>().RPC("ReceiveBodyState", RPCMode.Others, bytes);
             }
         }
         i++;

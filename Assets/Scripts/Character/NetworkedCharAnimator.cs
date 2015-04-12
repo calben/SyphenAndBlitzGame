@@ -29,7 +29,7 @@ public class NetworkedCharAnimator : MonoBehaviour
       int newStateIndex = _currentStateIndex;
       //float speed = _rb.GetPointVelocity(Vector3.zero).magnitude;
       if (_controller.playerState == PlayerControllerState.WALKING 
-			    || (_controller.playerState == PlayerControllerState.ZOOM_OUT && this.gameObject.rigidbody.velocity.magnitude > 0.1f))
+			    || (_controller.playerState == PlayerControllerState.ZOOM_OUT && this.gameObject.GetComponent<Rigidbody>().velocity.magnitude > 0.1f))
       {
 				Debug.Log("state is walking");
         newStateIndex = 1;
@@ -46,7 +46,7 @@ public class NetworkedCharAnimator : MonoBehaviour
       {
         if (Network.isClient || Network.isServer)
         {
-          networkView.RPC("transition", RPCMode.All, newStateIndex);
+          GetComponent<NetworkView>().RPC("transition", RPCMode.All, newStateIndex);
         }
         else
         {

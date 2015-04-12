@@ -47,7 +47,7 @@ public class explosion : MonoBehaviour {
 			foreach (Collider hit in colliders) {
 				PhysicsStatus ps = (PhysicsStatus) hit.GetComponent<PhysicsStatus>();
 				if( ps && (ps.liftable||ps.pushable) && hit.attachedRigidbody){ 
-					hit.rigidbody.AddForce( Vector3.up * Mathf.Clamp(liftMag/Vector3.Magnitude(this.transform.position - hit.transform.position), 0, maxLift) , ForceMode.Impulse);
+					hit.GetComponent<Rigidbody>().AddForce( Vector3.up * Mathf.Clamp(liftMag/Vector3.Magnitude(this.transform.position - hit.transform.position), 0, maxLift) , ForceMode.Impulse);
 				}
 			}
 		}
@@ -99,10 +99,10 @@ public class explosion : MonoBehaviour {
 					hit.GetComponent<PhysicsStatus>().pullable = true; // switch objects to pullable
 				}
 			}
-			if (hit && hit.rigidbody){
+			if (hit && hit.GetComponent<Rigidbody>()){
 				//and then still apply explosion force to any rigidbodies
 				if (hit.gameObject.tag!="Player"){ // except the players themselves
-					hit.rigidbody.AddExplosionForce(power, explosionPos, radius, lift, ForceMode.Impulse); 
+					hit.GetComponent<Rigidbody>().AddExplosionForce(power, explosionPos, radius, lift, ForceMode.Impulse); 
 				}
 			}
 		}

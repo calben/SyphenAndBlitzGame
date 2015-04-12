@@ -61,7 +61,7 @@ public class ForceNodeBehaviour : MonoBehaviour
 
   void OnTriggerStay(Collider other)
   {
-    if (other.rigidbody.useGravity)
+    if (other.GetComponent<Rigidbody>().useGravity)
     {
       PhysicsStatus status = other.gameObject.GetComponent<PhysicsStatus>();
       Vector3 direction = Vector3.Normalize(other.transform.position - this.transform.position);
@@ -73,10 +73,10 @@ public class ForceNodeBehaviour : MonoBehaviour
             switch (distanceType)
             {
               case DistanceRelationship.Linear:
-                other.rigidbody.AddForce(Vector3.up * (currentMagnitude / Vector3.Magnitude(other.transform.position - this.transform.position)), ForceMode.Impulse);
+                other.GetComponent<Rigidbody>().AddForce(Vector3.up * (currentMagnitude / Vector3.Magnitude(other.transform.position - this.transform.position)), ForceMode.Impulse);
                 break;
               case DistanceRelationship.None:
-                other.rigidbody.AddForce(Vector3.up * (currentMagnitude), ForceMode.Impulse);
+                other.GetComponent<Rigidbody>().AddForce(Vector3.up * (currentMagnitude), ForceMode.Impulse);
                 break;
             }
           }
@@ -87,10 +87,10 @@ public class ForceNodeBehaviour : MonoBehaviour
             switch (distanceType)
             {
               case DistanceRelationship.Linear:
-                other.rigidbody.AddForce(direction * (-1 * currentMagnitude / Vector3.Magnitude(other.transform.position - this.transform.position)), ForceMode.Impulse);
+                other.GetComponent<Rigidbody>().AddForce(direction * (-1 * currentMagnitude / Vector3.Magnitude(other.transform.position - this.transform.position)), ForceMode.Impulse);
                 break;
               case DistanceRelationship.None:
-                other.rigidbody.AddForce(direction * (-1 * currentMagnitude), ForceMode.Impulse);
+                other.GetComponent<Rigidbody>().AddForce(direction * (-1 * currentMagnitude), ForceMode.Impulse);
                 break;
             }
           }
@@ -101,10 +101,10 @@ public class ForceNodeBehaviour : MonoBehaviour
             switch (distanceType)
             {
               case DistanceRelationship.Linear:
-                other.rigidbody.AddForce(direction * (currentMagnitude / Vector3.Magnitude(other.transform.position - this.transform.position)), ForceMode.Impulse);
+                other.GetComponent<Rigidbody>().AddForce(direction * (currentMagnitude / Vector3.Magnitude(other.transform.position - this.transform.position)), ForceMode.Impulse);
                 break;
               case DistanceRelationship.None:
-                other.rigidbody.AddForce(direction * (currentMagnitude), ForceMode.Impulse);
+                other.GetComponent<Rigidbody>().AddForce(direction * (currentMagnitude), ForceMode.Impulse);
                 break;
             }
           }

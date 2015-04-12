@@ -52,7 +52,7 @@ public class DeftPlayerCamera : MonoBehaviour
         relCameraPosMag = relCameraPos.magnitude - 0.5f;
         smoothPivotOffset = pivotOffset;
         smoothCamOffset = camOffset;
-        defaultFOV = cam.camera.fieldOfView;
+        defaultFOV = cam.GetComponent<Camera>().fieldOfView;
         Debug.Log("Camera has been reset by player");
     }
 
@@ -90,7 +90,7 @@ public class DeftPlayerCamera : MonoBehaviour
         {
             targetFOV = defaultFOV;
         }
-        cam.camera.fieldOfView = Mathf.Lerp(cam.camera.fieldOfView, targetFOV, Time.deltaTime);
+        cam.GetComponent<Camera>().fieldOfView = Mathf.Lerp(cam.GetComponent<Camera>().fieldOfView, targetFOV, Time.deltaTime);
 
         // Test for collision
         Vector3 baseTempPosition = player.transform.position + camYRotation * targetPivotOffset;
@@ -126,7 +126,7 @@ public class DeftPlayerCamera : MonoBehaviour
         if (Physics.Raycast(checkPos, player.transform.position - checkPos, out hit, relCameraPosMag))
         {
             // ... if it is not the player...
-            if (hit.transform != player && !hit.transform.collider.isTrigger)
+            if (hit.transform != player && !hit.transform.GetComponent<Collider>().isTrigger)
             {
                 // This position isn't appropriate.
                 return false;
@@ -142,7 +142,7 @@ public class DeftPlayerCamera : MonoBehaviour
 
         if (Physics.Raycast(player.transform.position, checkPos - player.transform.position, out hit, relCameraPosMag))
         {
-            if (hit.transform != transform && !hit.transform.collider.isTrigger)
+            if (hit.transform != transform && !hit.transform.GetComponent<Collider>().isTrigger)
             {
                 return false;
             }

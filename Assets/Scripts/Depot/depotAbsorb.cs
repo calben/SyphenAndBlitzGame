@@ -57,7 +57,7 @@ public class depotAbsorb : MonoBehaviour
   {
     if (other.tag == supplyItemTag && !depotFull)
     {
-      this.networkView.RPC("absorbAction", RPCMode.All, other.networkView.viewID);
+      this.GetComponent<NetworkView>().RPC("absorbAction", RPCMode.All, other.GetComponent<NetworkView>().viewID);
     }
   }
 

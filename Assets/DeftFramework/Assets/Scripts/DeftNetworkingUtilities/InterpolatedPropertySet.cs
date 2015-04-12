@@ -73,10 +73,10 @@ public class InterpolatedPropertySet : MonoBehaviour
           float axisLength = extrapolationLength * buffer[0].angularVelocity.magnitude * Mathf.Rad2Deg;
           Quaternion angularRotation = Quaternion.AngleAxis(axisLength, buffer[0].angularVelocity);
 
-          rigidbody.position = buffer[0].position + buffer[0].velocity * extrapolationLength;
-          rigidbody.rotation = angularRotation * buffer[0].rotation;
-          rigidbody.velocity = buffer[0].velocity;
-          rigidbody.angularVelocity = buffer[0].angularVelocity;
+          GetComponent<Rigidbody>().position = buffer[0].position + buffer[0].velocity * extrapolationLength;
+          GetComponent<Rigidbody>().rotation = angularRotation * buffer[0].rotation;
+          GetComponent<Rigidbody>().velocity = buffer[0].velocity;
+          GetComponent<Rigidbody>().angularVelocity = buffer[0].angularVelocity;
         }
       }
     }

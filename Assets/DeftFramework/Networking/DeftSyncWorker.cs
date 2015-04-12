@@ -42,9 +42,9 @@ public class DeftSyncWorker : MonoBehaviour
   {
     float lerpSpeed = this.duration / Time.fixedDeltaTime;
     this.gameObject.transform.position = Vector3.Lerp(this.gameObject.transform.position, state.position, lerpSpeed);
-    this.gameObject.rigidbody.velocity = Vector3.Lerp(this.gameObject.rigidbody.velocity, state.velocity, lerpSpeed);
-    this.gameObject.rigidbody.rotation = Quaternion.Slerp(this.gameObject.rigidbody.rotation, state.rotation, lerpSpeed);
-    this.gameObject.rigidbody.angularVelocity = Vector3.Lerp(this.gameObject.rigidbody.angularVelocity, state.angularVelocity, lerpSpeed);
+    this.gameObject.GetComponent<Rigidbody>().velocity = Vector3.Lerp(this.gameObject.GetComponent<Rigidbody>().velocity, state.velocity, lerpSpeed);
+    this.gameObject.GetComponent<Rigidbody>().rotation = Quaternion.Slerp(this.gameObject.GetComponent<Rigidbody>().rotation, state.rotation, lerpSpeed);
+    this.gameObject.GetComponent<Rigidbody>().angularVelocity = Vector3.Lerp(this.gameObject.GetComponent<Rigidbody>().angularVelocity, state.angularVelocity, lerpSpeed);
     if (debug)
     {
       Debug.Log(durationTmp + ": moving " + state.id + " to " + state.position.ToString());

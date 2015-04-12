@@ -1346,33 +1346,33 @@ public class ArcReactor_Arc : MonoBehaviour {
 				EndColor = arcs[n].colorOptions.endColor.Evaluate(lifetimePos);
 			Color coreColor = arcs[n].colorOptions.coreColor.Evaluate(lifetimePos);
 
-			lrends[n].renderer.material.SetColor("_StartColor",StartColor);
-			lrends[n].renderer.material.SetColor("_EndColor",EndColor);
+			lrends[n].GetComponent<Renderer>().material.SetColor("_StartColor",StartColor);
+			lrends[n].GetComponent<Renderer>().material.SetColor("_EndColor",EndColor);
 
-			lrends[n].renderer.material.SetColor("_CoreColor",coreColor);
+			lrends[n].GetComponent<Renderer>().material.SetColor("_CoreColor",coreColor);
 
 			if (arcs[n].colorOptions.coreJitter > 0)
 			{
 				coreCoefs[n] = arcs[n].colorOptions.coreCurve.Evaluate(lifetimePos)+UnityEngine.Random.Range(-arcs[n].colorOptions.coreJitter*0.5f,arcs[n].colorOptions.coreJitter*0.5f);
-				lrends[n].renderer.material.SetFloat("_CoreCoef",coreCoefs[n]);
+				lrends[n].GetComponent<Renderer>().material.SetFloat("_CoreCoef",coreCoefs[n]);
 			}
 			else
 			{
 				coreCoefs[n] = arcs[n].colorOptions.coreCurve.Evaluate(lifetimePos);
-				lrends[n].renderer.material.SetFloat("_CoreCoef",coreCoefs[n]);
+				lrends[n].GetComponent<Renderer>().material.SetFloat("_CoreCoef",coreCoefs[n]);
 			}
 
 			//Fading
 			switch (arcs[n].colorOptions.fade)
 			{
 			case FadeTypes.none:
-				lrends[n].renderer.material.SetFloat("_FadeLevel",0);
+				lrends[n].GetComponent<Renderer>().material.SetFloat("_FadeLevel",0);
 				break;
 			case FadeTypes.relativePoint:
-				lrends[n].renderer.material.SetFloat("_FadeLevel",arcs[n].colorOptions.fadePoint);
+				lrends[n].GetComponent<Renderer>().material.SetFloat("_FadeLevel",arcs[n].colorOptions.fadePoint);
 				break;
 			case FadeTypes.worldspacePoint:
-				lrends[n].renderer.material.SetFloat("_FadeLevel",Mathf.Clamp01(arcs[n].colorOptions.fadePoint / shapeLength));
+				lrends[n].GetComponent<Renderer>().material.SetFloat("_FadeLevel",Mathf.Clamp01(arcs[n].colorOptions.fadePoint / shapeLength));
 				break;
 			}
 
@@ -1411,13 +1411,13 @@ public class ArcReactor_Arc : MonoBehaviour {
 					if (noiseOffsets[n]<0)
 						noiseOffsets[n] += 1;
 					noiseScale[n] = vertexCnt/vertexCount[n]*shapeLength / arcs[n].textureOptions.tileSize;
-					lrends[n].renderer.material.SetTextureScale("_NoiseMask",new Vector2(noiseScale[n],1));
-					lrends[n].renderer.material.SetTextureOffset("_NoiseMask",new Vector2(noiseOffsets[n],1));
+					lrends[n].GetComponent<Renderer>().material.SetTextureScale("_NoiseMask",new Vector2(noiseScale[n],1));
+					lrends[n].GetComponent<Renderer>().material.SetTextureOffset("_NoiseMask",new Vector2(noiseOffsets[n],1));
 				}
 				else
 				{
 					noiseScale[n] = vertexCnt/vertexCount[n]*shapeLength / arcs[n].textureOptions.tileSize;
-					lrends[n].renderer.material.SetTextureScale("_NoiseMask",new Vector2(noiseScale[n],1));
+					lrends[n].GetComponent<Renderer>().material.SetTextureScale("_NoiseMask",new Vector2(noiseScale[n],1));
 				}			
 			}
 

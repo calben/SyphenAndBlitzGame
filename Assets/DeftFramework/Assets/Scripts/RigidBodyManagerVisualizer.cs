@@ -23,13 +23,13 @@ public class RigidBodyManagerVisualizer : MonoBehaviour
     if (isColoringPerSync)
     {
       syncedRoundColor = new Color(Random.value, Random.value, Random.value, 1.0f);
-      this.manager.objectsToSync.Peek().renderer.material.color = syncedRoundColor;
+      this.manager.objectsToSync.Peek().GetComponent<Renderer>().material.color = syncedRoundColor;
     }
     if (isColoringByPlayerProximity)
     {
       foreach (GameObject obj in this.manager.objectsByPriority[this.manager.playerPriority])
       {
-        obj.renderer.material.color = this.prioritizedColor;
+        obj.GetComponent<Renderer>().material.color = this.prioritizedColor;
       }
     }
   }

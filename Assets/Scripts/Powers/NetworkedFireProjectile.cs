@@ -56,7 +56,7 @@ public class NetworkedFireProjectile : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-    if (this.networkView.isMine || controller.isThisMachinesPlayer)
+    if (this.GetComponent<NetworkView>().isMine || controller.isThisMachinesPlayer)
     {
       cooldownTimer -= Time.deltaTime;
 
@@ -80,7 +80,7 @@ public class NetworkedFireProjectile : MonoBehaviour
               {
                 if (Network.isClient || Network.isServer)
                 {
-                  networkView.RPC("LaunchProjectile", RPCMode.All, offset, magnitude, makeChild);
+                  GetComponent<NetworkView>().RPC("LaunchProjectile", RPCMode.All, offset, magnitude, makeChild);
                 }
                 else
                 {
@@ -98,7 +98,7 @@ public class NetworkedFireProjectile : MonoBehaviour
               {
                 if (Network.isClient || Network.isServer)
                 {
-                  networkView.RPC("LaunchControllable", RPCMode.All);
+                  GetComponent<NetworkView>().RPC("LaunchControllable", RPCMode.All);
                 }
                 else
                 {
@@ -114,7 +114,7 @@ public class NetworkedFireProjectile : MonoBehaviour
                 {
                   if (Network.isClient || Network.isServer)
                   {
-                    networkView.RPC("MoveControllable", RPCMode.All);
+                    GetComponent<NetworkView>().RPC("MoveControllable", RPCMode.All);
                   }
                   else
                   {
@@ -167,7 +167,7 @@ public class NetworkedFireProjectile : MonoBehaviour
     GameObject clone = Instantiate(projectile, transform.position + offset, transform.rotation) as GameObject;
     Vector3 forward = Camera.main.transform.TransformDirection(Vector3.forward);
     forward = forward.normalized;
-    clone.rigidbody.velocity = (new Vector3(forward.x * magnitude, 0, forward.z * magnitude));
+    clone.GetComponent<Rigidbody>().velocity = (new Vector3(forward.x * magnitude, 0, forward.z * magnitude));
     if (makeChild)
     {
       clone.transform.parent = this.transform;
@@ -218,7 +218,7 @@ public class NetworkedFireProjectile : MonoBehaviour
       controlledProjectile.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
     }
 
-    if ((Network.isClient || Network.isServer) && this.networkView.isMine)
+    if ((Network.isClient || Network.isServer) && this.GetComponent<NetworkView>().isMine)
     {
     }
   }
@@ -249,8 +249,8 @@ public class NetworkedFireProjectile : MonoBehaviour
     }
     controlledTarget = GameObject.CreatePrimitive(PrimitiveType.Sphere);
     controlledTarget.transform.position = transform.position + offset + (cameraForward * distance);
-    if (controlledTarget.collider) { controlledTarget.collider.enabled = false; }
-    controlledTarget.renderer.enabled = false;
+    if (controlledTarget.GetComponent<Collider>()) { controlledTarget.GetComponent<Collider>().enabled = false; }
+    controlledTarget.GetComponent<Renderer>().enabled = false;
     controlledTarget.transform.parent = Camera.main.transform;
   }
 

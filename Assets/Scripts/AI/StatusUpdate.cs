@@ -29,9 +29,9 @@ public class StatusUpdate : MonoBehaviour {
 	{
 
 		if (myCamera.WorldToViewportPoint (transform.position).z < depthThreshold) {
-			status.renderer.enabled = true;
+			status.GetComponent<Renderer>().enabled = true;
 		} else {
-			status.renderer.enabled = false;
+			status.GetComponent<Renderer>().enabled = false;
 		}
 
 		gameObject.transform.LookAt (myCamera.transform.position);

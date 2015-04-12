@@ -40,12 +40,12 @@ public class PlayerSelect : MonoBehaviour
     Vector3 spawnPoint = Camera.main.transform.position + Camera.main.transform.forward * 10;
     Network.Instantiate(selectedPlayer, spawnPoint, Quaternion.identity, 0);
     GameObject gm = GameObject.Find("GameManager");
-    gm.GetComponent<TutorialManager>().StartTutorial(selectedPlayer.name);
-    gm.GetComponent<GameManager>().StartHealthBar(selectedPlayer.name);
-    if (selectedPlayer.name.Contains("Blitz"))
-    {
-      gm.GetComponent<GameManager>().StartGrenadeBar();
-    }
+    //gm.GetComponent<TutorialManager>().StartTutorial(selectedPlayer.name);
+    //gm.GetComponent<GameManager>().StartHealthBar(selectedPlayer.name);
+    //if (selectedPlayer.name.Contains("Blitz"))
+    //{
+    //  gm.GetComponent<GameManager>().StartGrenadeBar();
+    //}
     this.enabled = false;
     DeftLayerSyncManager syncManager = GameObject.Find("Layer10SyncManager").GetComponent<DeftLayerSyncManager>();
     syncManager.SetObjectsInLayer();

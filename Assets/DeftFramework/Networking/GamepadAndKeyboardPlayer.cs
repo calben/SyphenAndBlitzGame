@@ -68,7 +68,7 @@ public class GamepadAndKeyboardNetworkedPlayer : MonoBehaviour
     {
         relCameraPos = Camera.main.transform.position - this.gameObject.transform.position;
         relCameraPosMag = relCameraPos.magnitude;
-        defaultFOV = Camera.main.camera.fieldOfView;
+        defaultFOV = Camera.main.GetComponent<Camera>().fieldOfView;
     }
 
     void Update()

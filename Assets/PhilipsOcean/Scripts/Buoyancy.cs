@@ -41,14 +41,14 @@ public class Buoyancy : MonoBehaviour
 		transform.position = Vector3.zero;
 
 		// The object must have a collider
-		if (collider == null)
+		if (GetComponent<Collider>() == null)
 		{
 			gameObject.AddComponent<MeshCollider>();
 			Debug.LogWarning(string.Format("[Buoyancy.cs] Object \"{0}\" had no collider. MeshCollider has been added.", name));
 		}
 		isMeshCollider = GetComponent<MeshCollider>() != null;
 
-		var bounds = collider.bounds;
+		var bounds = GetComponent<Collider>().bounds;
 		if (bounds.size.x < bounds.size.y)
 		{
 			voxelHalfHeight = bounds.size.x;
@@ -64,12 +64,12 @@ public class Buoyancy : MonoBehaviour
 		voxelHalfHeight /= 2 * slicesPerAxis;
 
 		// The object must have a RidigBody
-		if (rigidbody == null)
+		if (GetComponent<Rigidbody>() == null)
 		{
 			gameObject.AddComponent<Rigidbody>();
 			Debug.LogWarning(string.Format("[Buoyancy.cs] Object \"{0}\" had no Rigidbody. Rigidbody has been added.", name));
 		}
-		rigidbody.centerOfMass = new Vector3(0, -bounds.extents.y * 0f, 0) + transform.InverseTransformPoint(bounds.center);
+		GetComponent<Rigidbody>().centerOfMass = new Vector3(0, -bounds.extents.y * 0f, 0) + transform.InverseTransformPoint(bounds.center);
 
 		voxels = SliceIntoVoxels(isMeshCollider && isConcave);
 
@@ -77,14 +77,14 @@ public class Buoyancy : MonoBehaviour
 		transform.rotation = originalRotation;
 		transform.position = originalPosition;
 
-		float volume = rigidbody.mass / density;
+		float volume = GetComponent<Rigidbody>().mass / density;
 
 		WeldPoints(voxels, voxelsLimit);
 
 		float archimedesForceMagnitude = WATER_DENSITY * Mathf.Abs(Physics.gravity.y) * volume;
 		localArchimedesForce = new Vector3(0, archimedesForceMagnitude, 0) / voxels.Count;
 
-		Debug.Log(string.Format("[Buoyancy.cs] Name=\"{0}\" volume={1:0.0}, mass={2:0.0}, density={3:0.0}", name, volume, rigidbody.mass, density));
+		Debug.Log(string.Format("[Buoyancy.cs] Name=\"{0}\" volume={1:0.0}, mass={2:0.0}, density={3:0.0}", name, volume, GetComponent<Rigidbody>().mass, density));
 	}
 
 	/// <summary>
@@ -104,7 +104,7 @@ public class Buoyancy : MonoBehaviour
 			meshCol.convex = false;
 
 			// Concave slicing
-			var bounds = collider.bounds;
+			var bounds = GetComponent<Collider>().bounds;
 			for (int ix = 0; ix < slicesPerAxis; ix++)
 			{
 				for (int iy = 0; iy < slicesPerAxis; iy++)
@@ -269,10 +269,10 @@ public class Buoyancy : MonoBehaviour
 					k = 0f;
 				}
 
-				var velocity = rigidbody.GetPointVelocity(wp);
-				var localDampingForce = -velocity * DAMPFER * rigidbody.mass;
+				var velocity = GetComponent<Rigidbody>().GetPointVelocity(wp);
+				var localDampingForce = -velocity * DAMPFER * GetComponent<Rigidbody>().mass;
 				var force = localDampingForce + Mathf.Sqrt(k) * localArchimedesForce;
-				rigidbody.AddForceAtPosition(force, wp);
+				GetComponent<Rigidbody>().AddForceAtPosition(force, wp);
 
 				forces.Add(new[] { wp, force }); // For drawing force gizmos
 			}
@@ -302,7 +302,7 @@ public class Buoyancy : MonoBehaviour
 		foreach (var force in forces)
 		{
 			Gizmos.DrawCube(force[0], new Vector3(gizmoSize, gizmoSize, gizmoSize));
-			Gizmos.DrawLine(force[0], force[0] + force[1] / rigidbody.mass);
+			Gizmos.DrawLine(force[0], force[0] + force[1] / GetComponent<Rigidbody>().mass);
 		}
 	}
 }

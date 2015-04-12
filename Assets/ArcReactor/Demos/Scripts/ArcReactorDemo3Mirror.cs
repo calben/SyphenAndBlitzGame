@@ -28,8 +28,8 @@ public class ArcReactorDemo3Mirror : MonoBehaviour {
 		if (!partSystem.activeSelf)
 			partSystem.SetActive(true);
 
-		if (!partSystem.particleSystem.enableEmission)
-			partSystem.particleSystem.enableEmission = true;
+		if (!partSystem.GetComponent<ParticleSystem>().enableEmission)
+			partSystem.GetComponent<ParticleSystem>().enableEmission = true;
 
 		partSystem.transform.position = hit.raycastHit.point;
 		partSystem.transform.LookAt(hit.raycastHit.point + hit.raycastHit.normal);
@@ -51,14 +51,14 @@ public class ArcReactorDemo3Mirror : MonoBehaviour {
 	void Update () 
 	{
 		//If ray stopped hitting mirror
-		if (!mirrorHit && !oldMirrorHit && partSystem.particleSystem.enableEmission)
+		if (!mirrorHit && !oldMirrorHit && partSystem.GetComponent<ParticleSystem>().enableEmission)
 		{
-			partSystem.particleSystem.enableEmission = false;
+			partSystem.GetComponent<ParticleSystem>().enableEmission = false;
 		}
 		oldMirrorHit = mirrorHit;
 		mirrorHit = false;
 
-		if (!partSystem.particleSystem.enableEmission && partSystem.activeSelf && !partSystem.particleSystem.IsAlive())
+		if (!partSystem.GetComponent<ParticleSystem>().enableEmission && partSystem.activeSelf && !partSystem.GetComponent<ParticleSystem>().IsAlive())
 		{		
 			partSystem.SetActive(false);
 		}
@@ -69,6 +69,6 @@ public class ArcReactorDemo3Mirror : MonoBehaviour {
 
 		temperature = Mathf.Clamp01(temperature - dissipateRate * Time.deltaTime);
 
-		renderer.material.color = colorGrad.Evaluate(temperature);
+		GetComponent<Renderer>().material.color = colorGrad.Evaluate(temperature);
 	}
 }

@@ -43,7 +43,7 @@ public class GrenadeManager : MonoBehaviour
 
   void Update()
   {
-    if (networkView.isMine)
+    if (GetComponent<NetworkView>().isMine)
     {
       trigger = controller.gamepadState.RightShoulder || (controller.gamepadState.RightTrigger > 0.20f); 
       cooldown -= Time.deltaTime; // reduce cooldown timer
@@ -61,7 +61,7 @@ public class GrenadeManager : MonoBehaviour
 			{
 				Vector3 forward = Camera.main.transform.TransformDirection(Vector3.forward);
 				forward = forward.normalized;
-				networkView.RPC("throwGrenade", RPCMode.Others, forward, transform.position, transform.rotation);
+				GetComponent<NetworkView>().RPC("throwGrenade", RPCMode.Others, forward, transform.position, transform.rotation);
 				throwGrenade(forward, transform.position, transform.rotation, curThrow); 
 				currentAmmo--; // reduce ammo
 				cooldown = triggerCooldown; // reset cooldown
@@ -93,7 +93,7 @@ public class GrenadeManager : MonoBehaviour
   {
     GameObject clone;
     clone = Instantiate(prefab, position + forward, rotation) as GameObject;
-		clone.rigidbody.velocity = forward * magnitude;
+		clone.GetComponent<Rigidbody>().velocity = forward * magnitude;
 	_audioManager.Play("grenade_toss", 0.0f, false);
   }
 }

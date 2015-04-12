@@ -44,7 +44,7 @@ public class CharacterAnimator : MonoBehaviour
       {
         if (Network.isClient || Network.isServer)
         {
-          networkView.RPC("transition", RPCMode.All, newStateIndex);
+          GetComponent<NetworkView>().RPC("transition", RPCMode.All, newStateIndex);
         }
         else
         {

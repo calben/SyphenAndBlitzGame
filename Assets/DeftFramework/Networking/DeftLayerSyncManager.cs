@@ -59,7 +59,7 @@ public class DeftLayerSyncManager : MonoBehaviour
   {
     if (Network.isClient || Network.isServer)
     {
-      this.networkView.RPC("SetLastSavedStateRPC", RPCMode.All);
+      this.GetComponent<NetworkView>().RPC("SetLastSavedStateRPC", RPCMode.All);
     }
     else
     {
@@ -72,7 +72,7 @@ public class DeftLayerSyncManager : MonoBehaviour
     Debug.Log("Loading!");
     if (Network.isClient || Network.isServer)
     {
-      this.networkView.RPC("LoadLastSavedStateRPC", RPCMode.All);
+      this.GetComponent<NetworkView>().RPC("LoadLastSavedStateRPC", RPCMode.All);
     }
     else
     {
@@ -115,7 +115,7 @@ public class DeftLayerSyncManager : MonoBehaviour
     {
       if (obj.layer == this.layer)
       {
-        this.objectsInLayer[obj.networkView.viewID] = obj;
+        this.objectsInLayer[obj.GetComponent<NetworkView>().viewID] = obj;
       }
     }
     this.players = GameObject.FindGameObjectsWithTag("Player");
@@ -155,12 +155,6 @@ public class DeftLayerSyncManager : MonoBehaviour
     state.angularVelocity = angularVelocity;
     state.id = id;
     DeftBodyStateUtil.SetGameObjectToDeftBodyStateValues(this.objectsInLayer[id], state);
-    //this.objectsInLayer[state.id].GetComponent<DeftSyncWorker>().goalState = state;
-    //if (statistics)
-    //{
-    //  this.statisticsManager.addLineOnSync(Time.time, id, this.objectsInLayer[state.id].gameObject.GetComponent<Rigidbody>().position, state.position);
-    //}
-    //this.objectsInLayer[state.id].GetComponent<DeftSyncWorker>().StartSync();
   }
 
   void BuildSyncQueue()
@@ -265,7 +259,7 @@ public class DeftLayerSyncManager : MonoBehaviour
             Debug.Log(Time.time + ": Sending " + state.id.ToString());
           }
           //this.networkView.RPC("UpdateDeftBodyState", RPCMode.AllBuffered, DeftBodyStateUtil.MarshallDeftBodyState(state));
-          this.networkView.RPC("UpdateDeftBodyStateRaw", RPCMode.OthersBuffered, state.position, state.rotation, (float)state.timestamp, state.velocity, state.angularVelocity, state.id);
+          this.GetComponent<NetworkView>().RPC("UpdateDeftBodyStateRaw", RPCMode.OthersBuffered, state.position, state.rotation, (float)state.timestamp, state.velocity, state.angularVelocity, state.id);
           UpdateDeftBodyStateRaw(state.position, state.rotation, (float)state.timestamp, state.velocity, state.angularVelocity, state.id);
           this.maxSyncRateTmp = 0.0f;
         }

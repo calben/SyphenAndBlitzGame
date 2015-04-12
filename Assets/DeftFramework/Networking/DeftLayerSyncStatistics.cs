@@ -5,8 +5,8 @@ using System.Collections.Generic;
 
 public class DeftLayerSyncStatistics : MonoBehaviour
 {
-  public string onsyncfilename = System.IO.Directory.GetCurrentDirectory() + "/sync-statistics.csv";
-  public string statetrackingfilename = System.IO.Directory.GetCurrentDirectory() + "/full-state-tracking.csv";
+  public string onsyncfilename;
+  public string objecttrackingfilename;
   System.IO.StreamWriter onsyncfile;
   System.IO.StreamWriter objectTrackingFile;
   public List<GameObject> objectsToTrack;
@@ -33,9 +33,9 @@ public class DeftLayerSyncStatistics : MonoBehaviour
     foreach (GameObject state in this.objectsToTrack)
     {
       foreach (string v in new string[] { "x", "y", "z" })
-        tmp += "," + state.networkView.viewID.GetHashCode() + "-" + v;
+        tmp += "," + state.GetComponent<NetworkView>().viewID.GetHashCode() + "-" + v;
     }
-    this.objectTrackingFile.Write(tmp);
+    this.objectTrackingFile.Write(tmp + "\n");
   }
 
   public void addLineToFullState()
@@ -55,16 +55,22 @@ public class DeftLayerSyncStatistics : MonoBehaviour
       this.GetComponent<DeftLayerSyncStatistics>().enabled = false;
       return;
     }
+    onsyncfilename = System.IO.Directory.GetCurrentDirectory() + "/sync-statistics.csv";
+    objecttrackingfilename = System.IO.Directory.GetCurrentDirectory() + "/full-state-tracking.csv";
     Debug.Log("Creating statistics log at " + onsyncfilename);
     onsyncfile = new System.IO.StreamWriter(onsyncfilename);
-    this.objectTrackingFile = new System.IO.StreamWriter(this.statetrackingfilename);
+    Debug.Log("Creating full state tracking log at " + this.objecttrackingfilename);
+    this.objectTrackingFile = new System.IO.StreamWriter(this.objecttrackingfilename);
+    addHeaderFullState();
   }
 
-  void FixedUpdate()
+  void Update()
   {
     if (Network.isServer || Network.isClient)
+    {
       acc += Time.deltaTime;
-    this.addLineToFullState();
+      this.addLineToFullState();
+    }
     if (acc >= flushTimer)
     {
       onsyncfile.Flush();

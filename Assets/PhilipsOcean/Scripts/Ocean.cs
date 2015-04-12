@@ -68,7 +68,7 @@ public class Ocean : MonoBehaviour
 				m_oceanGrid[idx] = new GameObject("Ocean grid " + idx.ToString());
 				m_oceanGrid[idx].AddComponent<MeshFilter>();
 				m_oceanGrid[idx].AddComponent<MeshRenderer>();
-				m_oceanGrid[idx].renderer.material = m_mat;
+				m_oceanGrid[idx].GetComponent<Renderer>().material = m_mat;
 				m_oceanGrid[idx].GetComponent<MeshFilter>().mesh = m_mesh;
 				m_oceanGrid[idx].transform.Translate(new Vector3(x * m_length - m_numGridsX*m_length/2, 0.0f, z * m_length - m_numGridsZ*m_length/2));
 				m_oceanGrid[idx].transform.parent = this.transform;

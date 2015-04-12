@@ -58,7 +58,7 @@ public class fireProjectile : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if (this.networkView.isMine || _controller.singlePlayer)
+		if (this.GetComponent<NetworkView>().isMine || _controller.singlePlayer)
 		{
 			_cooldownTimer -= Time.deltaTime;
 			
@@ -83,7 +83,7 @@ public class fireProjectile : MonoBehaviour
 							Debug.Log("i'm gonna launch it");
 							if (Network.isClient || Network.isServer)
 							{
-								networkView.RPC("LaunchProjectile", RPCMode.All, _offset, _magnitude, _makeChild);
+								GetComponent<NetworkView>().RPC("LaunchProjectile", RPCMode.All, _offset, _magnitude, _makeChild);
 							}
 							else
 							{
@@ -101,7 +101,7 @@ public class fireProjectile : MonoBehaviour
 						{
 							if (Network.isClient || Network.isServer)
 							{
-								networkView.RPC("LaunchControllable", RPCMode.All);
+								GetComponent<NetworkView>().RPC("LaunchControllable", RPCMode.All);
 							}
 							else
 							{
@@ -117,7 +117,7 @@ public class fireProjectile : MonoBehaviour
 							{
 								if (Network.isClient || Network.isServer)
 								{
-									networkView.RPC("MoveControllable", RPCMode.All);
+									GetComponent<NetworkView>().RPC("MoveControllable", RPCMode.All);
 								}
 								else
 								{
@@ -175,7 +175,7 @@ public class fireProjectile : MonoBehaviour
 		
 		Vector3 forward = Camera.main.transform.TransformDirection(Vector3.forward);
 		forward = forward.normalized;
-		clone.rigidbody.velocity = (new Vector3(forward.x * magnitude, 0, forward.z * magnitude));
+		clone.GetComponent<Rigidbody>().velocity = (new Vector3(forward.x * magnitude, 0, forward.z * magnitude));
 		
 		if (makeChild)
 		{
@@ -218,9 +218,9 @@ public class fireProjectile : MonoBehaviour
 			_controlledProjectile.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
 		}
 		
-		if ((Network.isClient || Network.isServer) && this.networkView.isMine)
+		if ((Network.isClient || Network.isServer) && this.GetComponent<NetworkView>().isMine)
 		{
-			networkView.RPC("LaserBeam", RPCMode.Others, _controlledProjectile.transform.position,
+			GetComponent<NetworkView>().RPC("LaserBeam", RPCMode.Others, _controlledProjectile.transform.position,
 			                _controlledProjectile.transform.rotation,
 			                _controlledProjectile.transform.localScale);
 			
@@ -256,8 +256,8 @@ public class fireProjectile : MonoBehaviour
 		}
 		_controlledTarget = GameObject.CreatePrimitive(PrimitiveType.Sphere);
 		_controlledTarget.transform.position = transform.position + _offset + (cameraForward * distance);
-		if (_controlledTarget.collider) { _controlledTarget.collider.enabled = false; }
-		_controlledTarget.renderer.enabled = false;
+		if (_controlledTarget.GetComponent<Collider>()) { _controlledTarget.GetComponent<Collider>().enabled = false; }
+		_controlledTarget.GetComponent<Renderer>().enabled = false;
 		_controlledTarget.transform.parent = Camera.main.transform;
 	}
 	

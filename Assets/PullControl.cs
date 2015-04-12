@@ -49,13 +49,13 @@ public class PullControl : MonoBehaviour {
 
 	void Update()
 	{
-		if (this.networkView.isMine)
+		if (this.GetComponent<NetworkView>().isMine)
 		{
 			bool trigger = controller.gamepadState.RightShoulder; //|| (controller.gamepadState.RightTrigger > 0.20f); 
 			if (trigger){
 				if (!alreadyFired){
 					if (Network.isClient || Network.isServer){
-						networkView.RPC("LaunchControllable", RPCMode.All);
+						GetComponent<NetworkView>().RPC("LaunchControllable", RPCMode.All);
 					}else{
 						LaunchControllable();
 					}
@@ -64,7 +64,7 @@ public class PullControl : MonoBehaviour {
 				}else{
 					if (controlPrefab){
 						if (Network.isClient || Network.isServer){
-							networkView.RPC("MoveControllable", RPCMode.All);
+							GetComponent<NetworkView>().RPC("MoveControllable", RPCMode.All);
 						}else{
 							MoveControllable();
 				}	}	}
