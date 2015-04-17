@@ -96,7 +96,6 @@ public class NetworkedLaserPower : MonoBehaviour
   void ActivatePower(Vector3 startPosition, Vector3 direction)
   {
 	_arcReactor.StartLaunch();
-    _audioManager.Play(_audioClipName, 0.25f, true);
     _controlledProjectile = Instantiate(_projectile, startPosition, Quaternion.identity) as GameObject;
   }
 
